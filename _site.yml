@@ -15,6 +15,10 @@ navbar:
       href: 3D.html
     - text: "2D"
       href: 2D.html
+    - text: "Data"
+      html: data.html
+    - text: "Code"
+      html: code.html
     - text: "Presentations"
       href: presentations.html
     - text: "Publications"
