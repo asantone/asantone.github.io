@@ -25,4 +25,4 @@ navbar:
 output:
   html_document:
     theme: yeti
-    css: ['style.css','add.css']
+    css: style.css
