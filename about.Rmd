@@ -6,12 +6,12 @@ title: "About Me"
 body {
     /*background-image: url("graphics/img/palms.jpg");*/
     color:#ffffff;
-    background: -webkit-gradient(linear, center top, center bottom, from(#917c4d), to(#ffffff));
-    background: -webkit-linear-gradient(#be3c5a, #fabe73);
-    background: -moz-linear-gradient(#be3c5a, #fabe73);
-    background: -o-linear-gradient(#be3c5a, #fabe73);
-    background: -ms-linear-gradient(#be3c5a, #fabe73);
-    background: linear-gradient(#be3c5a, #fabe73);
+    background: -webkit-gradient(linear, center top, center bottom, from(#917c4d), to(#ffffff)) fixed;
+    background: -webkit-linear-gradient(#be3c5a, #fabe73) fixed;
+    background: -moz-linear-gradient(#be3c5a, #fabe73) fixed;
+    background: -o-linear-gradient(#be3c5a, #fabe73) fixed;
+    background: -ms-linear-gradient(#be3c5a, #fabe73) fixed;
+    background: linear-gradient(#be3c5a, #fabe73) fixed;
 }
 </style>
 </head>
