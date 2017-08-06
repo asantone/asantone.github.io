@@ -5,26 +5,9 @@ title: "3D Projects"
 <style> @import 'custom.css'; </style>
 
 <!-- Pitchers -->
-<div class="polaroid">
-  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:100%">
-  <div class="container">
-    <p>Stoneware Pitchers</p>
-  </div>
-</div>
-
-<!-- Pitchers -->
-<div class="polaroid">
-  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:100%">
-  <div class="container">
-    <p>Stoneware Pitchers</p>
-  </div>
-</div>
-
-<!-- Pitchers -->
-<div class="polaroid">
-  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:100%">
-  <div class="container">
-    <p>Stoneware Pitchers</p>
-  </div>
+<div
+  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:20%">
+  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:20%">
+  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:20%">
 </div>
 

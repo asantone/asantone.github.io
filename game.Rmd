@@ -2,6 +2,5 @@
 title: "Game Projects"
 ---
 
-## Unity 
-* [Blasteroids](../portfolio/unity/Blasteroids_html5/blasteroids_html5.html)
+## Unity (HTML 5/WebGL)
 * <a href="../portfolio/unity/Blasteroids_html5/blasteroids_html5.html" target="_blank">Blasteroids</a>
