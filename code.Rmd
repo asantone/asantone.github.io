@@ -2,7 +2,7 @@
 title: "Code"
 ---
 
-* [Statistical Analysis Modules for Middle and High School Math and Science Teachers](teacherCode.html)
-* other project
+### Statistical Analysis Modules for Middle and High School Math and Science Teachers
+* [Caterpillar Body Diffusion Observations (advanced)](../portfolio/r/divEcoCode/caterpillarAdvanced.html)
 
 
