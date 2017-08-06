@@ -5,9 +5,8 @@ title: "3D Projects"
 <style> @import 'custom.css'; </style>
 
 <!-- Pitchers -->
-<div
-  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" width=20%>
-  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" width=20%>
-  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" width=20%>
-</div>
+<div> <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" width=20%> </div>
+<div> <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" width=20%> </div>
+<div> <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" width=20%> </div>
+
 
