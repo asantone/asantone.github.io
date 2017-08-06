@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "Blasteroids.data.unityweb",
+"asmCodeUrl": "Blasteroids.asm.code.unityweb",
+"asmMemoryUrl": "Blasteroids.asm.memory.unityweb",
+"asmFrameworkUrl": "Blasteroids.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
