@@ -5,4 +5,4 @@ title: "Contact"
 Let's get in touch! 
 
 [![LinkedIn](graphics/icons/linkedin/2-color/In-2C-21px-R.png)](https://www.linkedin.com/in/adam-santone-9a5a6a3/)
-![Research Gate](graphics/icons/researchGate/rg_180.png)(https://www.researchgate.net/profile/Adam_Santone)
+[![Research Gate](graphics/icons/researchGate/rg_180.png =21x21)](https://www.researchgate.net/profile/Adam_Santone)
