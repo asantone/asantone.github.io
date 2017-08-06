@@ -14,7 +14,11 @@ navbar:
     - text: "3D"
       href: 3D.html
     - text: "2D"
-      href: 3D.html
+      href: 2D.html
+    - text: "Presentations"
+      href: presentations.html
+    - text: "Publications"
+      href: publications.html
     - text: "Contact"
       href: contact.html
       
