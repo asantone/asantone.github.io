@@ -2,7 +2,7 @@
 title: "3D Projects"
 ---
 
-@import 'custom.css';
+<style> @import 'custom.css'; </style>
 
 ## Ceramics
 * Custom Lamp (Arduino + Sensors + LED)
