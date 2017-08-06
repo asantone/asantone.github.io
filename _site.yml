@@ -7,3 +7,13 @@ navbar:
       href: index.html
     - text: "About Me"
       href: about.html
+    - text: "Video"
+      href: video.html
+    - text: "Games"
+      href: game.html
+    - text: "3D"
+      href: 3D.html
+    - text: "2D"
+      href: 3D.html
+    - text: "Contact"
+      href: contact.html
