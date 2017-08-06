@@ -20,5 +20,5 @@ navbar:
       
 output:
   html_document:
-    theme: united
+    theme: yeti
     css: style.css
