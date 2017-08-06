@@ -2,6 +2,25 @@
 title: "Presentations"
 ---
 
-Some presentations
+* Dec 2015 FCR-STEM Annual Conference; Orlando, FL Perspectives Video Resources for Ecology Topics
+* Oct 2015 Florida Association of Science Teachers (FAST); Tallahassee, FL CPALMS 3D, CPALMS Sensors, CPALMS Perspectives
+* May 2015 Florida Association of Science Supervisors; Orlando, FL CPALMS 3D overview presentation
+* June 2014 Science Math Master(SM2); Tampa, FL Table presentation: CPALMS general program and CPALMS 3D
+* May 2014 FCR-STEM Annual Conference; Fort Lauderdale, FL CPALMS Perspectives, CPALMS Code: Real-time simulations, Maps, Graphs, and More!, CPALMS 3D
+* May 2014 Florida Association of Science Supervisors; Orlando, FL CPALMS Perspectives, CPALMS Code, CPALMS 3D
+* April 2014 National Science Teacher Association 2014; Boston, MA CPALMS Perspectives: STEM Video Resources for Teacher Professional Development Interdisciplinary Model-eliciting Activities Bring Design, Engineering Practices, and RealWorld Context to the Science Classroom
+* Feb 2014 Florida State University Stacking Layers Symposium; Tallahassee, FL Floor Presentation, 3D Printing Curriculum for K-12 STEM Education Panel Discussion Presenter, 3D Printing in K-12 STEM Education
+* Jan 2014 Florida Educational Technology Conference(FETC); Orlando, FL CPALMS Perspectives and CPALMS 3D, conference ???oor booth
+* Oct 2013 Florida Association of Science Teachers (FAST); Miami, FL CPALMS Creative Computing: Social Network Data and Visualization CPALMS Perspectives: STEM Videos to Bring the World to your Classroom
+* Oct 2013 Florida Council of Teachers of Mathematics (FCTM); Orlando, FL CPALMS Perspectives: Experts, Teachers, Professionals, & Enthusiasts supporting STEM teacher professional development through standards-based video resources
+* June 2013 Florida Alliance for Arts Education (FAAE), Invited co-presenter with FL Division of Cultural A???airs; Tampa, FL Funding: Opportunity, Quality and Practice (CPALMS Perspectives as a 'best practice') Teaching Artists Certi???cations (CPALMS Perspectives for CCSS integration)
+* Dec 2012 FCR-STEM, Annual Conference; St. Petersburg, FL Unpacking & Mapping the Common Core State Standards Using CPALMS Tools CPALMS Perspectives: Standards-based Video Resources Model-Eliciting Activities: Applying Engineering Principles to Science and Mathematics
+* Oct 2012 Florida Association of Science Teachers (FAST); St. Pete Beach, FL CPALMS Perspectives: Standards-Based Video Resources Modeling: Applying Science to Real-World Problem Solving
+* Oct 2012 Florida Council of Teachers of Mathematics (FCTM); Orlando, FL CPALMS Perspectives Video Project: Experts, Teachers, and Professionals Unpacking & Mapping the Common Core State Standards using CPALMS Tools
+* Feb 2010 AAAS and NSF GK-12 Special Focus Meeting; San Diego, CA Data Visualization for Middle School Students: Lesson Concepts and Challenges from the NSF GK-12 Program
+* Feb 2008 NSF GK-12 Annual Conference; Washington, D.C. E???ects of 3D Action Video Gameplay on Mental Rotation Ability and Visuospatial Chemistry Problem Solving Skill
+* Feb 2008 Hoosier Association of Science Teachers; Indianapolis, IN Data Visualization for 8th Grade Mathematics & Science Enhancing Your Curriculum Through the Use of Visiting Scientists
+* Nov 2002 American Society for Gravitational & Space Biology; Cape Canaveral, FL Touch-induced gene expression in Soybean
+* Nov 2001 American Society for Gravitational & Space Biology; Alexandria, VA Molecular characterization of the thigmic stress response in soybean
 
 

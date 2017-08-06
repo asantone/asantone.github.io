@@ -2,6 +2,17 @@
 title: "Publications"
 ---
 
-Some publications
+* Razzouk, R., Dyehouse, M., Santone, A., and Carr, R. L. (2014). Plants versus Pollutants: An interdisciplinary model-eliciting activity to bring engineering design practices and real-world context to the science classroom. The Science Teacher, 81(9), 43-49.
+
+* Santone, A. L. (2009). Visuospatial characterization and analysis of spatial abilities of video game players (Doctoral Dissertation). Purdue University, West Lafayette, IN.
+
+* Ertmer, P. A., Stepich, D., Flanagan, S., Kocaman-Karoglu, A., Reiner, C., Reyes, L., Santone, A., and Ushigusa, S. (2009). Impact of Guidance on the Problem-Solving E???orts of Instructional Design Novices. Performance Improvement Quarterly, 21(4), 117-132.
+
+* Santone, A. L. and McCutcheon, J. A. (2008). Node graph visualizations for eighth-grade mathematics students using a virus transmission simulation. Science Scope, 31(9), 55-59.
+
+* Chaturvedi, A., Hsieh, C., Bhatt, T., and Santone, A. (2007). Bio-terror Preparedness Exercise in a Mixed Reality Environment. International Conference on Computational Science, 1, 1106-1113.
+
+* Santone, A.L. (2003). Molecular and structural changes in the hypocotyl elongation zone of mechano-stimulated dark-grown (_Glycine max_ L. Merr. cv. Century 84) seedlings (Master's Thesis). Purdue University, West Lafayette, IN.
+
 
 

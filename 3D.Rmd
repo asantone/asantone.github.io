@@ -15,6 +15,4 @@ title: "3D Projects"
 <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" width=20%> 
 </div>
 
-test
-
 
