@@ -9,16 +9,16 @@ navbar:
       href: about.html
     - text: "Video"
       href: video.html
+    - text: "Data"
+      html: data.html
+    - text: "Code"
+      html: code.html
     - text: "Games"
       href: game.html
     - text: "3D"
       href: 3D.html
     - text: "2D"
       href: 2D.html
-    - text: "Data"
-      html: data.html
-    - text: "Code"
-      html: code.html
     - text: "Presentations"
       href: presentations.html
     - text: "Publications"
