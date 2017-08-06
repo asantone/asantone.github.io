@@ -6,7 +6,7 @@ title: "About Me"
 body {
     /*background-image: url("graphics/img/palms.jpg");*/
     color:#ffffff;
-    background-color: ##093637;
+    background-color: #093637;
     /*background: -webkit-gradient(linear, center top, center bottom, from (#093637), to(#44a08d)) fixed;*/
     /*background: -webkit-linear-gradient (#093637, #44a08d) fixed;*/
     /*background: -moz-linear-gradient (#093637, #44a08d) fixed;*/
@@ -19,4 +19,4 @@ body {
 
 Interdisciplinary researcher/developer with experience in quantitative and qualitative research for interactive 3D computer graphics, human spatial ability, data        visualization, virtual and augmented reality, serious games, 3D modeling and printing, documentary-style video production and direction, statistical analysis, and       K-12 STEM outreach for teacher professional development. Experience connecting people at local, municipal, state, and federal levels to ensure project success.          Extensive background in life sciences including plant physiology and molecular biology with associated laboratory techniques. Career interests include human-computer    interactions and interfaces, applications of human spatial ability research to gaming and immersive educational experiences, data science and data-driven decision       making, advanced data perception methodologies, technology integration for K-12 education, life science outreach, and public informal STEM education.
 
-test 8
+test 9
