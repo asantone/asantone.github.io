@@ -4,5 +4,27 @@ title: "3D Projects"
 
 <style> @import 'custom.css'; </style>
 
-## Ceramics
-* Custom Lamp (Arduino + Sensors + LED)
+<!-- Pitchers -->
+<div class="polaroid">
+  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:100%">
+  <div class="container">
+    <p>Stoneware Pitchers</p>
+  </div>
+</div>
+
+<!-- Pitchers -->
+<div class="polaroid">
+  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:100%">
+  <div class="container">
+    <p>Stoneware Pitchers</p>
+  </div>
+</div>
+
+<!-- Pitchers -->
+<div class="polaroid">
+  <img src="../graphics/img/ceramics/pitchers_800_600.jpg" alt="Pitchers" style="width:100%">
+  <div class="container">
+    <p>Stoneware Pitchers</p>
+  </div>
+</div>
+
