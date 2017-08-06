@@ -2,4 +2,4 @@
 title: "Contact"
 ---
 
-Let's get in touch! 
+Let's get in touch! ![LinkedIn Profile](graphics/icons/linkedin/2-color/In-2C-21px-R.png)

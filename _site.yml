@@ -17,3 +17,8 @@ navbar:
       href: 3D.html
     - text: "Contact"
       href: contact.html
+      
+output:
+  html_document:
+    theme: united
+    css: style.css
