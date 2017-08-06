@@ -8,5 +8,5 @@ Let's get in touch!
 [![Research Gate](graphics/icons/researchGate/rg_180.png =21x21)](https://www.researchgate.net/profile/Adam_Santone)
 
 
-[![Research Gate](<img src="graphics/icons/researchGate/rg_180.png" alt="Research Gate" style="width: 21px;"/>)](https://www.researchgate.net/profile/Adam_Santone)
+[![Research Gate](<img src="/graphics/icons/researchGate/rg_180.png" alt="Research Gate" style="width: 21px;"/>)](https://www.researchgate.net/profile/Adam_Santone)
 
