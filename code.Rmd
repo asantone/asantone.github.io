@@ -2,7 +2,7 @@
 title: "Code"
 ---
 
-```
+```{r}
 # Plot the results of the body diffusion observations
 # Replace existing data points with your own!
 
@@ -74,4 +74,4 @@ ratioTimePlot <- ggplot(df, aes(x = ratios, y = times, size = sa, fill = v)) + g
 ratioTimePlot
 
 ```
-test
+
