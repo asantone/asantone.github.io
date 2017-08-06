@@ -1,0 +1,11 @@
+body {
+    /*background-image: url("graphics/img/palms.jpg");*/
+    color:#ffffff;
+    background-color: #44a08d;
+    /*background: -webkit-gradient(linear, center top, center bottom, from (#093637), to(#44a08d)) fixed;*/
+    /*background: -webkit-linear-gradient (#093637, #44a08d) fixed;*/
+    /*background: -moz-linear-gradient (#093637, #44a08d) fixed;*/
+    /*background: -o-linear-gradient (#093637, #44a08d) fixed;*/
+    /*background: -ms-linear-gradient (#093637, #44a08d) fixed;*/
+    /*background: linear-gradient (#093637, #44a08d) fixed;*/
+}
