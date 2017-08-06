@@ -1,0 +1,9 @@
+name: "test-website"
+output_dir: "."
+navbar:
+  title: "Test Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About Me"
+      href: about.html

@@ -1,6 +1,11 @@
 ---
 title: "Basic Plot in X-Y Coordinate System"
-output: html_notebook
+author: Test 2
+date: August 6, 2017
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
 ---
 
 The following code sets up two data vectors and then creates a simple plot using ordered pairs selected from the two vectors. The title is customized in the plot command. 
