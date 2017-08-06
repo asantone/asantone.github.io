@@ -13,8 +13,8 @@ div.textbox {
   border: none;
   opacity: 0.4;
   filter: alpha(opacity=40); /* For IE8 and earlier */
-  color: #ffffff;
 }
+p{ color: #ffffff;}
 
 </style>
 </head>
@@ -24,6 +24,6 @@ div.textbox {
 </div>
 
 
-test3
+test4
 
 
