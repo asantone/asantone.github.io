@@ -3,7 +3,7 @@ title: "Contact"
 ---
 Let's get in touch! 
 
-<a href="https://www.linkedin.com/in/adam-santone-9a5a6a3/"><img src="graphics/icons/linkedin/2-color/In-2C-21px-R.png" align="left"></a>
+<a href="https://www.linkedin.com/in/adam-santone-9a5a6a3/"><img src="graphics/icons/linkedin/2-color/In-2C-21px-R.png" align="left"></a> <br/>
 
 <a href="https://www.researchgate.net/profile/Adam_Santone"><img src="graphics/icons/researchGate/rg_180.png" align="left" height="21" width="21" ></a>
 

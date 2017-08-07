@@ -6,10 +6,8 @@ title: ""
 
 body {
     background-image: url("../graphics/img/video/prescribedFire_1200_900.jpg");
-    width: 100%;
+    background-size: 100%;
     color: #ffffff;
 }
 
 </style>
-
-Holy smokes! That prescribed burn is critical to the coastal pine forests in Florida, and we were there to capture it on video while we made a mini-documentary about the math and science of fire ecology. I'm happy to have been a part of a great team that created close to 500 of these videos, and I'm keenly interested in how we can combine media, advanced graphics technologies, and learning psychology to help in entertainment, formal education, and experiential learning. Check out some of my work and maybe we can work together! 
