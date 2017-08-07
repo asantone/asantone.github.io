@@ -1,11 +1,12 @@
 ---
-title: "Adam Santone, PhD"
+title: ""
 ---
 
 <style>
 
 body {
     background-image: url("../graphics/img/video/prescribedFire_1200_900.jpg");
+    width: 100%;
     color: #ffffff;
 }
 

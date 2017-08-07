@@ -1,7 +1,7 @@
-name: "test-website"
+name: "portfolio"
 output_dir: "."
 navbar:
-  title: "Test Website"
+  title: "Adam Santone, PhD"
   left:
     - text: "Home"
       href: index.html
