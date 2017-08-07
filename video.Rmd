@@ -1,5 +1,3 @@
 ---
 title: "Video Projects"
 ---
-
-Video projects I've completed.
