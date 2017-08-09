@@ -1,5 +1,0 @@
----
-title: "Data Projects"
----
-
-Data projects I've completed.
