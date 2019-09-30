@@ -1,0 +1,9 @@
+body{
+  font-family: Helvetica;
+  font-size: 14pt;
+}
+
+blockquote p {
+  font-family: Helvetica;
+  color: #c20067;
+}
