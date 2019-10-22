@@ -13,37 +13,27 @@
 	</code>
 	<code data-type="sample-code">
 
-library(tidyverse) #data organization and plotting
-library(knitr)     #nice tables and for rmarkdown
-library(AppliedPredictiveModeling) #for data
-
-data(abalone)
-
-#check the data
-head(abalone)
-
-#look at the structure of the data
-str(abalone)
-
-#store data as a tibble (shorter name also)
-#this is more for personal preference
-df<-as.tibble(abalone)
+data(iris)
+		
+df<-as.tibble(iris)
 
 #check the data/result
 head(df)
 		
-	</code>
-	<code data-type="solution">
+</code>
+	
+		
+		<code data-type="solution">
 		# Make some data
-		a <- c(1,2,3,4,5)
+		#a <- c(1,2,3,4,5)
 
 		# Print out a
-		print(a)
+		#print(a)
 	</code>
 	<code data-type="sct">
-		test_object("a")
-		test_function("print")
-		success_msg("Great job!")
+		#test_object("a")
+		#test_function("print")
+		#success_msg("Great job!")
 	</code>
 	<div data-type="hint">Use the assignment operator (<code><-</code>) to create the variable <code>a</code>.</div>
 </div>
