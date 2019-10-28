@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<html lang="en">
+<body>
+
+  
+<div data-datacamp-exercise data-lang="r" data-height="600">
+<code data-type="sample-code">
+
+abs420<-seq(0.5,1.0,by=0.01)
+t<-150
+v<-0.02
+abs600<-0.52
+
+#activity calculation function
+mu <- function(abs420,t,v,abs600) {
+  output <- 1000*(abs420/(t*v*abs600))
+  return(output)
+}
+
+#run the function for values of the sequence
+activity<-mu(abs420,t,v,abs600)
+
+#create a data frame
+df<-data.frame(abs420,activity)
+
+ggplot(df, aes(x=abs420,y=activity)) +
+  geom_point(shape = 21, 
+             colour = "#007099", 
+             fill = "#00BBFF", 
+             size = 2, stroke = 1)+
+  scale_y_continuous(limits=c(300,700), 
+                     breaks=seq(300,700,by=50))+
+  labs(x="Absorption at 420nm", 
+       y="Activity (Miller units)",
+       title="B-galactosidase Activity", 
+       subtitle="iTune Device Lab", 
+       caption="For: time (minutes) = 150; volume (ml) = 0.02, Abs600 = 0.52")+
+  theme_minimal()+ 
+  theme(legend.position = "none")
+		
+</code>
+
+<div data-type="hint">Change the variable values to your own measured values.</div>
+</div>
+  
+  
+</body>
+</html>
