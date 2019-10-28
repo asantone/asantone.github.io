@@ -8,13 +8,44 @@
   
 <div data-datacamp-exercise data-lang="r" data-height="600">
 <code data-type="sample-code">
-library(ggplot2)
-	
-abs420<-seq(0.5,1.0,by=0.01)
+#======================================
+#========= EDIT THESE VALUES ==========
+#======================================
+#time in minutes
 t<-150
+       
+#volume in ml       
 v<-0.02
+	
+#absorption at 600nm	
 abs600<-0.52
 
+#Y-axis limits
+yMin<-0
+yMax<-1000
+	   
+#point fill color
+pointFill<-"#00BBFF"
+
+#point border color
+pointBorder<-"#007099"
+	      
+#point size
+pointSize<-2
+	
+#point stroke width
+pointStroke<-1
+	   
+#======================================
+# === THE CODE BELOW IS READY TO GO ===
+#======================================
+	
+#load graphics library	     
+library(ggplot2)
+	     
+#create a sequence of values
+abs420<-seq(0.5,1.0,by=0.01)
+	     
 #activity calculation function
 mu <- function(abs420,t,v,abs600) {
   output <- 1000*(abs420/(t*v*abs600))
@@ -29,16 +60,16 @@ df<-data.frame(abs420,activity)
 
 ggplot(df, aes(x=abs420,y=activity)) +
   geom_point(shape = 21, 
-             colour = "#007099", 
-             fill = "#00BBFF", 
-             size = 2, stroke = 1)+
-  scale_y_continuous(limits=c(300,700), 
-                     breaks=seq(300,700,by=50))+
+             colour = pointColor, 
+             fill = pointFill, 
+             size = pointSize, stroke = pointStroke)+
+  scale_y_continuous(limits=c(yMin,yMax), 
+                     breaks=seq(yMin,yMax,by=50))+
   labs(x="Absorption at 420nm", 
        y="Activity (Miller units)",
        title="B-galactosidase Activity", 
        subtitle="iTune Device Lab", 
-       caption="For: time (minutes) = 150; volume (ml) = 0.02, Abs600 = 0.52")+
+       caption="For: time (minutes) = expression(paste(t)); volume (ml) = expression(paste(v)); Abs600 = expression(paste(abs600))")+
   theme_minimal()+ 
   theme(legend.position = "none")
 		
