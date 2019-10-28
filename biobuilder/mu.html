@@ -67,9 +67,7 @@ ggplot(df, aes(x=abs420,y=activity)) +
                      breaks=seq(yMin,yMax,by=50))+
   labs(x="Absorption at 420nm", 
        y="Activity (Miller units)",
-       title="B-galactosidase Activity", 
-       subtitle="iTune Device Lab", 
-       caption="For: time (minutes) = expression(paste(t)); volume (ml) = expression(paste(v)); Abs600 = expression(paste(abs600))")+
+       title="B-galactosidase Activity")+
   theme_minimal()+ 
   theme(legend.position = "none")
 		
