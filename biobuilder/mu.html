@@ -60,7 +60,7 @@ df<-data.frame(abs420,activity)
 
 ggplot(df, aes(x=abs420,y=activity)) +
   geom_point(shape = 21, 
-             colour = pointColor, 
+             colour = pointBorder, 
              fill = pointFill, 
              size = pointSize, stroke = pointStroke)+
   scale_y_continuous(limits=c(yMin,yMax), 
