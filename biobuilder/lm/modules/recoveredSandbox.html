@@ -12,55 +12,23 @@
 #========= EDIT THESE VALUES ==========
 #======================================
 colors <- c("confirmed" = "#000000", "deaths" = "#000000", "recovered" = "#ff0000")
-	   
+	   	   
 #======================================
 # === THE CODE BELOW IS READY TO GO ===
 #======================================
 #load graphics library	     
+library(knitr)
+library(lubridate)     
 library(ggplot2)
+library(tibble)
+library(dplyr)
+library(stringr)
+library(readr)
 	     
-#load the confirmed data
-confirmed = read.csv("./data/confirmed.csv")
-hubei_confirmed<-as.data.frame(confirmed[13,5:ncol(confirmed)])
-hubei_confirmed<-as_tibble(cbind(date = names(hubei_confirmed), t(hubei_confirmed)))
-head(hubei_confirmed)
-colnames(hubei_confirmed)<-c("date", "confirmed")
+#load the data
+joinedHubei = read_csv("https://asantone.github.io/biobuilder/lm/modules/data/hubei_tibble.csv")
 
-hubei_confirmed$date<-str_remove(hubei_confirmed$date, "[X]") 
-hubei_confirmed$date<-str_replace_all(hubei_confirmed$date, "[.]", "-")
-head(hubei_confirmed)
-hubei_confirmed$date <- mdy(hubei_confirmed$date)
-hubei_confirmed$confirmed <- as.numeric(hubei_confirmed$confirmed)
-head(hubei_confirmed)
-
-#load the deaths data
-deaths = read.csv("./data/deaths.csv")
-hubei_deaths<-as.data.frame(deaths[13,5:ncol(deaths)])
-hubei_deaths<-as_tibble(cbind(date = names(hubei_deaths), t(hubei_deaths)))
-colnames(hubei_deaths)<-c("date", "deaths")
-hubei_deaths$date<-str_remove(hubei_deaths$date, "[X]") 
-hubei_deaths$date<-str_replace_all(hubei_deaths$date, "[.]", "-")
-hubei_deaths$date <- mdy(hubei_deaths$date)
-hubei_deaths$deaths <- as.numeric(hubei_deaths$deaths)
-head(hubei_deaths)
-
-#load the recovered data
-recovered = read.csv("./data/recovered.csv")
-hubei_recovered<-as.data.frame(recovered[13,5:ncol(recovered)])
-hubei_recovered<-as_tibble(cbind(date = names(hubei_recovered), t(hubei_recovered)))
-colnames(hubei_recovered)<-c("date", "recovered")
-hubei_recovered$date<-str_remove(hubei_recovered$date, "[X]") 
-hubei_recovered$date<-str_replace_all(hubei_recovered$date, "[.]", "-")
-hubei_recovered$date <- mdy(hubei_recovered$date)
-hubei_recovered$recovered <- as.numeric(hubei_recovered$recovered)
-
-
-joinedHubei<-hubei_confirmed %>% 
-  left_join(hubei_deaths, by="date")%>% 
-  left_join(hubei_recovered, by="date")
 head(joinedHubei)
-
-#line plot
 
 ggplot(joinedHubei, aes(x=date)) + 
   geom_line(aes(y = confirmed, color="confirmed"), linetype="dotted") +
