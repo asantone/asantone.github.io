@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Synthetic Biology Learning Modules</title>
+  <title>Section 4 Interactive Learning | Synthetic Biology Learning Modules</title>
   <meta name="description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Synthetic Biology Learning Modules" />
+  <meta property="og:title" content="Section 4 Interactive Learning | Synthetic Biology Learning Modules" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Synthetic Biology Learning Modules" />
+  <meta name="twitter:title" content="Section 4 Interactive Learning | Synthetic Biology Learning Modules" />
   
   <meta name="twitter:description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="quantitative-analysis.html"/>
+<link rel="prev" href="covid-19.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -141,36 +141,106 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Synthetic Biology Learning Modules</h1>
-<p class="author"><em>Adam Santone, PhD</em></p>
-<p class="date"><em>2020-02-27</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
+<div id="interactive-learning" class="section level1">
+<h1><span class="header-section-number">Section 4</span> Interactive Learning</h1>
+<p>One of the best ways to learn about coding is to just try it out! Below are some resources for you to try so you can practice creating data visualizations with R. To do this, we can use online tools to communicate while you change the code to anything you like! Don’t be afraid of breaking it because you can always reload the page.</p>
+<div id="codeshare" class="section level2">
+<h2><span class="header-section-number">4.1</span> Codeshare</h2>
+<p>Open this link and keep it for this portion of the talk so we can share some code with each other: <a href="https://codeshare.io/a3Q19z">codeshare</a>.</p>
 <div class="figure"><span id="fig:unnamed-chunk-1"></span>
-<img src="img/ecoli_nih.png" alt="*E. coli.* Credit: Rocky Mountain Laboratories, NIAID, NIH" width="100%" />
+<img src="img/codeshare.png" alt="A. Santone" width="100%" />
 <p class="caption">
-Figure 0.1: <em>E. coli.</em> Credit: Rocky Mountain Laboratories, NIAID, NIH
+Figure 4.1: A. Santone
 </p>
 </div>
-<div id="intended-learner" class="section level2">
-<h2><span class="header-section-number">0.1</span> Intended Learner</h2>
-<p>This learning module is intended for high school students who are interested in expanding their understanding of how information plays a critical role in communicating science concepts, how data analysis methods allow for increased confidence in conclusions, and how effective communication for a public audience can utilize a combination of images, text, and interactive media.</p>
 </div>
-<div id="intended-learning-outcomes" class="section level2">
-<h2><span class="header-section-number">0.2</span> Intended Learning Outcomes</h2>
-<p>Students of this module will be able to:</p>
+<div id="choosing-colors" class="section level2">
+<h2><span class="header-section-number">4.2</span> Choosing Colors</h2>
+<p>You can search “color chooser” in the Google Browser to find <a href="https://www.google.com/search?q=color+chooser&amp;oq=color+chooser&amp;aqs=chrome.0.35i39j0l7.1555j0j4&amp;sourceid=chrome&amp;ie=UTF-8">this tool</a>, but you can also select from many other tools to find a hexadecimal code such as #FF0000, which ecodes the color red.</p>
+</div>
+<div id="line-plot" class="section level2">
+<h2><span class="header-section-number">4.3</span> Line Plot</h2>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="img/line.png" alt="Credit: A. Santone" width="100%" />
+<p class="caption">
+Figure 4.2: Credit: A. Santone
+</p>
+</div>
+<p>Line plots are typically used when showing some kind of (semi?)continuous data over a continuous range, such as height over time, for example. The line represents both known values and unknown, assumed values in between data points. One visual advantage of line plots is they are ‘light weight’ meaning they do not occupy too much room on the plot.</p>
+<p>Let’s take a look at some R code for a line plot. This code uses the ‘<a href="https://tibble.tidyverse.org/">tibble</a>’ library for organizing the data in a well-formatted way, and ‘<a href="https://ggplot2.tidyverse.org/">ggplot2</a>’ to produce the graphics. The data are simulated (fake)! Your goal here is to change some variable names, data, color values, and other options to see what happens. Customize the plot so it looks good to you!</p>
 <ul>
-<li>summarize benefits from quantitative analysis of data</li>
-<li>identify an example of software used for quantitative analysis</li>
-<li>describe basic methods of quantitative analysis</li>
-<li>explain the role of quantitative analysis in the context of COVID-19 and synthetic biology</li>
+<li><a href="https://asantone.github.io/biobuilder/lm/modules/interactivePlot.html">Line plot with two series of data</a></li>
+</ul>
+<p>For additional help, check out this <a href="http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization">Quick Start Guide for Line Plots</a></p>
+<blockquote>
+<p>What story can you tell from this plot?</p>
+</blockquote>
+<blockquote>
+<p>What is the most important message the plot can tell you?</p>
+</blockquote>
+</div>
+<div id="bar-chart" class="section level2">
+<h2><span class="header-section-number">4.4</span> Bar Chart</h2>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="img/bar.png" alt="Credit: A. Santone" width="100%" />
+<p class="caption">
+Figure 4.3: Credit: A. Santone
+</p>
+</div>
+<p>Bar charts are great for displaying and comparing quantities such as before/after values or perhaps Group A scores versus Group B scores.</p>
+<p>Let’s take a look at some code to create a bar plot again based on the simulated (fake!) virus data over 10 weeks. Our goal this time is to compare the TOTAL number of infections from Virus A and Virus B. Because we are comparing two groups’ totals, a bar chart makes great sense.</p>
+<p>Again, think about what changes you might make to this plot and try to either delete, modify, or add features to the plot based on some code you have seen.</p>
+<ul>
+<li><a href="https://asantone.github.io/biobuilder/lm/modules/interactivePlot2.html">Bar chart</a></li>
+</ul>
+<p>For additional help, check out this <a href="http://www.sthda.com/english/wiki/ggplot2-barplots-quick-start-guide-r-software-and-data-visualization">Quick Start Guide for Bar Charts</a></p>
+<blockquote>
+<p>Why is this chart type ideal for this information?</p>
+</blockquote>
+<blockquote>
+<p>What is the main point of the story?</p>
+</blockquote>
+</div>
+<div id="scatter-plots" class="section level2">
+<h2><span class="header-section-number">4.5</span> Scatter Plots</h2>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="img/scatter.png" alt="Credit: A. Santone" width="100%" />
+<p class="caption">
+Figure 4.4: Credit: A. Santone
+</p>
+</div>
+<p>Scatter plots excel when you’re interested in examining the relationship of two variables such as age and resting heart rate, height and weight, or some other pair of potentially correlated data.</p>
+<ul>
+<li><a href="https://asantone.github.io/biobuilder/lm/modules/interactivePlot3.html">Scatter plot with two series of data</a></li>
 </ul>
 <blockquote>
-<p>Do you know how to do any of these already?</p>
+<p>Why are scatter plots preferred for this information?</p>
 </blockquote>
+<blockquote>
+<p>What relationship trend can you detect?</p>
+</blockquote>
+<p>For additional help, check out this <a href="http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization">Quick Start Guide for Line Plots</a></p>
+</div>
+<div id="build-your-own" class="section level2">
+<h2><span class="header-section-number">4.6</span> Build your own!</h2>
+<div id="word-problem" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> Word problem</h3>
+<p>Adam heard that more exercise is linked to lower resting heart rate. To investigate further, he located a research team (you!) that could provide a visualization of this relationship.</p>
+</div>
+<div id="guiding-questions" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> Guiding questions:</h3>
+<ul>
+<li>What type of plot is ideal for this?</li>
+<li>What variables should be used?</li>
+<li>What ‘look’ would be good?</li>
+<li>How can we get started on this?</li>
+<li>What comments should be added to the code?</li>
+<li>What are effective labels?</li>
+<li>How do you ensure your message is clear? (what is your message?)</li>
+</ul>
+<p>Goal: choose one of the above interactives and modify it to display the relationship of exercise and resting heart rate. You’ll have to provide the simulated data, but it’s okay because our goal is not accurate information on this visualization!</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -178,8 +248,8 @@ Figure 0.1: <em>E. coli.</em> Credit: Rocky Mountain Laboratories, NIAID, NIH
           </div>
         </div>
       </div>
-
-<a href="quantitative-analysis.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="covid-19.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
