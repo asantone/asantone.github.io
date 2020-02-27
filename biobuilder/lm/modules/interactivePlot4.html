@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+  <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+<html lang="en">
+<body>
+
+<div data-datacamp-exercise data-lang="r" data-height="600">
+<code data-type="sample-code">
+library(ggplot2)
+library(tibble)	
+
+#simulated group data
+#data are sampled from a normal distribution
+data_X<-rnorm(50)
+data_Y<-rnorm(50)
+
+#print statements to show the mean values
+cat("The mean of Group X is:", mean(data_X), "\n")
+cat("The mean of Group Y is:", mean(data_Y), "\n")
+
+#run the t-test
+t.test(data_X,data_Y, conf.level=0.95)
+
+#organize data
+
+tblX<-tibble(data_X)
+tblX$group<-"X"
+colnames(tblX)<-c("value","group")
+
+tblY<-tibble(data_Y)
+tblY$group<-"Y"
+colnames(tblY)<-c("value","group")
+
+data<-bind_rows(tblX,tblY)
+head(data)
+
+#boxplot
+boxplot<-ggplot(data, aes(x = group, y = value)) +
+         geom_boxplot(fill = "#eeeeee", colour = "#eeeeee")+
+         scale_y_continuous(name = "TEXT",
+                           breaks = seq(-5, 5, 1),
+                           limits=c(-5, 5)) +
+         scale_x_discrete(name = "TEXT")+
+         ggtitle("TEXT")
+
+boxplot
+
+</code>
+
+<div data-type="hint">Change the variable values to your own measured values.</div>
+</div>
+  
+  
+</body>
+</html>
