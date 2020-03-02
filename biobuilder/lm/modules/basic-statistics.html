@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 2 Basic Statistics | Synthetic Biology Learning Modules</title>
+  <title>Section 3 Basic Statistics | Synthetic Biology Learning Modules</title>
   <meta name="description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 2 Basic Statistics | Synthetic Biology Learning Modules" />
+  <meta property="og:title" content="Section 3 Basic Statistics | Synthetic Biology Learning Modules" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 2 Basic Statistics | Synthetic Biology Learning Modules" />
+  <meta name="twitter:title" content="Section 3 Basic Statistics | Synthetic Biology Learning Modules" />
   
   <meta name="twitter:description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Adam Santone, PhD" />
 
 
-<meta name="date" content="2020-02-27" />
+<meta name="date" content="2020-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="quantitative-analysis.html"/>
-<link rel="next" href="r.html"/>
+<link rel="prev" href="r.html"/>
+<link rel="next" href="covid-19.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,9 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
 
 
 <style type="text/css">
@@ -151,15 +154,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5.1" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#color-palettes"><i class="fa fa-check"></i><b>1.5.1</b> Color Palettes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>2</b> Basic Statistics</a><ul>
-<li class="chapter" data-level="2.1" data-path="basic-statistics.html"><a href="basic-statistics.html#the-t-test"><i class="fa fa-check"></i><b>2.1</b> The T-Test</a></li>
+<li class="chapter" data-level="2" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>2</b> R</a><ul>
+<li class="chapter" data-level="2.1" data-path="r.html"><a href="r.html#r-overview"><i class="fa fa-check"></i><b>2.1</b> R Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="r.html"><a href="r.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="r.html"><a href="r.html#why-use-r"><i class="fa fa-check"></i><b>2.3</b> Why use R?</a></li>
+<li class="chapter" data-level="2.4" data-path="r.html"><a href="r.html#whats-next-for-r"><i class="fa fa-check"></i><b>2.4</b> What’s next for R?</a></li>
+<li class="chapter" data-level="2.5" data-path="r.html"><a href="r.html#what-else-can-r-do-besides-calculations-and-some-plots"><i class="fa fa-check"></i><b>2.5</b> What else can R do besides calculations and some plots?</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>3</b> R</a><ul>
-<li class="chapter" data-level="3.1" data-path="r.html"><a href="r.html#r-overview"><i class="fa fa-check"></i><b>3.1</b> R Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="r.html"><a href="r.html#rstudio"><i class="fa fa-check"></i><b>3.2</b> RStudio</a></li>
-<li class="chapter" data-level="3.3" data-path="r.html"><a href="r.html#why-use-r"><i class="fa fa-check"></i><b>3.3</b> Why use R?</a></li>
-<li class="chapter" data-level="3.4" data-path="r.html"><a href="r.html#whats-next-for-r"><i class="fa fa-check"></i><b>3.4</b> What’s next for R?</a></li>
-<li class="chapter" data-level="3.5" data-path="r.html"><a href="r.html#what-else-can-r-do-besides-calculations-and-some-plots"><i class="fa fa-check"></i><b>3.5</b> What else can R do besides calculations and some plots?</a></li>
+<li class="chapter" data-level="3" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>3</b> Basic Statistics</a><ul>
+<li class="chapter" data-level="3.1" data-path="basic-statistics.html"><a href="basic-statistics.html#the-t-test"><i class="fa fa-check"></i><b>3.1</b> The T-Test</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="covid-19.html"><a href="covid-19.html"><i class="fa fa-check"></i><b>4</b> COVID-19</a><ul>
 <li class="chapter" data-level="4.1" data-path="covid-19.html"><a href="covid-19.html#background"><i class="fa fa-check"></i><b>4.1</b> Background</a></li>
@@ -208,10 +211,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="basic-statistics" class="section level1">
-<h1><span class="header-section-number">Section 2</span> Basic Statistics</h1>
+<h1><span class="header-section-number">Section 3</span> Basic Statistics</h1>
 <p>Quantitative analysis is often used to answer questions like “are the groups different?” but such an answer isn’t always obvious because you must consider how many members are in each group. We can use a variety of analysis tools to help us answer the question but also to add an amount of confidence to our answer. This helps communicate the strength of that conclusion to an audience.</p>
 <div id="the-t-test" class="section level2">
-<h2><span class="header-section-number">2.1</span> The T-Test</h2>
+<h2><span class="header-section-number">3.1</span> The T-Test</h2>
 <p>A very simple way to compare groups is the t-test. It’s called that because it uses a value called the t-statistic. We’re not discussing this in any depth here, but it’s a value you can calculate from your data. You can then use commonly published tables to find what we call a p-value which represents “the probability of obtaining test results at least as extreme as the results actually observed during the test, assuming that the null hypothesis is correct.” (<a href="https://en.wikipedia.org/wiki/P-value">Wikipedia</a>)</p>
 <p>There is a lot of terminology here but you should know that probability is the chance of an event occurring and this value can be between 0 and 1. A 50% chance is written as 0.5, for example.</p>
 <p>The null and alternative hypotheses refer to statements that are made about your experiment. One is the expected outcome, often expressed in a negative way, such as “the two groups are NOT different.” Therefore the alternative would be that the groups are different. These statements are often written in more formal way. Here, our null hypothesis states that the means of groups X and Y are not equal while the alternative states that they are equal.</p>
@@ -221,31 +224,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>So, how do we test this?</p>
 <p>Using R, we can do the test quite easily as R was built for statistical analysis. It can do much more, but it does statistics really well! Now to do the t-test, we make some assumptions: namely, a “large” number of samples are drawn from a normally-distributed population and that the groups have the same amount of variance. If we think that these conditions are satisfied, we can use the standard t-test to compare the averages of two groups as below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">#sample data from each group</span></a>
-<a class="sourceLine" id="cb1-2" title="2"></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co">#simulated group data</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co">#data are sampled from a normal distribution</span></a>
-<a class="sourceLine" id="cb1-5" title="5">data_X&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb1-6" title="6">data_Y&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb1-7" title="7"></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">#print statements to show the mean values</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group X is:&quot;</span>, <span class="kw">mean</span>(data_X), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group X is: -0.2557657</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group Y is:&quot;</span>, <span class="kw">mean</span>(data_Y), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group Y is: -0.04845657</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co">#run the t-test</span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw">t.test</span>(data_X,data_Y, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co">#sample data from each group</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">#simulated group data</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">#data are sampled from a normal distribution</span></a>
+<a class="sourceLine" id="cb2-5" title="5">data_X&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb2-6" title="6">data_Y&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">#print statements to show the mean values</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group X is:&quot;</span>, <span class="kw">mean</span>(data_X), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<pre><code>## The mean of Group X is: -0.1355082</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group Y is:&quot;</span>, <span class="kw">mean</span>(data_Y), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<pre><code>## The mean of Group Y is: 0.05122699</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">#run the t-test</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">t.test</span>(data_X,data_Y, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  data_X and data_Y
-## t = -1.0798, df = 97.697, p-value = 0.2829
+## t = -1.0664, df = 94.892, p-value = 0.2889
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.5883129  0.1736947
+##  -0.5343744  0.1609040
 ## sample estimates:
 ##   mean of x   mean of y 
-## -0.25576567 -0.04845657</code></pre>
+## -0.13550819  0.05122699</code></pre>
 <p>The R output looks like a mix of numbers and text so you’ll need to know what you’re looking for in that mix. Our primary concern is the p-value and we need that value to be less than 0.05 to be able to claim that the means are different.</p>
 <blockquote>
 <p>What conclusion can you draw?</p>
@@ -255,29 +258,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>If you’re not sure: is the p-value less than 0.05? If not, you cannot reject the null hypothesis. This means that, even though the values for the means are different, they are not <em>significantly</em> different. If the p-value <em>is</em> below 0.05, then you can claim that they are different at that threshold. Some medical tests are very strict and so the threshold for significant differences is much harder to achieve.</p>
 <p>Let’s look at one more example. Are the means of these two groups significantly different from each other?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">#simulated group data</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">#data are sampled from a normal distribution</span></a>
-<a class="sourceLine" id="cb7-3" title="3">data_X&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb7-4" title="4">data_Y&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb7-5" title="5"></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">#print statements to show the mean values</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group X is:&quot;</span>, <span class="kw">mean</span>(data_X), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group X is: 0.1004896</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group Y is:&quot;</span>, <span class="kw">mean</span>(data_Y), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group Y is: 0.09348503</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co">#run the t-test</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="kw">t.test</span>(data_X,data_Y, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co">#simulated group data</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co">#data are sampled from a normal distribution</span></a>
+<a class="sourceLine" id="cb8-3" title="3">data_X&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb8-4" title="4">data_Y&lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb8-5" title="5"></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">#print statements to show the mean values</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group X is:&quot;</span>, <span class="kw">mean</span>(data_X), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<pre><code>## The mean of Group X is: -0.1193917</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group Y is:&quot;</span>, <span class="kw">mean</span>(data_Y), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<pre><code>## The mean of Group Y is: -0.1323921</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co">#run the t-test</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">t.test</span>(data_X,data_Y, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  data_X and data_Y
-## t = 0.040339, df = 97.595, p-value = 0.9679
+## t = 0.066808, df = 97.474, p-value = 0.9469
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.3376027  0.3516119
+##  -0.3731896  0.3991903
 ## sample estimates:
 ##  mean of x  mean of y 
-## 0.10048960 0.09348503</code></pre>
+## -0.1193917 -0.1323921</code></pre>
 
 </div>
 </div>
@@ -286,8 +289,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="quantitative-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="covid-19.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
