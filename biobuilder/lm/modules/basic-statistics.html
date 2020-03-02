@@ -233,22 +233,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-7" title="7"></a>
 <a class="sourceLine" id="cb2-8" title="8"><span class="co">#print statements to show the mean values</span></a>
 <a class="sourceLine" id="cb2-9" title="9"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group X is:&quot;</span>, <span class="kw">mean</span>(data_X), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group X is: -0.1355082</code></pre>
+<pre><code>## The mean of Group X is: -0.06270958</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group Y is:&quot;</span>, <span class="kw">mean</span>(data_Y), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group Y is: 0.05122699</code></pre>
+<pre><code>## The mean of Group Y is: 0.04163977</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">#run the t-test</span></a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="kw">t.test</span>(data_X,data_Y, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  data_X and data_Y
-## t = -1.0664, df = 94.892, p-value = 0.2889
+## t = -0.59455, df = 97.973, p-value = 0.5535
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.5343744  0.1609040
+##  -0.4526450  0.2439463
 ## sample estimates:
 ##   mean of x   mean of y 
-## -0.13550819  0.05122699</code></pre>
+## -0.06270958  0.04163977</code></pre>
 <p>The R output looks like a mix of numbers and text so you’ll need to know what you’re looking for in that mix. Our primary concern is the p-value and we need that value to be less than 0.05 to be able to claim that the means are different.</p>
 <blockquote>
 <p>What conclusion can you draw?</p>
@@ -265,22 +265,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb8-5" title="5"></a>
 <a class="sourceLine" id="cb8-6" title="6"><span class="co">#print statements to show the mean values</span></a>
 <a class="sourceLine" id="cb8-7" title="7"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group X is:&quot;</span>, <span class="kw">mean</span>(data_X), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group X is: -0.1193917</code></pre>
+<pre><code>## The mean of Group X is: 0.0631689</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">cat</span>(<span class="st">&quot;The mean of Group Y is:&quot;</span>, <span class="kw">mean</span>(data_Y), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
-<pre><code>## The mean of Group Y is: -0.1323921</code></pre>
+<pre><code>## The mean of Group Y is: -0.1499164</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co">#run the t-test</span></a>
 <a class="sourceLine" id="cb12-2" title="2"><span class="kw">t.test</span>(data_X,data_Y, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  data_X and data_Y
-## t = 0.066808, df = 97.474, p-value = 0.9469
+## t = 1.0116, df = 95.918, p-value = 0.3143
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.3731896  0.3991903
+##  -0.2050485  0.6312192
 ## sample estimates:
 ##  mean of x  mean of y 
-## -0.1193917 -0.1323921</code></pre>
+##  0.0631689 -0.1499164</code></pre>
 
 </div>
 </div>
@@ -332,7 +332,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["synbio.pdf", "synbio.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }
