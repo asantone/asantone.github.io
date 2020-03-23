@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Synthetic Biology Learning Modules</title>
+  <title>Quantitative Analysis and Visualization of Experimental Data | modules.utf8</title>
   <meta name="description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Synthetic Biology Learning Modules" />
+  <meta property="og:title" content="Quantitative Analysis and Visualization of Experimental Data | modules.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Synthetic Biology Learning Modules" />
+  <meta name="twitter:title" content="Quantitative Analysis and Visualization of Experimental Data | modules.utf8" />
   
   <meta name="twitter:description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Adam Santone, PhD" />
 
 
-<meta name="date" content="2020-03-02" />
+<meta name="date" content="2020-03-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="quantitative-analysis.html"/>
+<link rel="next" href="covid-19.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,14 @@
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -131,62 +139,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Synthetic Biology</a></li>
+<li><a href="./">Modules</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intended-learner"><i class="fa fa-check"></i><b>0.1</b> Intended Learner</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>0.2</b> Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose"><i class="fa fa-check"></i>Purpose</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learner"><i class="fa fa-check"></i>Intended Learner</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#education-standards-alignment"><i class="fa fa-check"></i>Education Standards Alignment</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#middle-school-6-8"><i class="fa fa-check"></i>Middle School (6-8)</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#high-school-9-12"><i class="fa fa-check"></i>High School (9-12)</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html"><i class="fa fa-check"></i><b>1</b> Quantitative Analysis</a><ul>
-<li class="chapter" data-level="1.1" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#definition"><i class="fa fa-check"></i><b>1.1</b> Definition</a></li>
-<li class="chapter" data-level="1.2" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#the-role-of-qa"><i class="fa fa-check"></i><b>1.2</b> The Role of QA</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#design-build-test-cycle"><i class="fa fa-check"></i><b>1.2.1</b> Design-Build-Test Cycle</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-biobuilder-educational-foundation"><i class="fa fa-check"></i>The BioBuilder Educational Foundation</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#storytelling"><i class="fa fa-check"></i><b>1.3</b> Storytelling</a></li>
-<li class="chapter" data-level="1.4" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#methods"><i class="fa fa-check"></i><b>1.4</b> Methods</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#statistics"><i class="fa fa-check"></i><b>1.4.1</b> Statistics</a></li>
-<li class="chapter" data-level="1.4.2" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#visualization"><i class="fa fa-check"></i><b>1.4.2</b> Visualization</a></li>
-<li class="chapter" data-level="1.4.3" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#sonification"><i class="fa fa-check"></i><b>1.4.3</b> Sonification</a></li>
-<li class="chapter" data-level="1.4.4" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#dashboards"><i class="fa fa-check"></i><b>1.4.4</b> Dashboards</a></li>
+<li class="chapter" data-level="" data-path="covid-19.html"><a href="covid-19.html"><i class="fa fa-check"></i>COVID-19</a><ul>
+<li class="chapter" data-level="" data-path="covid-19.html"><a href="covid-19.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="covid-19.html"><a href="covid-19.html#sars-cov-2-sequence"><i class="fa fa-check"></i>SARS-CoV-2 Sequence</a></li>
+<li class="chapter" data-level="" data-path="covid-19.html"><a href="covid-19.html#the-speed-of-information"><i class="fa fa-check"></i>The Speed of Information</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#art-and-design"><i class="fa fa-check"></i><b>1.5</b> Art and Design</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#color-palettes"><i class="fa fa-check"></i><b>1.5.1</b> Color Palettes</a></li>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html"><i class="fa fa-check"></i>Quantitative Analysis</a><ul>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#definition"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#the-role-of-qa"><i class="fa fa-check"></i>The Role of QA</a><ul>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#design-build-test-cycle"><i class="fa fa-check"></i>Design-Build-Test Cycle</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>2</b> R</a><ul>
-<li class="chapter" data-level="2.1" data-path="r.html"><a href="r.html#r-overview"><i class="fa fa-check"></i><b>2.1</b> R Overview</a></li>
-<li class="chapter" data-level="2.2" data-path="r.html"><a href="r.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
-<li class="chapter" data-level="2.3" data-path="r.html"><a href="r.html#why-use-r"><i class="fa fa-check"></i><b>2.3</b> Why use R?</a></li>
-<li class="chapter" data-level="2.4" data-path="r.html"><a href="r.html#whats-next-for-r"><i class="fa fa-check"></i><b>2.4</b> What’s next for R?</a></li>
-<li class="chapter" data-level="2.5" data-path="r.html"><a href="r.html#what-else-can-r-do-besides-calculations-and-some-plots"><i class="fa fa-check"></i><b>2.5</b> What else can R do besides calculations and some plots?</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="basic-statistics.html"><a href="basic-statistics.html"><i class="fa fa-check"></i><b>3</b> Basic Statistics</a><ul>
-<li class="chapter" data-level="3.1" data-path="basic-statistics.html"><a href="basic-statistics.html#the-t-test"><i class="fa fa-check"></i><b>3.1</b> The T-Test</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="covid-19.html"><a href="covid-19.html"><i class="fa fa-check"></i><b>4</b> COVID-19</a><ul>
-<li class="chapter" data-level="4.1" data-path="covid-19.html"><a href="covid-19.html#background"><i class="fa fa-check"></i><b>4.1</b> Background</a></li>
-<li class="chapter" data-level="4.2" data-path="covid-19.html"><a href="covid-19.html#sequence"><i class="fa fa-check"></i><b>4.2</b> Sequence</a></li>
-<li class="chapter" data-level="4.3" data-path="covid-19.html"><a href="covid-19.html#learning-resources"><i class="fa fa-check"></i><b>4.3</b> Learning Resources</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="covid-19.html"><a href="covid-19.html#who"><i class="fa fa-check"></i><b>4.3.1</b> WHO</a></li>
-<li class="chapter" data-level="4.3.2" data-path="covid-19.html"><a href="covid-19.html#jhu"><i class="fa fa-check"></i><b>4.3.2</b> JHU</a></li>
-<li class="chapter" data-level="4.3.3" data-path="covid-19.html"><a href="covid-19.html#ut"><i class="fa fa-check"></i><b>4.3.3</b> UT</a></li>
-<li class="chapter" data-level="4.3.4" data-path="covid-19.html"><a href="covid-19.html#national-institutes-of-health"><i class="fa fa-check"></i><b>4.3.4</b> National Institutes of Health</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="covid-19.html"><a href="covid-19.html#sequence-analysis"><i class="fa fa-check"></i><b>4.4</b> Sequence Analysis</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="covid-19.html"><a href="covid-19.html#gc-content"><i class="fa fa-check"></i><b>4.4.1</b> GC Content</a></li>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#storytelling"><i class="fa fa-check"></i>Storytelling</a></li>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#methods"><i class="fa fa-check"></i>Methods</a><ul>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="quantitative-analysis.html"><a href="quantitative-analysis.html#visualization"><i class="fa fa-check"></i>Visualization</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="interactive-learning.html"><a href="interactive-learning.html"><i class="fa fa-check"></i><b>5</b> Interactive Learning</a><ul>
-<li class="chapter" data-level="5.1" data-path="interactive-learning.html"><a href="interactive-learning.html#codeshare"><i class="fa fa-check"></i><b>5.1</b> Codeshare</a></li>
-<li class="chapter" data-level="5.2" data-path="interactive-learning.html"><a href="interactive-learning.html#choosing-colors"><i class="fa fa-check"></i><b>5.2</b> Choosing Colors</a></li>
-<li class="chapter" data-level="5.3" data-path="interactive-learning.html"><a href="interactive-learning.html#line-plot"><i class="fa fa-check"></i><b>5.3</b> Line Plot</a></li>
-<li class="chapter" data-level="5.4" data-path="interactive-learning.html"><a href="interactive-learning.html#bar-chart"><i class="fa fa-check"></i><b>5.4</b> Bar Chart</a></li>
-<li class="chapter" data-level="5.5" data-path="interactive-learning.html"><a href="interactive-learning.html#scatter-plots"><i class="fa fa-check"></i><b>5.5</b> Scatter Plots</a></li>
-<li class="chapter" data-level="5.6" data-path="interactive-learning.html"><a href="interactive-learning.html#box-plots"><i class="fa fa-check"></i><b>5.6</b> Box Plots</a></li>
-<li class="chapter" data-level="5.7" data-path="interactive-learning.html"><a href="interactive-learning.html#build-your-own"><i class="fa fa-check"></i><b>5.7</b> Build your own!</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="interactive-learning.html"><a href="interactive-learning.html#word-problem"><i class="fa fa-check"></i><b>5.7.1</b> Word problem</a></li>
-<li class="chapter" data-level="5.7.2" data-path="interactive-learning.html"><a href="interactive-learning.html#guiding-questions"><i class="fa fa-check"></i><b>5.7.2</b> Guiding questions:</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i>R</a><ul>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#r-overview"><i class="fa fa-check"></i>R Overview</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#why-use-r"><i class="fa fa-check"></i>Why use R?</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#whats-next-for-r"><i class="fa fa-check"></i>What’s next for R?</a></li>
+<li class="chapter" data-level="" data-path="r.html"><a href="r.html#what-else-can-r-do-besides-calculations-and-some-plots"><i class="fa fa-check"></i>What else can R do besides calculations and some plots?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html"><i class="fa fa-check"></i>Analysis of COVID-19 Data</a><ul>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#scientific-questions"><i class="fa fa-check"></i>Scientific Questions</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#sequence-analysis"><i class="fa fa-check"></i>Sequence Analysis</a><ul>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#gc-content"><i class="fa fa-check"></i>GC Content</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#timeline-analysis"><i class="fa fa-check"></i>Timeline Analysis</a><ul>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#loading-data"><i class="fa fa-check"></i>Loading Data</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#filtering-data"><i class="fa fa-check"></i>Filtering Data</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#data-anatomy"><i class="fa fa-check"></i>Data Anatomy</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#aggregating-data"><i class="fa fa-check"></i>Aggregating Data</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#pivoting-data"><i class="fa fa-check"></i>Pivoting Data</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#plotting-data"><i class="fa fa-check"></i>Plotting Data</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#effective-communication"><i class="fa fa-check"></i>Effective Communication</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#using-movement-for-communication"><i class="fa fa-check"></i>Using Movement for Communication</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#case-study-italy-south-korea-united-states"><i class="fa fa-check"></i>Case Study: Italy, South Korea, United States</a></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#something-to-remember"><i class="fa fa-check"></i>Something to remember</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#spatial-data-visualization"><i class="fa fa-check"></i>Spatial Data Visualization</a><ul>
+<li class="chapter" data-level="" data-path="analysis-of-covid-19-data.html"><a href="analysis-of-covid-19-data.html#leaflet-map"><i class="fa fa-check"></i>Leaflet Map</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html"><i class="fa fa-check"></i>Interactive Learning</a><ul>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#codeshare"><i class="fa fa-check"></i>Codeshare</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#choosing-colors"><i class="fa fa-check"></i>Choosing Colors</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#line-plot"><i class="fa fa-check"></i>Line Plot</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#bar-chart"><i class="fa fa-check"></i>Bar Chart</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#scatter-plots"><i class="fa fa-check"></i>Scatter Plots</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#box-plots"><i class="fa fa-check"></i>Box Plots</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#build-your-own"><i class="fa fa-check"></i>Build your own!</a><ul>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#word-problem"><i class="fa fa-check"></i>Word problem</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#guiding-questions"><i class="fa fa-check"></i>Guiding questions:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html"><i class="fa fa-check"></i>Additional Resources</a><ul>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#covid-19-1"><i class="fa fa-check"></i>COVID-19</a><ul>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#world-health-organization"><i class="fa fa-check"></i>World Health Organization</a></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#johns-hopkins-university"><i class="fa fa-check"></i>Johns Hopkins University</a></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#university-of-texas-austin"><i class="fa fa-check"></i>University of Texas Austin</a></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#national-institutes-of-health"><i class="fa fa-check"></i>National Institutes of Health</a></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#data-and-information"><i class="fa fa-check"></i>Data and Information</a><ul>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#sonification"><i class="fa fa-check"></i>Sonification</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#art-and-design"><i class="fa fa-check"></i>Art and Design</a><ul>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#basics"><i class="fa fa-check"></i>Basics</a></li>
+<li class="chapter" data-level="" data-path="additional-resources.html"><a href="additional-resources.html#color-palettes"><i class="fa fa-check"></i>Color Palettes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -202,7 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Synthetic Biology Learning Modules</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">Quantitative Analysis and<br />
+Visualization of Experimental Data</div></a>
           </h1>
         </div>
 
@@ -211,24 +247,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Synthetic Biology Learning Modules</h1>
+<h1 class="title"><div class="line-block">Quantitative Analysis and<br />
+Visualization of Experimental Data</div></h1>
 <p class="author"><em>Adam Santone, PhD</em></p>
-<p class="date"><em>2020-03-02</em></p>
+<p class="date"><em>2020-03-23</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
 <div class="figure"><span id="fig:unnamed-chunk-1"></span>
 <img src="img/ecoli_nih.png" alt="*E. coli.* Credit: Rocky Mountain Laboratories, NIAID, NIH" width="100%" />
 <p class="caption">
-Figure 0.1: <em>E. coli.</em> Credit: Rocky Mountain Laboratories, NIAID, NIH
+Figure 1: <em>E. coli.</em> Credit: Rocky Mountain Laboratories, NIAID, NIH
 </p>
 </div>
+<div id="purpose" class="section level2">
+<h2>Purpose</h2>
+<p>This lecture will require students to engage in both computational and creative thinking to analyze and present data. Several elements that make data easy to understand and statistically meaningful will be reviewed. Students will have access to online R-suite tools for sequence analysis, allowing them to ask questions about how well the genomes from two viruses align to one another and how rapidly a virus can be detected in different locations.</p>
+</div>
 <div id="intended-learner" class="section level2">
-<h2><span class="header-section-number">0.1</span> Intended Learner</h2>
-<p>This learning module is intended for high school students who are interested in expanding their understanding of how information plays a critical role in communicating science concepts, how data analysis methods allow for increased confidence in conclusions, and how effective communication for a public audience can utilize a combination of images, text, and interactive media.</p>
+<h2>Intended Learner</h2>
+<p>The learning modules are intended for middle and high school students who are interested in expanding their understanding of how information plays a critical role in communicating science concepts, how data analysis methods allow for increased confidence in conclusions, and how effective communication for a public audience can utilize a combination of images, text, and interactive media.</p>
 </div>
 <div id="intended-learning-outcomes" class="section level2">
-<h2><span class="header-section-number">0.2</span> Intended Learning Outcomes</h2>
+<h2>Intended Learning Outcomes</h2>
 <p>Students of this module will be able to:</p>
 <ul>
 <li>summarize benefits from quantitative analysis of data</li>
@@ -239,6 +280,31 @@ Figure 0.1: <em>E. coli.</em> Credit: Rocky Mountain Laboratories, NIAID, NIH
 <blockquote>
 <p>Do you know how to do any of these already?</p>
 </blockquote>
+</div>
+<div id="education-standards-alignment" class="section level2">
+<h2>Education Standards Alignment</h2>
+<p>Teachers are encouraged to consider incorporating portions of this content into their curriculum. This section of the ‘Bio-Engineering for a Changing World’ lecture series aligns broadly with the NGSS <a href="https://ngss.nsta.org/Practices.aspx?id=5">Science and Engineering Practice of Using Mathematics and Computational Thinking</a> but specifically addresses content of the following:</p>
+<div id="middle-school-6-8" class="section level3">
+<h3>Middle School (6-8)</h3>
+<ul>
+<li>Use digital tools (e.g., computers) to analyze very large data sets for patterns and trends.</li>
+<li>Use mathematical representations to describe and/or support scientific conclusions and design solutions.</li>
+<li>Create algorithms (a series of ordered steps) to solve a problem.</li>
+<li>Apply mathematical concepts and/or processes (such as ratio, rate, percent, basic operations, and simple algebra) to scientific and engineering questions and problems.</li>
+</ul>
+</div>
+<div id="high-school-9-12" class="section level3">
+<h3>High School (9-12)</h3>
+<ul>
+<li>Create and/or revise a computational model or simulation of a phenomenon, designed device, process, or system.
+Use mathematical, computational, and/or algorithmic representations of phenomena or design solutions to describe and/or support claims and/or explanations.</li>
+<li>Apply techniques of algebra and functions to represent and solve scientific and engineering problems.</li>
+</ul>
+</div>
+</div>
+<div id="the-biobuilder-educational-foundation" class="section level2">
+<h2>The BioBuilder Educational Foundation</h2>
+<p>BioBuilder, the organization supporting this program, is “an innovative, STEM education nonprofit created by an award-winning team at MIT …that… offers a wide range of open source, free curricula to provide hands-on experiences that foster exploration, innovation, and interest in the emerging area of synthetic biology.” Please visit <a href="https://biobuilder.org/">BioBuilder.org</a> to learn more!</p>
 
 </div>
 </div>
@@ -248,7 +314,7 @@ Figure 0.1: <em>E. coli.</em> Credit: Rocky Mountain Laboratories, NIAID, NIH
         </div>
       </div>
 
-<a href="quantitative-analysis.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="covid-19.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -298,20 +364,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

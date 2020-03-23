@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>R | modules.utf8</title>
+  <meta name="description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="R | modules.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R | modules.utf8" />
+  
+  <meta name="twitter:description" content="This is a collection of modules related to quantitative analysis of data from the field of Synthetic Biology." />
+  
+
+<meta name="author" content="Adam Santone, PhD" />
+
+
+<meta name="date" content="2020-03-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-quantitative-analysis.html"/>
+<link rel="next" href="section-analysis-of-covid-19-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Modules</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-purpose"><i class="fa fa-check"></i>Purpose</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-intended-learner"><i class="fa fa-check"></i>Intended Learner</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-education-standards-alignment"><i class="fa fa-check"></i>Education Standards Alignment</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-middle-school-6-8"><i class="fa fa-check"></i>Middle School (6-8)</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-high-school-9-12"><i class="fa fa-check"></i>High School (9-12)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-the-biobuilder-educational-foundation"><i class="fa fa-check"></i>The BioBuilder Educational Foundation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-covid-19.html"><a href="section-covid-19.html"><i class="fa fa-check"></i>COVID-19</a><ul>
+<li class="chapter" data-level="" data-path="section-covid-19.html"><a href="section-covid-19.html#section-background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="section-covid-19.html"><a href="section-covid-19.html#section-sars-cov-2-sequence"><i class="fa fa-check"></i>SARS-CoV-2 Sequence</a></li>
+<li class="chapter" data-level="" data-path="section-covid-19.html"><a href="section-covid-19.html#section-the-speed-of-information"><i class="fa fa-check"></i>The Speed of Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html"><i class="fa fa-check"></i>Quantitative Analysis</a><ul>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html#section-definition"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html#section-the-role-of-qa"><i class="fa fa-check"></i>The Role of QA</a><ul>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html#section-design-build-test-cycle"><i class="fa fa-check"></i>Design-Build-Test Cycle</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html#section-storytelling"><i class="fa fa-check"></i>Storytelling</a></li>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html#section-methods"><i class="fa fa-check"></i>Methods</a><ul>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html#section-statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="section-quantitative-analysis.html"><a href="section-quantitative-analysis.html#section-visualization"><i class="fa fa-check"></i>Visualization</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-r.html"><a href="section-r.html"><i class="fa fa-check"></i>R</a><ul>
+<li class="chapter" data-level="" data-path="section-r.html"><a href="section-r.html#section-r-overview"><i class="fa fa-check"></i>R Overview</a></li>
+<li class="chapter" data-level="" data-path="section-r.html"><a href="section-r.html#section-rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+<li class="chapter" data-level="" data-path="section-r.html"><a href="section-r.html#section-why-use-r"><i class="fa fa-check"></i>Why use R?</a></li>
+<li class="chapter" data-level="" data-path="section-r.html"><a href="section-r.html#section-whats-next-for-r"><i class="fa fa-check"></i>What’s next for R?</a></li>
+<li class="chapter" data-level="" data-path="section-r.html"><a href="section-r.html#section-what-else-can-r-do-besides-calculations-and-some-plots"><i class="fa fa-check"></i>What else can R do besides calculations and some plots?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html"><i class="fa fa-check"></i>Analysis of COVID-19 Data</a><ul>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-scientific-questions"><i class="fa fa-check"></i>Scientific Questions</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-sequence-analysis"><i class="fa fa-check"></i>Sequence Analysis</a><ul>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-gc-content"><i class="fa fa-check"></i>GC Content</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-timeline-analysis"><i class="fa fa-check"></i>Timeline Analysis</a><ul>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-loading-data"><i class="fa fa-check"></i>Loading Data</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-filtering-data"><i class="fa fa-check"></i>Filtering Data</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-data-anatomy"><i class="fa fa-check"></i>Data Anatomy</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-aggregating-data"><i class="fa fa-check"></i>Aggregating Data</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-pivoting-data"><i class="fa fa-check"></i>Pivoting Data</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-plotting-data"><i class="fa fa-check"></i>Plotting Data</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-effective-communication"><i class="fa fa-check"></i>Effective Communication</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-using-movement-for-communication"><i class="fa fa-check"></i>Using Movement for Communication</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-case-study-italy-south-korea-united-states"><i class="fa fa-check"></i>Case Study: Italy, South Korea, United States</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-something-to-remember"><i class="fa fa-check"></i>Something to remember</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-spatial-data-visualization"><i class="fa fa-check"></i>Spatial Data Visualization</a><ul>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-leaflet-map"><i class="fa fa-check"></i>Leaflet Map</a></li>
+<li class="chapter" data-level="" data-path="section-analysis-of-covid-19-data.html"><a href="section-analysis-of-covid-19-data.html#section-interactive-shiny-app"><i class="fa fa-check"></i>Interactive Shiny App</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html"><i class="fa fa-check"></i>Interactive Learning</a><ul>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-codeshare"><i class="fa fa-check"></i>Codeshare</a></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-choosing-colors"><i class="fa fa-check"></i>Choosing Colors</a></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-line-plot"><i class="fa fa-check"></i>Line Plot</a></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-bar-chart"><i class="fa fa-check"></i>Bar Chart</a></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-scatter-plots"><i class="fa fa-check"></i>Scatter Plots</a></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-box-plots"><i class="fa fa-check"></i>Box Plots</a></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-build-your-own"><i class="fa fa-check"></i>Build your own!</a><ul>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-word-problem"><i class="fa fa-check"></i>Word problem</a></li>
+<li class="chapter" data-level="" data-path="section-interactive-learning.html"><a href="section-interactive-learning.html#section-guiding-questions"><i class="fa fa-check"></i>Guiding questions:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html"><i class="fa fa-check"></i>Additional Resources</a><ul>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-covid-19-1"><i class="fa fa-check"></i>COVID-19</a><ul>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-world-health-organization"><i class="fa fa-check"></i>World Health Organization</a></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-johns-hopkins-university"><i class="fa fa-check"></i>Johns Hopkins University</a></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-university-of-texas-austin"><i class="fa fa-check"></i>University of Texas Austin</a></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-national-institutes-of-health"><i class="fa fa-check"></i>National Institutes of Health</a></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-data-and-information"><i class="fa fa-check"></i>Data and Information</a><ul>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-sonification"><i class="fa fa-check"></i>Sonification</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-art-and-design"><i class="fa fa-check"></i>Art and Design</a><ul>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-basics"><i class="fa fa-check"></i>Basics</a></li>
+<li class="chapter" data-level="" data-path="section-additional-resources.html"><a href="section-additional-resources.html#section-color-palettes"><i class="fa fa-check"></i>Color Palettes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="section-references.html"><a href="section-references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">Quantitative Analysis and<br />
+Visualization of Experimental Data</div></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-r" class="section level1">
+<h1>R</h1>
+<blockquote>
+<p>What do you know about R and RStudio?</p>
+</blockquote>
+<div id="section-r-overview" class="section level2">
+<h2>R Overview</h2>
+<p>R is a free R is an integrated suite of software facilities for data manipulation, calculation and graphical display.</p>
+<p>According to <span class="citation">(R-Project.org <a href="section-references.html#section-ref-rProject" role="doc-biblioref">2020</a>)</span>, the R environment includes:</p>
+<ul>
+<li>an effective data handling and storage facility,</li>
+<li>a suite of operators for calculations on arrays, in particular matrices,</li>
+<li>a large, coherent, integrated collection of intermediate tools for data analysis,</li>
+<li>graphical facilities for data analysis and display either on-screen or on hardcopy, and</li>
+<li>a well-developed, simple and effective programming language which includes conditionals, loops, user-defined recursive functions and input and output facilities.</li>
+</ul>
+</div>
+<div id="section-rstudio" class="section level2">
+<h2>RStudio</h2>
+<p>RStudio is an integrated development environment (IDE) for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management. <span class="citation">(RStudio Team <a href="section-references.html#section-ref-rstudio" role="doc-biblioref">2015</a>)</span></p>
+<p>What this means is that you can use R through RStudio which provides helpful tools in an easier-to-use interface. By using this tool, a variety of projects can be created, stored, modified, and shared more easily. In fact, this learning module was written in RStudio using RMarkdown and a package called Bookdown <span class="citation">(Xie <a href="section-references.html#section-ref-bookdown1" role="doc-biblioref">2020</a>)</span> <span class="citation">(Xie <a href="section-references.html#section-ref-bookdown2" role="doc-biblioref">2016</a>)</span> which provides formatting publishing assistance.</p>
+<blockquote>
+<p>Let’s take a moment to examine RStudio</p>
+</blockquote>
+</div>
+<div id="section-why-use-r" class="section level2">
+<h2>Why use R?</h2>
+<p>Python <span class="citation">(Python Core Team <a href="section-references.html#section-ref-python" role="doc-biblioref">2015</a>)</span> and R are the two most popular languages at the moment for <a href="https://datascience.berkeley.edu/about/what-is-data-science/">data science</a>, which is a field involving statistical analysis, data manipulation, data visualization, and communication.</p>
+<p>You may be interested in using Python, a more general programming language, to do data analysis and may be interested in using some tools offered only with that language. You may be interested more in using R, or both! R has <a href="https://www.burns-stat.com/documents/tutorials/why-use-the-r-language/">some advantages highlighted by the author of this article</a>:</p>
+<ul>
+<li>interactive language</li>
+<li>data structures</li>
+<li>graphics</li>
+<li>missing values</li>
+<li>functions as first class objects</li>
+<li>packages</li>
+<li>community</li>
+</ul>
+</div>
+<div id="section-whats-next-for-r" class="section level2">
+<h2>What’s next for R?</h2>
+<p>Check out <a href="https://qz.com/1661487/hadley-wickham-on-the-future-of-r-python-and-the-tidyverse/">this article</a> with Hadley Wickham, Chief Scientist at RStudio.</p>
+<p>You may also want to <a href="https://qz.com/work/1661486/r-ladies-made-data-science-inclusive/">read about R-Ladies</a>, a group helping to close the gender gap in data science.</p>
+</div>
+<div id="section-what-else-can-r-do-besides-calculations-and-some-plots" class="section level2">
+<h2>What else can R do besides calculations and some plots?</h2>
+<ul>
+<li>Check out <a href="https://www.r-graph-gallery.com/">this gallery</a> to see some examples of how R can be used!</li>
+<li>R can also use a package called ‘<a href="https://shiny.rstudio.com/">shiny</a>’ to develop interactive dashboards to tell a more complete story!</li>
+<li>R can help you <a href="https://rstudio.github.io/leaflet/">draw some nice maps using the Leaflet package</a>.</li>
+<li>R can also help you do fun interactive network diagrams (<a href="https://www.r-graph-gallery.com/network-interactive.html">Source</a>):</li>
+</ul>
+<div class="sourceCode" id="section-cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(igraph)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(networkD3)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(tibble)</a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co"># create a dataset:</span></a>
+<a class="sourceLine" id="cb1-6" title="6">data &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="dt">from=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;K&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;M&quot;</span>),</a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="dt">to=</span><span class="kw">c</span>(<span class="st">&quot;B&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;Z&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;K&quot;</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9">)</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb1-12" title="12">p &lt;-<span class="st"> </span><span class="kw">simpleNetwork</span>(data, <span class="dt">height=</span><span class="st">&quot;100px&quot;</span>, <span class="dt">width=</span><span class="st">&quot;400px&quot;</span>,<span class="dt">fontSize =</span> <span class="dv">18</span>,<span class="dt">linkColour =</span> <span class="st">&quot;#ff0000&quot;</span>, <span class="dt">nodeColour =</span> <span class="st">&quot;#96001e&quot;</span>, <span class="dt">opacity =</span> <span class="fl">0.7</span>, <span class="dt">zoom =</span> T)</a>
+<a class="sourceLine" id="cb1-13" title="13">p</a></code></pre></div>
+<div id="htmlwidget-5cb843861e8a0b2ac796" style="width:100%;height:480px;" class="forceNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5cb843861e8a0b2ac796">{"x":{"links":{"source":[0,0,1,3,2,3,4,1,2,3,6,0,7],"target":[1,4,5,0,2,0,1,8,0,2,0,1,6],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000"]},"nodes":{"name":["A","B","C","D","E","F","K","M","Z"],"group":[1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#96001e'])","fontSize":18,"fontFamily":"serif","clickTextSize":45,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.7,"zoom":true,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<blockquote>
+<p>What did you learn about R and RStudio?</p>
+</blockquote>
+<blockquote>
+<p>What else do you want to know about R and RStudio?</p>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-quantitative-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-analysis-of-covid-19-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
