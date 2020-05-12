@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Design Philosophy for Scientific Communication | modules.utf8</title>
+  <meta name="description" content="This is a collection of modules related to information design and visualization of biological data." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Design Philosophy for Scientific Communication | modules.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Design Philosophy for Scientific Communication | modules.utf8" />
+  
+  <meta name="twitter:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+<meta name="author" content="Adam Santone, PhD" />
+
+
+<meta name="date" content="2020-05-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="assignments.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BCDS Modules</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose"><i class="fa fa-check"></i>Purpose</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learner"><i class="fa fa-check"></i>Intended Learner</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#education-standards-alignment"><i class="fa fa-check"></i>Education Standards Alignment</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-biobuilder-educational-foundation"><i class="fa fa-check"></i>The BioBuilder Educational Foundation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i>Assignments</a><ul>
+<li class="chapter" data-level="" data-path="assignments.html"><a href="assignments.html#pre-lessons"><i class="fa fa-check"></i>Pre-lessons</a></li>
+<li class="chapter" data-level="" data-path="assignments.html"><a href="assignments.html#post-lessons"><i class="fa fa-check"></i>Post-lessons</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html"><i class="fa fa-check"></i>Design Philosophy for Scientific Communication</a><ul>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#marks"><i class="fa fa-check"></i>Marks</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#channels"><i class="fa fa-check"></i>Channels</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#color"><i class="fa fa-check"></i>Color</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#fonts"><i class="fa fa-check"></i>Fonts</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#the-story"><i class="fa fa-check"></i>The Story</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#tuftes-principles"><i class="fa fa-check"></i>Tufte’s Principles</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#real-world-example"><i class="fa fa-check"></i>Real-world example!</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#open-data"><i class="fa fa-check"></i>Open Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html"><i class="fa fa-check"></i>Interactive Learning</a><ul>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#line-plot"><i class="fa fa-check"></i>Line Plot</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#bar-chart"><i class="fa fa-check"></i>Bar Chart</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#scatter-plots"><i class="fa fa-check"></i>Scatter Plots</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#box-plots"><i class="fa fa-check"></i>Box Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">Design Philosophy for<br />
+Scientific Communication</div></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title"><div class="line-block">Design Philosophy for<br />
+Scientific Communication</div></h1>
+<p class="author"><em>Adam Santone, PhD</em></p>
+<p class="date"><em>2020-05-12</em></p>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<img src="img/lac.png" alt="The lac operon. (public domain)" width="100%" />
+<p class="caption">
+Figure 1: The lac operon. (public domain)
+</p>
+</div>
+<div id="purpose" class="section level3">
+<h3>Purpose</h3>
+<p>This lecture will require students to engage in both computational and creative thinking to analyze and present data. Several elements that make data easy to understand and statistically meaningful will be reviewed. Students will have access to online R-suite tools for sequence analysis, allowing them to ask questions about how well the genomes from two viruses align to one another and how rapidly a virus can be detected in different locations.</p>
+</div>
+<div id="intended-learner" class="section level3">
+<h3>Intended Learner</h3>
+<p>The learning modules are intended for middle and high school students who are interested in expanding their understanding of how information plays a critical role in communicating science concepts, how data analysis methods allow for increased confidence in conclusions, and how effective communication for a public audience can utilize a combination of images, text, and interactive media.</p>
+</div>
+<div id="intended-learning-outcomes" class="section level3">
+<h3>Intended Learning Outcomes</h3>
+<p>Students of this module will be able to:</p>
+<ul>
+<li>describe the purpose of data visualization</li>
+<li>identify an example of software used for quantitative analysis</li>
+<li>explain the reasons why ‘coding’ is useful for analysis and visualization</li>
+<li>describe and explain the purpose of a ‘notebook’ in the context of data science</li>
+</ul>
+</div>
+<div id="education-standards-alignment" class="section level3">
+<h3>Education Standards Alignment</h3>
+<p>Teachers are encouraged to consider incorporating portions of this content into their curriculum. This section of the ‘Bio-Engineering for a Changing World’ lecture series aligns broadly with the NGSS <a href="https://ngss.nsta.org/Practices.aspx?id=5">Science and Engineering Practice of Using Mathematics and Computational Thinking</a> but specifically addresses content of the following:</p>
+<div id="middle-school-6-8" class="section level4">
+<h4>Middle School (6-8)</h4>
+<ul>
+<li>Use digital tools (e.g., computers) to analyze very large data sets for patterns and trends.</li>
+<li>Use mathematical representations to describe and/or support scientific conclusions and design solutions.</li>
+<li>Create algorithms (a series of ordered steps) to solve a problem.</li>
+<li>Apply mathematical concepts and/or processes (such as ratio, rate, percent, basic operations, and simple algebra) to scientific and engineering questions and problems.</li>
+</ul>
+</div>
+<div id="high-school-9-12" class="section level4">
+<h4>High School (9-12)</h4>
+<ul>
+<li>Create and/or revise a computational model or simulation of a phenomenon, designed device, process, or system.
+Use mathematical, computational, and/or algorithmic representations of phenomena or design solutions to describe and/or support claims and/or explanations.</li>
+<li>Apply techniques of algebra and functions to represent and solve scientific and engineering problems.</li>
+</ul>
+</div>
+</div>
+<div id="the-biobuilder-educational-foundation" class="section level3">
+<h3>The BioBuilder Educational Foundation</h3>
+<p>BioBuilder, the organization supporting this program, is “an innovative, STEM education nonprofit created by an award-winning team at MIT …that… offers a wide range of open source, free curricula to provide hands-on experiences that foster exploration, innovation, and interest in the emerging area of synthetic biology.” Please visit <a href="https://biobuilder.org/">BioBuilder.org</a> to learn more!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="assignments.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

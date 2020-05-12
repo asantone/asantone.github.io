@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Assignments | modules.utf8</title>
+  <meta name="description" content="This is a collection of modules related to information design and visualization of biological data." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Assignments | modules.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Assignments | modules.utf8" />
+  
+  <meta name="twitter:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+<meta name="author" content="Adam Santone, PhD" />
+
+
+<meta name="date" content="2020-05-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="design-philosophy-for-scientific-communication.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BCDS Modules</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose"><i class="fa fa-check"></i>Purpose</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learner"><i class="fa fa-check"></i>Intended Learner</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#education-standards-alignment"><i class="fa fa-check"></i>Education Standards Alignment</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-biobuilder-educational-foundation"><i class="fa fa-check"></i>The BioBuilder Educational Foundation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i>Assignments</a><ul>
+<li class="chapter" data-level="" data-path="assignments.html"><a href="assignments.html#pre-lessons"><i class="fa fa-check"></i>Pre-lessons</a></li>
+<li class="chapter" data-level="" data-path="assignments.html"><a href="assignments.html#post-lessons"><i class="fa fa-check"></i>Post-lessons</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html"><i class="fa fa-check"></i>Design Philosophy for Scientific Communication</a><ul>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#marks"><i class="fa fa-check"></i>Marks</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#channels"><i class="fa fa-check"></i>Channels</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#color"><i class="fa fa-check"></i>Color</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#fonts"><i class="fa fa-check"></i>Fonts</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#the-story"><i class="fa fa-check"></i>The Story</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#tuftes-principles"><i class="fa fa-check"></i>Tufte’s Principles</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#real-world-example"><i class="fa fa-check"></i>Real-world example!</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="chapter" data-level="" data-path="design-philosophy-for-scientific-communication.html"><a href="design-philosophy-for-scientific-communication.html#open-data"><i class="fa fa-check"></i>Open Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html"><i class="fa fa-check"></i>Interactive Learning</a><ul>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#line-plot"><i class="fa fa-check"></i>Line Plot</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#bar-chart"><i class="fa fa-check"></i>Bar Chart</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#scatter-plots"><i class="fa fa-check"></i>Scatter Plots</a></li>
+<li class="chapter" data-level="" data-path="interactive-learning.html"><a href="interactive-learning.html#box-plots"><i class="fa fa-check"></i>Box Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">Design Philosophy for<br />
+Scientific Communication</div></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="assignments" class="section level1">
+<h1>Assignments</h1>
+<div id="pre-lessons" class="section level3">
+<h3>Pre-lessons</h3>
+<div id="day-1-short-answer" class="section level4">
+<h4>Day 1: Short Answer</h4>
+<p>Please answer the following questions in the form of a short paragraph.</p>
+<ul>
+<li>What characteristics are shared by ‘good’ data visualizations?</li>
+<li>What skills are necessary for researchers to become good communicators?</li>
+<li>What tools do you typically use to create research reports and graphs and what are the strengths/weaknesses of those tools?</li>
+</ul>
+</div>
+<div id="day-2-hands-on-visualization-part-1" class="section level4">
+<h4>Day 2: Hands-on Visualization Part 1</h4>
+<p>Please read the following <a href="https://parts.igem.org/Promoters">background information on promoters</a>. Briefly, promoters are short sequences of DNA that influence the transcription of downstream sequences. A highly effective strong promoter will lead to more proteins while a weak promoter will lead to less protein.</p>
+<p>Use the following information to create an appropriate plot to show promoter strength:</p>
+<p>A bioengineer designed a study to evaluate the average strength of six different promoter sequences used to initiate transcription of a DNA open reading frame that results in a colorful protein in transformed E. coli bacteria. The cells were labeled as six different strains depending on their promoter variant: P1, P2, P3, P4, P5, and P6. An additional variant P0 was used as a promoter-less control. Cells were uniformly subjected to standard protocols for protein expression and measurement. Protein levels from each strain were measured in Miller Units over three trials. The P5 sample in Trial 2 was accidentally destroyed resulting in a measurement of NA (not available).</p>
+<p>Note: Use your choice of software!</p>
+<p>Data:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Promoter</th>
+<th align="right">Trial 1</th>
+<th align="right">Trial 2</th>
+<th align="right">Trial 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">P0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">P1</td>
+<td align="right">49</td>
+<td align="right">50</td>
+<td align="right">48</td>
+</tr>
+<tr class="odd">
+<td align="left">P2</td>
+<td align="right">56</td>
+<td align="right">50</td>
+<td align="right">53</td>
+</tr>
+<tr class="even">
+<td align="left">P3</td>
+<td align="right">52</td>
+<td align="right">51</td>
+<td align="right">56</td>
+</tr>
+<tr class="odd">
+<td align="left">P4</td>
+<td align="right">266</td>
+<td align="right">277</td>
+<td align="right">273</td>
+</tr>
+<tr class="even">
+<td align="left">P5</td>
+<td align="right">225</td>
+<td align="right">NA</td>
+<td align="right">209</td>
+</tr>
+<tr class="odd">
+<td align="left">P6</td>
+<td align="right">306</td>
+<td align="right">326</td>
+<td align="right">316</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="post-lessons" class="section level3">
+<h3>Post-lessons</h3>
+<div id="day-1-data-visualization-critique" class="section level4">
+<h4>Day 1: Data Visualization Critique</h4>
+<p>Find a good example of a bad data visualization online and compose a short paragraph critiquing the visualization. What was good about it? What could be improved? Be sure to save the image and/or link along with your original paragraph.</p>
+</div>
+<div id="day-2-hands-on-visualization-part-2" class="section level4">
+<h4>Day 2: Hands-on Visualization Part 2</h4>
+<p>Create an <em>improved</em> plot of the same information using R. You should incorporate good information design and communication practices into your work.</p>
+<p>You may use the following code or the <a href="https://asantone.github.io/biobuilder/bcds/interactiveBarPlot.html">Interactive Bar Plot</a> to help you get started.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">#store the original measurements</span></a>
+<a class="sourceLine" id="cb1-5" title="5">pr&lt;-<span class="kw">c</span>(<span class="st">&#39;P0&#39;</span>,<span class="st">&#39;P1&#39;</span>,<span class="st">&#39;P2&#39;</span>,<span class="st">&#39;P3&#39;</span>,<span class="st">&#39;P4&#39;</span>,<span class="st">&#39;P5&#39;</span>,<span class="st">&#39;P6&#39;</span>)</a>
+<a class="sourceLine" id="cb1-6" title="6">t1&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">49</span>,<span class="dv">56</span>,<span class="dv">52</span>,<span class="dv">266</span>,<span class="dv">225</span>,<span class="dv">306</span>)</a>
+<a class="sourceLine" id="cb1-7" title="7">t2&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">50</span>,<span class="dv">51</span>,<span class="dv">277</span>,<span class="ot">NA</span>, <span class="dv">326</span>)</a>
+<a class="sourceLine" id="cb1-8" title="8">t3&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">48</span>,<span class="dv">53</span>,<span class="dv">56</span>,<span class="dv">273</span>,<span class="dv">209</span>,<span class="dv">316</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">#combine the data into one tibble</span></a>
+<a class="sourceLine" id="cb1-11" title="11">dataMain&lt;-<span class="kw">tibble</span>(pr,t1,t2,t3)</a>
+<a class="sourceLine" id="cb1-12" title="12"></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">#re-store the data in a tibble containing the average across each row, removing the NA value where needed.</span></a>
+<a class="sourceLine" id="cb1-14" title="14">data&lt;-dataMain <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">avg=</span><span class="kw">mean</span>(<span class="kw">c</span>(t1,t2,t3), <span class="dt">na.rm=</span>T))</a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">#initialize the bar chart with ggplot2</span></a>
+<a class="sourceLine" id="cb1-17" title="17">bar&lt;-<span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x=</span>pr, <span class="dt">y=</span>avg)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)</a>
+<a class="sourceLine" id="cb1-19" title="19"></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="co">#draw the plot</span></a>
+<a class="sourceLine" id="cb1-21" title="21">bar</a></code></pre></div>
+<p><img src="modules_files/figure-html/unnamed-chunk-3-1.png" width="1152" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="design-philosophy-for-scientific-communication.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
