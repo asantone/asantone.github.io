@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Current Topics II: Technical Reports | BioBuilder Virtual Bootcamp</title>
+  <meta name="description" content="This is a collection of modules related to information design and visualization of biological data." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Current Topics II: Technical Reports | BioBuilder Virtual Bootcamp" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Current Topics II: Technical Reports | BioBuilder Virtual Bootcamp" />
+  
+  <meta name="twitter:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+<meta name="author" content="Adam Santone, PhD" />
+
+
+<meta name="date" content="2020-07-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="seminar-ii-data-visualization.html"/>
+<link rel="next" href="seminar-iii-applied-visualization.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BioBuilder Virtual Bootcamp</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learner"><i class="fa fa-check"></i>Intended Learner</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#desired-educational-outcomes"><i class="fa fa-check"></i>Desired Educational Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#functional-educational-outcomes"><i class="fa fa-check"></i>Functional Educational Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-structure"><i class="fa fa-check"></i>About the Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#computational-tools"><i class="fa fa-check"></i>Computational Tools</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#topics"><i class="fa fa-check"></i>Topics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html"><i class="fa fa-check"></i>Seminar I: Principles of Design</a><ul>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#design-for-scientific-communication"><i class="fa fa-check"></i>Design for Scientific Communication</a><ul>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#marks"><i class="fa fa-check"></i>Marks</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#channels"><i class="fa fa-check"></i>Channels</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#color"><i class="fa fa-check"></i>Color</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#fonts"><i class="fa fa-check"></i>Fonts</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#the-story"><i class="fa fa-check"></i>The Story</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#tuftes-principles"><i class="fa fa-check"></i>Tufte’s Principles</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#real-world-example"><i class="fa fa-check"></i>Real-world example!</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#open-data"><i class="fa fa-check"></i>Open Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#introduction-to-r-and-rstudio-cloud"><i class="fa fa-check"></i>Introduction to R and RStudio (Cloud)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="current-topics-i-gallery.html"><a href="current-topics-i-gallery.html"><i class="fa fa-check"></i>Current Topics I: Gallery</a></li>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html"><i class="fa fa-check"></i>Seminar II: Data Visualization</a><ul>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html#thinking-about-data"><i class="fa fa-check"></i>Thinking about Data</a><ul>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html#organizing-your-data"><i class="fa fa-check"></i>Organizing your data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html#hands-on-plotting"><i class="fa fa-check"></i>Hands-on Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="current-topics-ii-technical-reports.html"><a href="current-topics-ii-technical-reports.html"><i class="fa fa-check"></i>Current Topics II: Technical Reports</a></li>
+<li class="chapter" data-level="" data-path="seminar-iii-applied-visualization.html"><a href="seminar-iii-applied-visualization.html"><i class="fa fa-check"></i>Seminar III: Applied Visualization</a><ul>
+<li class="chapter" data-level="" data-path="seminar-iii-applied-visualization.html"><a href="seminar-iii-applied-visualization.html#an-opportunity-in-agriculture"><i class="fa fa-check"></i>An Opportunity in Agriculture</a></li>
+<li class="chapter" data-level="" data-path="seminar-iii-applied-visualization.html"><a href="seminar-iii-applied-visualization.html#making-sense-of-data"><i class="fa fa-check"></i>Making Sense of Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-iv-quantitative-analysis.html"><a href="seminar-iv-quantitative-analysis.html"><i class="fa fa-check"></i>Seminar IV: Quantitative Analysis</a><ul>
+<li class="chapter" data-level="" data-path="seminar-iv-quantitative-analysis.html"><a href="seminar-iv-quantitative-analysis.html#t-test-and-regression"><i class="fa fa-check"></i>T-test and Regression</a></li>
+<li class="chapter" data-level="" data-path="seminar-iv-quantitative-analysis.html"><a href="seminar-iv-quantitative-analysis.html#hands-on-analysis"><i class="fa fa-check"></i>Hands-on Analysis</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioBuilder Virtual Bootcamp</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="current-topics-ii-technical-reports" class="section level1">
+<h1>Current Topics II: Technical Reports</h1>
+<p>Did you know you can use R to write a report that includes text, graphics, and your analyses all in one document? Let’s check out how R and Markdown can be useful to scientists like yourself.</p>
+<blockquote>
+<p>Please open RStudio Cloud and navigate to the materials for Current Topics 2. We will work through these activities together.</p>
+</blockquote>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="seminar-ii-data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seminar-iii-applied-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

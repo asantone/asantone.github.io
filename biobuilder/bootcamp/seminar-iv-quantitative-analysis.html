@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Seminar IV: Quantitative Analysis | BioBuilder Virtual Bootcamp</title>
+  <meta name="description" content="This is a collection of modules related to information design and visualization of biological data." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Seminar IV: Quantitative Analysis | BioBuilder Virtual Bootcamp" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Seminar IV: Quantitative Analysis | BioBuilder Virtual Bootcamp" />
+  
+  <meta name="twitter:description" content="This is a collection of modules related to information design and visualization of biological data." />
+  
+
+<meta name="author" content="Adam Santone, PhD" />
+
+
+<meta name="date" content="2020-07-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="seminar-iii-applied-visualization.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BioBuilder Virtual Bootcamp</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learner"><i class="fa fa-check"></i>Intended Learner</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#desired-educational-outcomes"><i class="fa fa-check"></i>Desired Educational Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#functional-educational-outcomes"><i class="fa fa-check"></i>Functional Educational Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-structure"><i class="fa fa-check"></i>About the Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#computational-tools"><i class="fa fa-check"></i>Computational Tools</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#topics"><i class="fa fa-check"></i>Topics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html"><i class="fa fa-check"></i>Seminar I: Principles of Design</a><ul>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#design-for-scientific-communication"><i class="fa fa-check"></i>Design for Scientific Communication</a><ul>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#marks"><i class="fa fa-check"></i>Marks</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#channels"><i class="fa fa-check"></i>Channels</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#color"><i class="fa fa-check"></i>Color</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#fonts"><i class="fa fa-check"></i>Fonts</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#the-story"><i class="fa fa-check"></i>The Story</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#tuftes-principles"><i class="fa fa-check"></i>Tufte’s Principles</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#real-world-example"><i class="fa fa-check"></i>Real-world example!</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#open-data"><i class="fa fa-check"></i>Open Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-i-principles-of-design.html"><a href="seminar-i-principles-of-design.html#introduction-to-r-and-rstudio-cloud"><i class="fa fa-check"></i>Introduction to R and RStudio (Cloud)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="current-topics-i-gallery.html"><a href="current-topics-i-gallery.html"><i class="fa fa-check"></i>Current Topics I: Gallery</a></li>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html"><i class="fa fa-check"></i>Seminar II: Data Visualization</a><ul>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html#thinking-about-data"><i class="fa fa-check"></i>Thinking about Data</a><ul>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html#organizing-your-data"><i class="fa fa-check"></i>Organizing your data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-ii-data-visualization.html"><a href="seminar-ii-data-visualization.html#hands-on-plotting"><i class="fa fa-check"></i>Hands-on Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="current-topics-ii-technical-reports.html"><a href="current-topics-ii-technical-reports.html"><i class="fa fa-check"></i>Current Topics II: Technical Reports</a></li>
+<li class="chapter" data-level="" data-path="seminar-iii-applied-visualization.html"><a href="seminar-iii-applied-visualization.html"><i class="fa fa-check"></i>Seminar III: Applied Visualization</a><ul>
+<li class="chapter" data-level="" data-path="seminar-iii-applied-visualization.html"><a href="seminar-iii-applied-visualization.html#an-opportunity-in-agriculture"><i class="fa fa-check"></i>An Opportunity in Agriculture</a></li>
+<li class="chapter" data-level="" data-path="seminar-iii-applied-visualization.html"><a href="seminar-iii-applied-visualization.html#making-sense-of-data"><i class="fa fa-check"></i>Making Sense of Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="seminar-iv-quantitative-analysis.html"><a href="seminar-iv-quantitative-analysis.html"><i class="fa fa-check"></i>Seminar IV: Quantitative Analysis</a><ul>
+<li class="chapter" data-level="" data-path="seminar-iv-quantitative-analysis.html"><a href="seminar-iv-quantitative-analysis.html#t-test-and-regression"><i class="fa fa-check"></i>T-test and Regression</a></li>
+<li class="chapter" data-level="" data-path="seminar-iv-quantitative-analysis.html"><a href="seminar-iv-quantitative-analysis.html#hands-on-analysis"><i class="fa fa-check"></i>Hands-on Analysis</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioBuilder Virtual Bootcamp</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="seminar-iv-quantitative-analysis" class="section level1">
+<h1>Seminar IV: Quantitative Analysis</h1>
+<div id="t-test-and-regression" class="section level2">
+<h2>T-test and Regression</h2>
+<dl>
+<dt>T-tests</dt>
+<dd>A t-test is used to determine whether or not there is a statistically significant difference in two means.
+</dd>
+</dl>
+<p>Certain <a href="https://researchbasics.education.uconn.edu/t-test/">assumptions</a> are made for a t-test to be valid:</p>
+<ul>
+<li>Random samples - were the data collected as random samples that represent the larger population?</li>
+<li>Values are normally distributed - there is no indication the values are skewed in any way. (this is testable)</li>
+<li>Scores have the same <a href="https://en.wikipedia.org/wiki/Variance#:~:text=In%20probability%20theory%20and%20statistics,out%20from%20their%20average%20value.">variance</a> – how far are the values spread from the average?</li>
+</ul>
+<p>Interpretation of results:</p>
+Do you think that the means of these two groups are different? Yes, they are. Do you think they are ‘significantly’ different? To know that, we will need to do a t-test using the original data.
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+group
+</th>
+<th style="text-align:right;">
+mean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Group A
+</td>
+<td style="text-align:right;">
+23.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Group B
+</td>
+<td style="text-align:right;">
+24.2
+</td>
+</tr>
+</tbody>
+</table>
+<p>Your main focus in the results of the t-test is the p-value which represents “the probability of observing a sample statistic that is at least as extreme as your sample statistic when you assume that the null hypothesis is true.” <a href="https://statisticsbyjim.com/hypothesis-testing/interpreting-p-values/">Source</a></p>
+<p>Take home: If you get a high p-value (over 0.05 usually), your results are consistent with the null hypothesis and you can say you ‘do not reject the null hypothesis.’ If, however, your results give you a low p-value (&lt;0.05 typically), you should reject the null hypothesis in favor of the alternative hypothesis. These results indicate that there is an effect and a statistically significant difference in your observations.</p>
+<p>So, p &gt; 0.05, there is no difference; p &lt; 0.05, there is a difference.</p>
+<p>Consider the means above in the table. If the p-value from a t-test was 0.037, what would you conclude?</p>
+<dl>
+<dt>Correlation</dt>
+<dd>This is a simple test to determine the extent to which two continuous variables are related. A value close to 1 suggests the relationship is approximately linear. A negative sign suggests that as one variable increases, the other decreases.
+</dd>
+</dl>
+<p><img src="synbio_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<dl>
+<dt>Linear Regression</dt>
+<dd>This analysis generates a model that approximates your observed data. Essentially, you get a formula that can be used to predict values. There are other non-linear types of regression we will not cover. Be careful when modeling non-linear data! Sometimes scientists ‘correct’ non-linear data into a linear form to be able to model the data trend more easily. This is especially common with biological data.
+</dd>
+</dl>
+<p>Interpretation of results:
+You will hear talk of independent and dependent variables. In linear regression, the p-value for each of your independent variables “tests the null hypothesis that the variable has no correlation with the dependent variable.” <a href="https://statisticsbyjim.com/regression/interpret-coefficients-p-values-regression/">Source</a></p>
+<p>Example: You and your classmates study for an exam but you all study for different lengths of time. You find out that students that study more tend to get better grades. In this case your formula might look like GRADES = HOURS*X + k where k is some intercept. The variable HOURS is the independent variable and grades is the dependent variable. Your null hypothesis would state that ‘hours’ has no relationship with ‘grades’. If you get a low p-value, you would reject this idea and claim that the length of study time DOES have a relationship with student grades. The p-value in a regression works similarly to that in other tests but be careful how you interpret results.</p>
+<p><img src="synbio_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<pre><code>## 
+## Call:
+## lm(formula = sy ~ x)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -41.563 -19.981   0.469  20.345  38.645 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  5.03007    4.76156   1.056    0.293    
+## x            1.97103    0.08227  23.959   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 24.1 on 99 degrees of freedom
+## Multiple R-squared:  0.8529, Adjusted R-squared:  0.8514 
+## F-statistic:   574 on 1 and 99 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>What is our null hypothesis for this situation again? It is that study hours has no relationship with grades. What is the p-value for the independent variable ‘x’ (the study hours)? Can we reject the null hypothesis? What then can we conclude? Does this conclusion match up with the visual results we see in the plot?</p>
+</div>
+<div id="hands-on-analysis" class="section level2">
+<h2>Hands-on Analysis</h2>
+<p>This activity is set up for you to complete a t-test to compare means of two groups and to determine a function that can be used to predict data points using existing data values.</p>
+<blockquote>
+<p>Please open RStudio Cloud and navigate to the materials for Seminar 4. We will work through these activities together.</p>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="seminar-iii-applied-visualization.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
