@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+<!-- Theme Made By www.w3schools.com - No Copyright -->
+<!-- Bootstrap Theme https://www.w3schools.com/bootstrap/trybs_theme_band_full.htm#contact -->
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #777;
+  }
+  h3, h4 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;      
+      font-size: 20px;
+      color: #111;
+  }
+  .container {
+      padding: 80px 120px;
+  }
+  .person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(50%); /* filter effect on all photos */ 
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+  }
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #fff;
+      color: #000;
+  }
+  .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  #googleMap {
+      width: 100%;
+      height: 400px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+  }  
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+  footer {
+      background-color: #2d2d30;
+      color: #f5f5f5;
+      padding: 32px;
+  }
+  footer a {
+      color: #f5f5f5;
+  }
+  footer a:hover {
+      color: #777;
+      text-decoration: none;
+  }  
+  .form-control {
+      border-radius: 0;
+  }
+  textarea {
+      resize: none;
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Adam Santone, PhD</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">Home</a></li>
+        <li><a href="#about">About</a></li>
+	<li><a href="#education">Education</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+	<li><a href="#outreach">Outreach</a></li>
+	<li><a href="#projects">Projects</a></li>
+	<li><a href="#publications">Publications</a></li>
+	<li><a href="#presentations">Presentations</a></li>
+	<li><a href="#apt">Training</a></li>  
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      	<li data-target="#myCarousel" data-slide-to="1"></li>
+      	<li data-target="#myCarousel" data-slide-to="2"></li>
+	<li data-target="#myCarousel" data-slide-to="3"></li>
+	<li data-target="#myCarousel" data-slide-to="4"></li>
+	<li data-target="#myCarousel" data-slide-to="5"></li>
+	<li data-target="#myCarousel" data-slide-to="6"></li>
+	<li data-target="#myCarousel" data-slide-to="7"></li>
+	<li data-target="#myCarousel" data-slide-to="8"></li>
+	<li data-target="#myCarousel" data-slide-to="9"></li>
+	<li data-target="#myCarousel" data-slide-to="10"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="../graphics/img/photography/palms_1600_900.jpg" alt="Florida Palm Trees" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Integrated STEAM and 3D Graphics Specialist</h3>
+          <p>Interdisciplinary R&D for Integration of Science, Technology, Engineering, Arts, Mathematics, & Education</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/video/prescribedFire_1600_900.jpg" alt="TallTimbers" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Perspectives Videos</h3>
+          <p>Producer/Director for hundreds of short-format STEM documentary-style videos</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/sim/densityMap_1600_900.jpg" alt="TallTimbers" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Simulation Interface Design</h3>
+          <p>Former Front-end Developer for Homeland Security Project Interfaces</p>
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="../graphics/img/ceramics/preBisque_1600_900.jpg" alt="Ceramics" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Ceramics Craftsman</h3>
+          <p>Over 15 years creating original stoneware ceramics</p>
+        </div>     
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/ceramics/pitchers_1600_900.jpg" alt="Ceramics" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Ceramics Craftsman</h3>
+          <p>Over 15 years creating original stoneware ceramics</p>
+        </div>     
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/photography/flowers_1600_900.jpg" alt="Nature" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Nature Photographer</h3>
+          <p>Interested in the often overlooked aspects of the outdoors</p>
+        </div>     
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/photography/jewelweed_1600_900.jpg" alt="Nature" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Nature Photographer</h3>
+          <p>Interested in the often overlooked aspects of the outdoors</p>
+        </div>     
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/photography/caterpillar_1600_900.jpg" alt="Nature" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Nature Photographer</h3>
+          <p>Interested in the often overlooked aspects of the outdoors</p>
+        </div>     
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/photography/palmScene_1600_900.jpg" alt="Nature" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Nature Photographer</h3>
+          <p>Interested in the often overlooked aspects of the outdoors</p>
+        </div>     
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/photography/equisetum_1600_900.jpg" alt="Nature" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Nature Photographer</h3>
+          <p>Interested in the often overlooked aspects of the outdoors</p>
+        </div>     
+      </div>
+
+      <div class="item">
+        <img src="../graphics/img/arduino/lampGuts_1600_900.jpg" alt="Arduino Lamp" width="1600" height="900">
+        <div class="carousel-caption">
+          <h3>Open Hardware/Software Hobbyist</h3>
+          <p>I made a stoneware ceramic lamp base and stuffed it with a temperature sensor and an RGB LED ring controlled by a guitar volume knob.</p>
+        </div>     
+      </div>
+</div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div id="about" class="container text-center">
+  <h3>About Me</h3>
+  <p><em>Science | Interactive 3D Graphics | Art | Gaming | Technology | Education</em></p>
+  <p><a href="https://www.linkedin.com/in/adamsantone/" target="_blank">LinkedIn</a> | <a href="https://www.researchgate.net/profile/Adam_Santone" target="_blank">ResearchGate</a></p>
+  <p style="text-align:left">
+	Interdisciplinary researcher/developer with experience in quantitative and qualitative research for interactive 3D computer graphics, human spatial ability, data visualization, virtual and augmented reality, serious games, 3D modeling and printing, documentary-style video production and direction, statistical analysis, and K-12 STEM outreach for teacher professional development. Experience connecting people at local, municipal, state, and federal levels to ensure project success. Extensive background in life sciences including plant physiology and molecular biology with associated laboratory techniques. Career interests include human-computer interactions and interfaces, applications of human spatial ability research to gaming and immersive educational experiences, data science and data-driven decision making, advanced data perception methodologies, technology integration for K-12 education, life science outreach, and public informal STEM education.
+  </p>
+<br/>
+<p><em>Personal Statement</em></p>	
+<p style="text-align:left">What sets me apart from most people I have had the opportunity to meet is my interdisciplinary background and interest in fusing STEAM disciplines for education. My lifelong interest in science took me into the molecular biology lab, my desire for creative expression took me into the ceramics lab, and my interest in technology and visual media took me into the computer lab. I think this breadth and depth of experience at the intersection of science, media, and technology shapes the way I approach problem solving and education in a positive, beneficial way that I wouldn't have had I not been involved in these different areas.</p> 
+
+<p style="text-align:left">What shifted my thinking from science to STEAM was exposure to coursework that I thought would be much better served through animation and visual experiences versus academic reporting. With the permission of a course professor, I submitted an assignment as a media file instead of the requested paper and received excellent feedback from fellow students and the instructor on finding a method for creatively addressing a tangled biochemical pathway we were to explore in class. In addition, I was encouraged to get involved in a national outreach program at NASA Kennedy Space Center and ended up working for a summer with undergraduate students in the Life Science Laboratory there. This further spurred my interest in outreach and education.</p>  
+
+<p style="text-align:left">In graduate school I worked as a teaching assistant for a variety of biology and botany courses while completing requirements for my PhD in technology. I had some opportunities to hone my instructional skills and was awarded a Fellowship from the National Science Foundation GK-12 program to bring my expertise to a middle school science and mathematics classroom. In that role I worked with a teacher to develop and publish a lesson on social networks and a simulated virus transmission among the student population.</p> 
+
+<p style="text-align:left">After school I worked in a role that provided myriad opportunities for growth and creative curriculum development. As part of that team I helped launch and develop K-12 STEAM programs related to video production, 3D-printing, and interactive tutorials. I was deeply involved in teacher professional development and led a series of workshops where I was able to implement novel instruction for teachers to learn to use statistical analysis software in their classrooms. My goals were to increase teacher effectiveness and to create highly-engaging media for both formal and informal educational experiences.</p> 
+
+<p style="text-align:left">One of my stronger skills is collaboration. I previously built a collaborative network from the ground up to enable our group to produce a large library of video content which relied on partnerships from local, municipal, state, and national partners. I'm confident in saying I played a very important role in establishing, fostering, and leveraging those connections to allow us to produce content to help teachers. What I gained from that experience is a deep interest in bridging fields across STEM disciplines and helping educators through those connections.</p> 
+
+<p style="text-align:left">My future interests lie in continuing to find opportunities at the crossroads of science, technology, education, and visual media to promote learning in traditional and non-traditional environments. I'm especially interested in the future of computational thinking in the classroom and applications for data science and visualization within K-12 schools.</p>
+	
+</div> <!--end about container-->
+
+<div id="education" class="container text-center">
+  <h3>Education</h3>
+<p style="text-align:left"><b>PhD, Technology</b> | Purdue University, College of Technology (now Purdue Polytechnic Institute)<br/>
+Worked with <a href="https://polytechnic.purdue.edu/profile/bertolig" target="_blank">Gary Bertoline</a> at the <a href="https://www.rcac.purdue.edu/envision/" target="_blank">Envision Center</a> for Data Perceptualization to explore human spatial perception and its relationship to three varieties of spatial ability test scores among video game players. I also created a visuospatial taxonomy to describe video games for research in that field. 
+</p>
+<p style="text-align:left"><b>MS, Technology</b> | Purdue University, College of Technology (now Purdue Polytechnic Institute)<br/>
+Worked with Gary Bertoline at the Envision Center for Data Perceptualization to explore the uses and roles of interactive virtual reality technologies for science education.
+</p>
+<p style="text-align:left"><b>MS, Horticulture</b> | Purdue University, Department of Horticulture and Landscape Architecture<br/>
+Worked with plant physiologist <a href="https://ag.purdue.edu/hla/Pages/profile.aspx?strAlias=cmitchel&intDirDeptID=16" target="_blank">Cary A. Mitchell</a> and plant molecular biologist <a href="https://ag.purdue.edu/hla/Pages/profile.aspx?strAlias=kraghoth&intDirDeptID=16" target="_blank">Kashchandra G. Raghothama</a> to explore the presence and characterization of touch-induced gene expression in soybean. 
+</p>
+<p style="text-align:left"><b>BS, Biology</b> | Henderson State University, Department of Biology. <br/>
+Focused my studies on plant biology. Worked with field biologist Daniel Marsh and molecular biologist <a href="http://www.hsu.edu/directory/people/professors/jamesengman.html" target="_blank">James Engman</a> on undergraduate research projects. 
+</p>
+<br/>
+
+<h3>Related Research</h3>
+<p style="text-align:left"><b>Biosensor-controlled Interactive Environments for Virtual Reality</b> | PhD coursework<br /> Collaborated on an interactive and immersive VR environment involving user biofeedback to control a helicopter in an outdoor scene. My colleague created the hardware interface while I created the models, environment, and interactions. A stretch sensor worn around the abdomen allowed the user to drive several inputs for environmental lighting, helicopter altitude, and on-craft lighting.</p>
+<p style="text-align:left"><b>Evaluation of Dead-reckoning Ability in Immersive Virtual Environments</b> | PhD coursework<br /> Collaborated on a simple VR testing environment and corresponding research program to evaluate users' ability to determine distances and positions in a flat scene with several levels of navigational cues. Users were scored on their ability to travel in a prescribed manner using temporary targets and to then return to the origin.</p>
+<p style="text-align:left"><b>Influence of Interactive Spatial Problem Solving on Spatial Test Performance</b> | PhD coursework<br /> Developed a pilot test to examine the ability of interactive spatial problem solving within game play to influence user scores on standardized spatial ability tests. Users completed game play in between pre-test and post-test evaluation.</p>
+<p style="text-align:left"><b>Visuospatial Characterization and Analysis of Spatial Abilities of Video Game Players</b> | PhD dissertation<br /> Addressed the taxonomy associated with games used in spatial ability research as well as the connection between game play experience and spatial test performance across groups of players by dominant genre. Self-reported participant data were used to classify games by inherent visuospatial characteristics. These characteristics were then used to cluster users with preferred gameplay. Clusters were then compared to determine differences, if any, across three measures of spatial ability.</p>
+
+</div><!--end education container-->
+
+<div id="reviews" class="container">
+  <h3 class="text-center">Sample Reviews</h3>  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Academia</a></li>
+    <li><a data-toggle="tab" href="#menu1">Creativity</a></li>
+    <li><a data-toggle="tab" href="#menu2">Outreach</a></li>
+    <li><a data-toggle="tab" href="#menu3">K-12 Curriculum</a></li>
+    <li><a data-toggle="tab" href="#menu4">Interdisciplinary</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      	<p>David Whittinghill, PhD | Purdue University</p>
+	<p>Adam and I studied together at Purdue University in the then-nascent field of virtual reality. Adam was consistently out in front on the vision side of things, able to conceptualize applications for our technology that were not only interesting but useful. He has that rare combination of energetic creativity coupled with rigorous technical skills. During our studies he was as comfortable working through difficult statistical proofs as he was sketching animated characters for a game. Further, his background in the life sciences provides him a researcher's eye for logic, critical thinking, and managing complex, interacting systems. He is also a tireless collaborator, willing to put in the hours required to make a difficult project successful. Lastly, he is friendly, funny, and personable - an outstanding team member who is a pleasure to work with.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+	<p>Bud Simpson | Independent Filmmaker</p>
+	<p>I had the pleasure of working with Adam for just over two years at Florida State University's Learning Systems Institute. During that time, Adam served as a producer for the documentary series Perspectives, and acted as content coordinator for over 60 short films ranging in topics from aeronautics, marine biology, chemistry, ecology in the Kenyan savannah, and even candy making to name a few. In total, Adam served as content lead for over 300 short films in the Perspectives series.</p>
+	<p>Adam took great pride in his work with the film series. Every project was met with an enthusiasm to create the best possible learning experience for the user. He also recognized the importance of production quality, and actively sought projects that pushed the creative limits of the production team.</p>      
+	<p>Adam's greatest strength is his ability to work with others. He carries an enthusiasm for his work that's contagious and improves the work (and attitudes) of those around him. I never had a disagreement with Adam during the two years that we worked closely together. He has a great way of making those around him feel valued and appreciated for their contribution to the effort. </p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      	<p>Audrey Trotman, PhD | NOAA</p>
+	<p>I have been impressed with his commitment to excellence. In every activity he undertook, Adam ensured he understood his role and how what he did fit into the goal of the program and in the organization. His work ethic was recognized and much admired by all of his colleagues.</p>
+	<p>I cannot write a reference for Adam without mention of one of his passions - personal development linked with commitment to successful outcomes for himself and those with whom he worked. He can be defined as one who is perpetually striving to improve performance. I have had many discussions with him and have found him well informed and current in his discipline/interests. He formulates his opinions based on information gathered from researching a topic. He is thorough.</p>
+	<p>It is my belief that you can be assured that he will be as highly committed, work well with others, will be engaged immediately in enabling any team to pursue continuing excellence for future advancement. I recommend Adam, without any reservation.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+	    <p>Ronald L. Carr, PhD | Florida State College, Jacksonville</p>
+	    <p>I have had the pleasure of knowing Adam for several years and was able to work with him while I was at FSU for over two years. His breadth and depth of knowledge are quite impressive and difficult to describe in a concise manner. However, I would say his curiosity and desire to learn are two of his greatest traits. Together, those add up to a perfect person to collaborate with in both research and design. He has many great ideas and the skills to do something with them. </p>
+	    <p>We collaborated on several projects for The Florida Center for Research in Science, Technology, Engineering and Mathematics (FCR–STEM), ranging from the design of curriculum for students to development and delivery of teacher professional development, research, publication, and adapting and merging instructional theories and models. The most notable, in my opinion, was our work on combining the engineering-mathematical problems known as Model-Eliciting Activities with the use and instruction of 3D-printed models; together, called 3D+MEAs. Adam led a 3D+MEA curriculum writing retreat with over 50 experts from math, science, and education. He also initiated a partnership with NASA's Kennedy Space Center that led to our design, development, implementation, and evaluation of week-long teacher professional development/curriculum design workshops at NASA for highly-qualified Florida K-12 teachers and NASA Education personnel. While most found the task of designing the 3D+MEA curriculum to be difficult (because it is), participants and staff reported the experience to be valuable and profoundly memorable. This project was a spin-off of another successful project that Adam solely created and developed for the use of 3D-printed manipulatives and accompanying curriculum for K-12 science classrooms.</p>
+	    <p>Beyond the 3D+MEA and 3D STEM Kits projects, Adam served as a subject matter expert and curriculum designer for interactive, online learning modules for K-12 students. As a member of the instructional design team, I recall our ID team always fighting to get to work on Adam's modules because he combined his expertise in science and graphic design with advanced instructional design skills to provide the best science content that we had.</p>
+    </div>
+    <div id="menu4" class="tab-pane fade">
+	    <p>Robert Lengacher | Florida State University</p>
+	    <p>It was an incredible honor to work with Adam for over 5 years at the Learning Systems Institute at Florida State University. He always impressed with a deep knowledge of biological and ecological systems, UX, human-computer interactions, and graphic design. If he wasn't already an expert on a subject, he always become one in short order.</p>
+	    <p>His creativity and broad skillset set him apart as a professional who always made novel and meaningful contributions to every discussion and project. Adam saw possibilities for integrating technologies and systems to improve our projects before most team members had fully grasped the scope of the original task. Because of our mission, he continuously enhanced his expertise in teacher professional development, instructional design, project management, video production, eLearning development, and the development of other learning tools for students and teachers. His growth in these areas impressed me most because he didn't have a background as a classroom teacher before joining our team.</p> 
+            <p>Adam's fantastic attitude made him a integral part of our office culture. He always focused on building positive relationships, personal growth, increasing efficiency in our processes, and improving the culture and functioning of our team. He accepted feedback graciously, applied it to all future products, and provided meaningful feedback to me as a colleague and to other members of the team. He was unflappable when faced with challenges and had an uncanny knack for turning them into opportunities.</p>
+    </div>  
+  </div>
+</div><!--end reviews container-->
+
+
+<div id="outreach" class="container">
+  <h3 class="text-center">Selected Outreach</h3> 
+
+<p style="text-align:left">May 2020 | <b>Invited Speaker</b> | Online / Global<br /> 
+Created video resources in collaboration with the <a href="https://fullsteam.mit.edu/" target="_blank">MIT Full STEAM Ahead</a> program and didgeridoo musician Ramin Yazdanpanah of the <a href="https://www.mftrio.com/" target="_blank">Maharajah Flamenco Trio</a>. Resources targeted students affected by COVID-19 mobility restrictions.
+</p>
+<p style="text-align:left">April 2020 | <b>Invited Speaker</b> | Online / Global<br /> 
+In collaboration with the <a href="https://jwel.mit.edu/" target="_blank">Abdul Latif Jameel World Education Lab (J-WEL)</a> <a href="https://jwel.mit.edu/j-wel-connections-2020" target="_blank"> <i>J-WEL Connections</i></a> Series, presented approaches for developing novel, innovative curriculum as part of the <a href="https://pk12.mit.edu/" target="_blank">MIT pk-12 Action Group</a> "Designing Learning Experiences" and "Unpacking Curriculum" programs. 
+</p>
+<p style="text-align:left">March 2020 | <b>Curriculum Developer and Presenter</b> | Online / USA<br /> 
+In collaboration with the <a href="https://biobuilder.org/" target="_blank">BioBuilder Educational Foundation</a>, developed and presented a high-school module on quantitative analysis for the "Bio-Engineering for a Changing World" program. 
+</p>
+<p style="text-align:left">February 2020 | <b>Curriculum Developer and Presenter</b> | Online / China<br /> 
+In collaboration with the <a href="https://biobuilder.org/" target="_blank">BioBuilder Educational Foundation</a>, developed and presented, to high-school students in China, a series of modules on quantitative analysis for experimental data with a focus on molecular biology. 
+</p>	
+<p style="text-align:left">Dec 2019 | <b>Presenter</b> | SaturPlay!, New York, NY<br /> 
+In collaboration with the MIT pK-12 group and the MIT Club of New York, presented a middle-school lesson fusing climate data investigation, music performance, and didgeridoo construction. 
+</p>	
+<p style="text-align:left">Sep-Nov 2019 | <b>Facilitator</b> | Data Analysis for Social Scientists (14.310x), Cambridge, MA<br /> 
+Collaboratively developed course materials and facilitated online sessions with students. This course fulfills some requirements for the Program in Data Science offered through the Universidad Tecnólogica (UTEC, Uruguay) which "uses the MITx MicroMasters Program in Statistics and Data Science to promote top talent from Latin America with skills in data science, statistics, machine learning and entrepreneurship."
+</p>
+<p style="text-align:left">May-Sep 2019 | <b>Facilitator</b> | Introduction to Probability - The Science of Uncertainty and Data (6.431x), Cambridge, MA<br /> 
+Collaboratively developed course materials and facilitated online sessions with students. This course fulfills some requirements for the Program in Data Science offered through the Universidad Tecnólogica (UTEC, Uruguay) which "uses the MITx MicroMasters Program in Statistics and Data Science to promote top talent from Latin America with skills in data science, statistics, machine learning and entrepreneurship."
+</p>
+<p style="text-align:left">May-Jul 2019 | <b>Module Developer</b> | MIT pK-12 Action Group STEAM Camp @ CIS (Hong Kong), Cambridge, MA<br /> 
+Collaboratively developed a middle-school lesson fusing climate data investigation, music performance, and musical instrument construction (didgeridoo and paixiao). 
+</p>
+<p style="text-align:left">Feb 2019 | <b>Program Lead</b> | JV InvenTeams Winter Break Program, Cambridge, MA<br /> 
+Collaboratively prepared and implemented invention education programming for middle school students. 
+</p>	
+<p style="text-align:left">Dec 2018 | <b>Invited Presenter</b> | The Morse Elementary School, Cambridge, MA<br /> 
+Prepared and implemented a presentation for a group of after-school students in grades 2-5. This presentation was part of Computer Science Education Week and focused on input, output, and sensors to convert among various sensory inputs. Students held discussions and created sketches to explain their devices.
+</p>
+<p style="text-align:left">Oct 2018 | <b>Invited Presenter</b> | City of Cambridge STEAM It Up!, Cambridge, MA<br /> 
+Table-top presentation to engage young students to create simple circuits. 
+</p>
+<p style="text-align:left">Jun 2018 | <b>Invited Presenter</b> | Cambridge Public Schools Computer Science Playground, Cambridge, MA<br /> 
+Table-top presentations to engage young students to create simple circuits. Attended all five sessions in middle schools around Cambridge.
+</p>
+<p style="text-align:left">May 2018 | <b>Invited Judge</b> | Massachusetts State Science & Engineering Fair, Cambridge, MA<br /> 
+Assessed high school student science fair projects in the Life Sciences category.
+</p>
+<p style="text-align:left">Apr 2018 | <b>Program Lead</b> | JV InvenTeams Spring Break Program, Cambridge, MA<br /> 
+Collaboratively prepared and implemented invention education programming for middle school students. 
+</p>	
+<p style="text-align:left">2008 | <b>Fellow, Graduate Students in K-12 Education (GK-12)</b> | National Science Foundation<br /> 
+Awarded Graduate Fellowship for "The Indiana Interdisciplinary GK-12: Bringing Authentic Problem Solving in STEM to Rural Middle Schools." Prepared and implemented lesson plans for 8th grade students with focus on data visualization and scientific critical thinking skills. My lesson on discovering and visualizing a social network from student-generated simulated virus transmission data was published in a national journal for middle school teachers.<br />
+<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=0538643" target="_blank">NSF Award (#0538643) Details</a>	
+</p>
+<p style="text-align:left">2004 | <b>Project Counselor, NASA Spaceflight and Life Sciences Training Program (SLSTP)</b> | Tuskeegee University<br /> 
+Assisted with management of a six-week undergraduate research experience at Kennedy Space Center (NASA-KSC) in Cape Canaveral, Florida. Led and provided mentoring to a group of undergraduate students interested in life sciences research in the context of space exploration.
+<a href="https://www.jstor.org/stable/44737957" target="_blank">Trotman, et. al.: The Spaceflight and Life Sciences Training Program – Developing Human Capital for Space Exploration through Systematic Scholarship</a>
+</p>
+</div> <!--end outreach container-->
+
+
+
+<div id="projects" class="container">
+  <h3 class="text-center">Projects</h3> 
+
+<p style="text-align:left"><b>R Package 'rsbp' </b> |  Published on CRAN <br />
+The <a href="https://cran.r-project.org/web/packages/rsbp/index.html" target="_blank">rsbp</a> package allows for easy access to information on biological parts from the <a href="https://igem.org/Main_Page" target="_blank">iGEM</a> <a href="http://parts.igem.org/Main_Page" target="_blank">Registry of Standard Biological Parts</a>. R users can call the function getPart("part name") to retrieve basic part information including DNA sequence, function, and authorship. <a href="https://github.com/asantone/rsbp" target="_blank">Demo R code.</a>
+</p>	
+	
+<p style="text-align:left"><b>Project Design, Computation, and Visualization for Bioengineering </b> | Collaboration with the BioBuilder Educational Foundation <br />
+The <a href="https://asantone.github.io/biobuilder/bootcamp/" target="_blank">Computational Thinking portion of the BioBuilder Virtual Bootcamp</a> program was designed to introduce high school students to data analysis, data visualization, and computational thinking in a bioengineering context while learning about real-world scientific analysis tools.
+</p>	
+	
+<p style="text-align:left"><b>Design Philosophy for Scientific Communication</b> | Collaboration with the BioBuilder Educational Foundation <br />
+The <a href="https://asantone.github.io/biobuilder/bcds/index.html" target="_blank">Design Philosophy for Scientific Communication</a> presentation was developed to introduce students to graphics for scientific communication to help them improve their storytelling skills.
+</p>	
+	
+<p style="text-align:left"><b>COVID-19 Interactive Visualization</b> | Independent Data-driven Quantitative Analysis <br />
+The interactive <a href="https://sandbox.shinyapps.io/covid19/" target="_blank">COVID-19 Visualization</a> displays confirmed cases and deaths in the United States.
+</p>	
+
+<p style="text-align:left"><b>Quantitative Analysis and
+Visualization of Experimental Data</b> | Collaboration with the BioBuilder Educational Foundation <br />
+The <a href="https://asantone.github.io/biobuilder/lm/modules/" target="_blank">Quantitative Analysis and
+Visualization of Experimental Data</a> presentation was developed to introduce a global audience of high school students to principles of quantitative analysis, design considerations, and scientific information with a special focus on COVID-19 data.  <br /><br />
+	
+Interactive R Coding Practice:	
+<ul>
+	<li><a href="https://asantone.github.io/biobuilder/lm/modules/interactivePlot.html" target="_blank">Line Plot</a></li>
+	<li><a href="https://asantone.github.io/biobuilder/lm/modules/interactivePlot2.html" target="_blank">Bar Chart</a></li>
+	<li><a href="https://asantone.github.io/biobuilder/lm/modules/interactivePlot3.html" target="_blank">Scatter Plot</a></li>
+	<li><a href="https://asantone.github.io/biobuilder/lm/modules/interactivePlot4.html" target="_blank">Box Plot</a></li>
+</ul>
+	
+	
+</p>	
+
+<p style="text-align:left"><b>Population Size with MLE</b> | Independent Data Science Exercise <br />
+<a href="https://rpubs.com/santone/cattle" target="_blank">Population Size with MLE</a> presents an R-based quantitative analysis to estimate population size via maximum likelihood estimate using a mark-recapture study methodology.
+</p>	
+	
+	
+<p style="text-align:left"><b>Fountain Pen Ink Analysis & Visualization</b> | Independent Data-driven Quantitative Analysis <br />
+<a href="https://asantone.github.io/ink/" target="_blank">The Goulet Pen Company Ink Analysis</a> represents a quantitative analysis of over 500 fountain pen inks using over 15,000 user-provided reviews from <a href="https://www.gouletpens.com/" target="_blank">The Goulet Pen Company</a>.
+</p>	
+	
+<p style="text-align:left"><b>Modules for 14.310x</b> | Data Analysis for Social Scientists<br /> 
+<ul>
+  <li><a href="notebook01.html" target="_blank">Module 01: Part 1</a>: Bar Charts & Leaflet Maps</li>
+  <li><a href="notebook02.html" target="_blank">Module 01: Part 2</a>: Scatterplots</li>
+  <li><a href="session02.html" target="_blank">Module 02</a>: Fundamentals</li>
+  <li><a href="module03.html" target="_blank">Module 03</a>: Histograms, Kernel Density Estimates, & Joint Density Plots</li>
+  <li><a href="module04.html" target="_blank">Module 04</a>: Markov Inequality Simulation</li>
+  <li><a href="module05.html" target="_blank">Module 05</a>: Distributions and qnorm()</li>
+  <li><a href="module06.html" target="_blank">Module 06</a>: Maximum (Log) Likelihood Estimation</li>
+  <li><a href="module07.html" target="_blank">Module 07</a>: Nonparametric Regression</li>
+  <li><a href="module08.html" target="_blank">Module 08</a>: Linear Regression</li>
+  <li><a href="module09.html" target="_blank">Module 09</a>: Fuzzy Regression Discontinuity Design</li>
+  <li><a href="module10.html" target="_blank">Module 10</a>: Design Principles of Data Visualization</li>
+  <li><a href="module11.html" target="_blank">Module 11</a>: Random Forest Regression & Sentiment Analysis</li>
+  <li><a href="module12b.html" target="_blank">Module 12</a>: Review: Sharp Regression Discontinuity & Nonparametric Regression</li>
+</ul>	
+</p>	
+	
+<p style="text-align:left"><b>Didgeridata</b> | MIT STEAM Camp 2019<br /> 
+<a href="https://asantone.github.io/didgeridata/" target="_blank">Didgeridata</a> is a playful lesson asking students to conduct an investigation of climate data trends, construct custom didgeridoo and paixiao (pan flute) musical instruments, and perform a data-inspired musical piece. Students gain a more sophisticated understanding of their world from a scientific research perspective, confidence in their ability to use hand tools, and experience in creative interdisciplinary performance. This lesson and all open-source materials were created for the MIT pK12 STEAM Camp in partnership with the Chinese International School in Hong Kong.<br />
+</p>
+	
+<p style="text-align:left"><b>JV InvenTeams Reporting</b> | Internal Reports Generation<br /> 
+Used R Markdown to produce internal reports for the Lemelson-MIT JV InvenTeams Program. Reports included metrics such as unique and total downloads over time and analyses of self-reported information provided by users through a web form. This task was undertaken to bring clarity, focus, and repeatability to prior analysis and reporting methods.<br />
+</p>	
+	
+<p style="text-align:left"><b>Student Inventor Search</b> | USA<br /> 
+Used Python, HTML, and CSS in a collaborative project with a computer science intern. Together, we devised an internal-use tool to gather data about student inventors and format the results into a highly legible web interface for analysis. This tool was requested to provide assistance for research tasks.<br />
+</p>
+	
+<p style="text-align:left"><b>Area Jobs Analysis</b> | Cambridge, MA<br /> 
+Used Python, R, and Excel in a collaborative project with a computer science intern. Together, we devised an internal-use tool to gather and analyze data about locally-available jobs. This tool was requested to provide insight into area needs in the Tech jobs sector.<br />
+</p>
+	
+<p style="text-align:left"><b>Maker Spaces Map</b> | Boston Metro Area<br /> 
+<a href="../graphics/img/dataScience/msMap.png" target="_blank">This map</a> highlights the locations of maker spaces in the Boston area. A second tab on the dashboard provides data on each space. Information about each space and locational data are pulled from a single .csv file. The map was created to examine the volume, density, and location of these spaces to provide insight into programmatic decisions.<br />
+</p>	
+
+<p style="text-align:left"><b>Demographics Map</b> | Middlesex County, MA<br /> 
+<a href="../graphics/img/dataScience/cambridgeDemographics.png" target="_blank">This map</a> highlights demographics of interest in Middlesex County, Massachusetts. Data source: American Community Survey. A tool to provide information about the communities in Middlesex County was requested to aid in making decisions regarding organizational program offerings.<br />
+</p>
+
+<p style="text-align:left"><b>Prize Map</b> | Lemelson-MIT Student Prize Winners<br /> 
+<a href="../graphics/img/dataScience/studentPrizeLoc.png" target="_blank">This map</a> indicates the locations of past Lemelson-MIT Student Prize winners. A map of this type is used in a primarily external capacity for communication with stakeholders.<br />
+</p>
+	
+<p style="text-align:left"><b>InvenTeams Map</b> | Lemelson-MIT InvenTeams<br /> 
+<a href="../graphics/img/dataScience/itLoc2019.png" target="_blank">This map</a> shows the locations of past Lemelson-MIT InvenTeams. Maps of team locations are used externally for communication and marketing purposes.<br />
+</p>
+	
+<p style="text-align:left"><b>LemelsonX Growth</b> | 2018 Membership<br /> 
+<a href="../graphics/img/dataScience/lemelsonx2018.png" target="_blank">This plot</a> depicts growth in membership of the LemelsonX community over 2018. This information would be used internally and externally to better understand trends in membership in response to promotional events.<br />
+</p>	
+		
+<p style="text-align:left"><b>Vibram Global Locations</b> | Independent Data-driven Design Study<br /> 
+Used html, d3, javascript, and vector graphics to create a new vision for an informative, interactive map design highlighting locations of Vibram resources globally. Improvements were implemented to update inaccurate locational data, weak user engagement, and overall graphic style.<br />
+<a href="https://asantone.github.io/carrarmato/" target="_blank">Vibram Global Locations</a>
+</p>	
+	
+<p style="text-align:left"><b>Pet Statistics</b> | Data-driven website for Data Visualization course<br /> 
+Team Leader, Student team project. Used html, d3, javascript, and vector graphics to create visualizations and content for an interactive website designed to inform users about pet statistics from Seattle. Implementations include a daily registration count calendar, an interactive bar chart of top-ranked pet names, and a Leaflet-based map with custom marker icons for map pins. <br />
+<a href="https://asantone.github.io/BAMJ/" target="_blank">Pet Statistics</a>
+</p>	
+	
+<p style="text-align:left"><b>Statistics Analysis through R Code</b> | Ecology Teacher Professional Development<br /> 
+Created instructional statistical analysis code modules for Middle School and High School science teachers to help improve science methodology and educational technology skills. Modules were written in R, a popular statistical analysis language, and were originally posted on (now obsolete) R-fiddle.com, an online editor which allowed for collaborative development and sharing. <br />
+<a href="https://asantone.github.io/eco/" target="_blank">Statistical Analysis Code Modules</a>
+</p>
+	
+<p style="text-align:left"><b>CPALMS 3D & MyStemKits</b> | 3D Printing Resources for K-12 Education<br /> 
+Engineer, Concept Artist, Science Advisor, and Curriculum Developer for creating novel and innovative 3D models to be used in K-12 Classrooms. The initial CPALMS 3D program eventually emerged as MyStemKits.com, with whom our FCR-STEM curriculum team partnered to create new products.<br />
+<a href="https://www.mystemkits.com/" target="_blank">MyStemKits</a>
+</p>		
+	
+<p style="text-align:left"><b>CPALMS Perspectives</b> | STEAM Videos for Teacher Professional Development<br /> 
+Producer/Director for over 400 five-minute documentary-style videos about math and science. Created a network of contacts among education enthusiasts across Florida. <br />
+<a href="http://www.cpalms.org/Public/ResourceCollectioncategory/Preview/42" target="_blank">CPALMS Perspectives</a>
+</p>	
+	
+<p style="text-align:left"><b>Smart Gardening: An Introduction to Raised-Beds, Soils, Plant
+Nutrition, and Composting</b> | Self-published Gardening Information<br /> 
+Created a resource on raised-bed gardening for beginning and experienced enthusiasts.<br />
+<a href="RBG_672011.pdf" target="_blank">Smart Gardening [.pdf]</a>
+</p>	
+	
+<p style="text-align:left"><b>Soybean Growth Response to Touch</b> | Horticulture Research<br /> 
+This video was recorded in a vibration-free darkroom illuminated by special green lighting designed to not stimulate growth. 
+	A watch was placed to aid in time measurement. As the seedlings emerge, they lengthen through expansion of cells in the 
+	hypocotyl elongation zone at a similar rate. At the time of touch, 
+	noted by the removal on an extra seedling in the front, one seedling 
+	(this one got poked) slows to a halt, while the other continues to elongate. 
+	Bonus: you can see the seedlings exhibiting nutation (bending back and forth) 
+	as they elongate in this time-lapse video. <br />
+<video src="../graphics/mov/soy1.mp4" width="400" height="300" controls preload></video> <br />
+<a href="../graphics/mov/soy1.MOV" target="_blank">Download Video</a>
+
+</p>
+	
+</div> <!--end outreach container-->
+
+<div id="publications" class="container text-center">
+  <h3>Publications</h3>
+	<p style="text-align:left">Dyehouse, M., <b>Santone, A. L.</b>, Kisa, Z., Carr, R. L., and Razzouk, R. (2018). A Novel 3D+MEA Approach to Authentic Engineering Education for Teacher Professional Development: Design Principles and Outcomes. Journal of Pre-College Engineering Education Research (J-PEER): Vol. 9: Iss. 1, Article 4. <a href="https://doi.org/10.7771/2157-9288.1168" target="_blank">https://doi.org/10.7771/2157-9288.1168</a></p>
+	<p style="text-align:left">Razzouk, R., Dyehouse, M., <b>Santone, A.</b>, and Carr, R. L. (2014). <a href="https://www.jstor.org/stable/26490698" target="_blank">Plants versus Pollutants: Bringing engineering design practices and real-world context to the science classroom</a>. The Science Teacher, 81(9), 43-49.</p>
+	<p style="text-align:left"><b>Santone, A. L.</b> (2009). <a href="https://docs.lib.purdue.edu/dissertations/AAI3379761/" target="_blank">Visuospatial characterization and analysis of spatial abilities of video game players</a> (Doctoral Dissertation). Purdue University, West Lafayette, IN.</p>
+	<p style="text-align:left">Ertmer, P. A., Stepich, D., Flanagan, S., Kocaman-Karoglu, A., Reiner, C., Reyes, L., <b>Santone, A.</b>, and Ushigusa, S. (2009). Impact of Guidance on the Problem-Solving Efforts of Instructional Design Novices. Performance Improvement Quarterly, 21(4), 117-132. <a href="https://doi.org/10.1002/piq.20041" target=_blank">https://doi.org/10.1002/piq.20041</a></p>
+	<p style="text-align:left"><b>Santone, A. L.</b> and McCutcheon, J. A. (2008). <a href="https://learningcenter.nsta.org/resource/?id=10.2505/4/ss08_031_09_55" target="_blank">Node graph visualizations for eighth-grade mathematics students using a virus transmission simulation</a>. Science Scope, 31(9), 55-59.</p>
+	<p style="text-align:left">Chaturvedi, A., Hsieh, C., Bhatt, T., and <b>Santone, A.</b> (2007). <a href="https://link.springer.com/chapter/10.1007/978-3-540-72584-8_145" target="_blank">Bio-terror Preparedness Exercise in a Mixed Reality Environment</a>. International Conference on Computational Science, 1, 1106-1113.</p>
+	<p style="text-align:left"><b>Santone, A. L.</b> (2003). Molecular and structural changes in the hypocotyl elongation zone of mechano-stimulated dark-grown (<i>Glycine max</i> L. Merr. cv. Century 84) seedlings (Master's Thesis). Purdue University, West Lafayette, IN.</p>
+</div><!--end Publications container-->
+
+<div id="press" class="container text-center">
+  <h3>Press</h3>
+	<p style="text-align:left">RStudio.com, (2021). <a href="https://rstudio.com/about/customer-stories/biobuilder/" target="_blank">Customer Stories: BioBuilder Brings Professional Research Tools Like RStudio to High School Bioengineers.</a> </p>	
+	<p style="text-align:left">MIT Full STEAM Ahead, (2020). <a href="https://www.youtube.com/watch?v=nxgwpNkSqsY" target="_blank">Intro to Didgeridoo with Ramin Yazdanpanah and Adam Santone</a> </p>
+	<p style="text-align:left">Crowe, J., (2020). <a href="https://www.jonathancrowe.net/2020/06/an-analysis-of-fountain-pen-ink-reviews/" target="_blank">An Analysis of Fountain Pen Ink Reviews.</a></p>
+	<p style="text-align:left">Prosser, M., (2015). <a href="https://singularityhub.com/2015/08/05/making-ideas-tangible-how-3d-printers-will-transform-the-classroom/" target="_blank">Making Ideas Tangible: How 3D Printers Will Transform the Classroom.</a> Singularity Hub.</p>		
+	<p style="text-align:left">Walsh, L., Eglin Air Force Base Public Affairs, (2014). <a href="https://www.eglin.af.mil/News/Article/814271/af-helps-state-university-educate-teachers/" target="_blank">AF helps state university educate teachers.</a></p>
+	<p style="text-align:left">Schu, P., Purdue University, (2004). <a href="https://www.purdueexponent.org/campus/article_e968c07f-5f5c-506f-ad5f-0136285ba8c4.html" target="_blank">Virtual learning links Midwest classrooms.</a></p>
+</div><!--end Publications container-->	
+		
+<div id="graphics" class="container text-center">
+  <h3>Miscellaneous Graphics Credits</h3>
+	<p style="text-align:left">Cell wall microarray, Fig. 1. <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.90.4879&rep=rep1&type=pdf" target="_blank">Yong W, Link B, O'Malley R, Tewari J, Hunter CT, Lu CA, Li X, Bleecker AB, Koch KE, McCann MC, McCarty DR, Patterson SE, Reiter WD, Staiger C, Thomas SR, Vermerris W, Carpita NC. Genomics of plant cell wall biogenesis. Planta. 2005 Aug; 221(6):747-51. doi: 10.1007/s00425-005-1563-z. Epub 2005 Jun 25. PMID: 15981004.</a></p>
+	<p style="text-align:left">Logo. <a href="https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1032&context=alsreports" target="_blank">Advanced Life Support - NASA Specialized Center of Research and Training, Purdue University.</a></p>
+</div><!--end Publications container-->			
+
+<div id="presentations" class="container text-center">
+  <h3>Presentations</h3>
+
+<p style="text-align:left">Sep 2020 | Carolina Biological; Online<br/><a href="https://www.carolina.com/knowledge/2020/09/23/carolina-launches-biotech-careers-virtual-event" target="_blank">Biotech Careers Virtual Event</a> </p>		
+<p style="text-align:left">Jan 2019 | Citizen Schools Teacher Professional Development; Boston, MA<br/> Developing Creative & Inventive Mindsets & Skills </p>
+<p style="text-align:left">Aug 2018 | Lemelson-MIT Teacher Professional Development; Cambridge, MA<br/> Invention Education Workshop </p>
+<p style="text-align:left">Dec 2015 | FCR-STEM Annual Conference; Orlando, FL<br/> Perspectives Video Resources for Ecology Topics</p>
+<p style="text-align:left">Oct 2015 | Florida Association of Science Teachers (FAST); Tallahassee, FL<br/> CPALMS 3D, CPALMS Sensors, CPALMS Perspectives</p>
+<p style="text-align:left">May 2015 | Florida Association of Science Supervisors; Orlando, FL<br/> CPALMS 3D overview presentation</p>
+<p style="text-align:left">June 2014 | Science Math Master(SM2); Tampa, FL<br/> Table presentation: CPALMS general program and CPALMS 3D</p>
+<p style="text-align:left">May 2014 | FCR-STEM Annual Conference; Fort Lauderdale, FL<br/> CPALMS Perspectives, CPALMS Code: Real-time simulations, Maps, Graphs, and More!, CPALMS 3D</p>
+<p style="text-align:left">May 2014 | Florida Association of Science Supervisors; Orlando, FL<br/> CPALMS Perspectives, CPALMS Code, CPALMS 3D</p>
+<p style="text-align:left">April 2014 | National Science Teacher Association 2014; Boston, MA<br/> CPALMS Perspectives: STEM Video Resources for Teacher Professional Development Interdisciplinary Model-eliciting Activities Bring Design, Engineering Practices, and RealWorld Context to the Science Classroom</p>
+<p style="text-align:left">Feb 2014 | Florida State University Stacking Layers Symposium; Tallahassee, FL<br/> Floor Presentation, 3D Printing Curriculum for K-12 STEM Education Panel Discussion Presenter, 3D Printing in K-12 STEM Education</p>
+<p style="text-align:left">Jan 2014 | Florida Educational Technology Conference(FETC); Orlando, FL<br/> CPALMS Perspectives and CPALMS 3D, conference floor booth</p>
+<p style="text-align:left">Oct 2013 | Florida Association of Science Teachers (FAST); Miami, FL<br/> CPALMS Creative Computing: Social Network Data and Visualization CPALMS Perspectives: STEM Videos to Bring the World to your Classroom</p>
+<p style="text-align:left">Oct 2013 | Florida Council of Teachers of Mathematics (FCTM); Orlando, FL<br/> CPALMS Perspectives: Experts, Teachers, Professionals, & Enthusiasts supporting STEM teacher professional development through standards-based video resources</p>
+<p style="text-align:left">June 2013 | Florida Alliance for Arts Education (FAAE), Invited co-presenter with FL Division of Cultural Affairs; Tampa, FL<br/> Funding: Opportunity, Quality and Practice (CPALMS Perspectives as a 'best practice') Teaching Artists Certifications (CPALMS Perspectives for CCSS integration)</p>
+<p style="text-align:left">Dec 2012 | FCR-STEM, Annual Conference; St. Petersburg, FL<br/> Unpacking & Mapping the Common Core State Standards Using CPALMS Tools CPALMS Perspectives: Standards-based Video Resources Model-Eliciting Activities: Applying Engineering Principles to Science and Mathematics</p>
+<p style="text-align:left">Oct 2012 | Florida Association of Science Teachers (FAST); St. Pete Beach, FL<br/> CPALMS Perspectives: Standards-Based Video Resources Modeling: Applying Science to Real-World Problem Solving</p>
+<p style="text-align:left">Oct 2012 | Florida Council of Teachers of Mathematics (FCTM); Orlando, FL<br/> CPALMS Perspectives Video Project: Experts, Teachers, and Professionals Unpacking & Mapping the Common Core State Standards using CPALMS Tools</p>
+<p style="text-align:left">Feb 2010 | AAAS and NSF GK-12 Special Focus Meeting; San Diego, CA<br/> Data Visualization for Middle School Students: Lesson Concepts and Challenges from the NSF GK-12 Program</p>
+<p style="text-align:left">Feb 2008 | NSF GK-12 Annual Conference; Washington, D.C.<br/> Effects of 3D Action Video Gameplay on Mental Rotation Ability and Visuospatial Chemistry Problem Solving Skill</p>
+<p style="text-align:left">Feb 2008 | Hoosier Association of Science Teachers; Indianapolis, IN<br/> Data Visualization for 8th Grade Mathematics & Science Enhancing Your Curriculum Through the Use of Visiting Scientists</p>
+<p style="text-align:left">Nov 2002 | American Society for Gravitational & Space Biology; Cape Canaveral, FL<br/> Touch-induced gene expression in Soybean</p>
+<p style="text-align:left">Nov 2001 | American Society for Gravitational & Space Biology; Alexandria, VA<br/> Molecular characterization of the thigmic stress response in soybean</p>
+
+
+</div><!--end Presentations container-->
+
+		
+<div id="projects" class="container">
+  <h3 class="text-center">Fun Stuff</h3>
+  <p style="text-align:left">
+	These are single-mic tracks recorded by 'The Scree' at band practice for fun sometime around 2007-2009. Anne Minus One and Linear Aggression are original works while 
+	  The Lung and Under My Thumb are covers from Dinosaur Jr. and The Rolling Stones, respectively.  Band members: Alex Lipka, Dave Whittinghill, Adam Santone. 
+  </p><br />
+  <p style="text-align:left"><a href="../theScree/raw_anneMinusOne.mp3" target="_blank">Anne Minus One [.mp3]</a> | Drums: DW; Guitar: AS; Bass & Vocals: AL</p>
+  <p style="text-align:left"><a href="../theScree/raw_linearAggression.mp3" target="_blank">Linear Aggression [.mp3]</a> | Drums: DW; Guitar: AS; Bass & Vocals: AL</p>
+  <p style="text-align:left"><a href="../theScree/raw_theLung.mp3" target="_blank">The Lung [.mp3]</a> | Drums & Vocals: DW; Guitar: AL; Bass: AS</p>
+  <p style="text-align:left"><a href="../theScree/raw_underMyThumb.mp3" target="_blank">Under My Thumb [.mp3]</a> | Drums: DW; Guitar & Vocals: AL; Bass: AS</p>	  
+  	
+</div>		
+		
+		
+		
+<div id="apt" class="container">
+  <h3>Available Professional Training</h3>
+		
+For custom professional training, professional development, or consulting in quantitative analysis, data visualization, data science, R programming, or K-12 STEAM topics, please contact me at adam /dot santone /at gmail /dot com. 
+		I have broad experience in middle/high-school teacher professional development, K-12 curriculum development, media production, R programming, and instruction of statistical analysis methods for adult learners. 		
+		
+</div><!--end APT container-->
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+
+</body>
+</html>
