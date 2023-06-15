@@ -1,0 +1,104 @@
+---
+title: "Portfolio"
+---
+
+### Technical 
+
+[Fountain Pen Ink Analysis & Visualization ](https://asantone.github.io/ink/)
+
+> The Goulet Pen Company Ink Analysis represents a quantitative analysis of over 500 fountain pen inks using over 15,000 user-provided reviews from The Goulet Pen Company.
+
+[R Package 'rsbp'](https://cran.r-project.org/web/packages/rsbp/index.html)
+
+> The rsbp package allows for easy access to information on biological parts from the iGEM Registry of Standard Biological Parts. R users can call the function getPart("part name") to retrieve basic part information including DNA sequence, function, and authorship. 
+
+### BioBuilder 
+
+The following projects were developed for outreach programs with the BioBuilder Educational Foundation (Cambridge, MA). 
+
+[Project Design, Computation, and Visualization for Bioengineering](https://asantone.github.io/biobuilder/bootcamp/)
+
+> The Computational Thinking portion of the BioBuilder Virtual Bootcamp program was designed to introduce high school students to data analysis, data visualization, and computational thinking in a bioengineering context while learning about real-world scientific analysis tools.
+
+[Design Philosophy for Scientific Communication](https://asantone.github.io/biobuilder/bcds/index.html)
+
+> The Design Philosophy for Scientific Communication presentation was developed to introduce students to graphics for scientific communication to help them improve their storytelling skills.
+
+[Quantitative Analysis and Visualization of Experimental Data](https://asantone.github.io/biobuilder/lm/modules/)
+
+> The Quantitative Analysis and Visualization of Experimental Data presentation was developed to introduce a global audience of high school students to principles of quantitative analysis, design considerations, and scientific information with a special focus on COVID-19 data.
+
+Interactive R Coding Practice:
+
+* [Line Plot](https://asantone.github.io/biobuilder/lm/modules/interactivePlot.html)
+* [Bar Chart](https://asantone.github.io/biobuilder/lm/modules/interactivePlot2.html)
+* [Scatter Plot](https://asantone.github.io/biobuilder/lm/modules/interactivePlot3.html)
+* [Box Plot](https://asantone.github.io/biobuilder/lm/modules/interactivePlot4.html)
+
+[Population Size with MLE](https://rpubs.com/santone/cattle)
+
+> Population Size with MLE presents an R-based quantitative analysis to estimate population size via maximum likelihood estimate using a mark-recapture study methodology.
+
+### MIT 
+
+Modules for 14.310x | Data Analysis for Social Scientists
+
+* [Module 01: Part 1](https://asantone.github.io/notebook01.html): Bar Charts & Leaflet Maps
+* [Module 01: Part 2](https://asantone.github.io/notebook02.html): Scatterplots
+* [Module 02](https://asantone.github.io/session02.html): Fundamentals
+* [Module 03](https://asantone.github.io/module03.html): Histograms, Kernel Density Estimates, & Joint Density Plots
+* [Module 04](https://asantone.github.io/module04.html): Markov Inequality Simulation
+* [Module 05](https://asantone.github.io/module05.html): Distributions and qnorm()
+* [Module 06](https://asantone.github.io/module06.html): Maximum (Log) Likelihood Estimation
+* [Module 07](https://asantone.github.io/module07.html): Nonparametric Regression
+* [Module 08](https://asantone.github.io/module08.html): Linear Regression
+* [Module 09](https://asantone.github.io/module09.html): Fuzzy Regression Discontinuity Design
+* [Module 10](https://asantone.github.io/module10.html): Design Principles of Data Visualization
+* [Module 11](https://asantone.github.io/module11.html): Random Forest Regression & Sentiment Analysis
+* [Module 12](https://asantone.github.io/module12.html): Review: Sharp Regression Discontinuity & Nonparametric Regression
+
+[Didgeridata](https://asantone.github.io/didgeridata/)
+
+> Didgeridata is a playful lesson asking students to conduct an investigation of climate data trends, construct custom didgeridoo and paixiao (pan flute) musical instruments, and perform a data-inspired musical piece. Students gain a more sophisticated understanding of their world from a scientific research perspective, confidence in their ability to use hand tools, and experience in creative interdisciplinary performance. This lesson and all open-source materials were created for the MIT pK12 STEAM Camp in partnership with the Chinese International School in Hong Kong.
+
+[Maker Spaces Map ](https://asantone.github.io/graphics/img/dataScience/msMap.png)
+
+> This map highlights the locations of maker spaces in the Boston area. A second tab on the dashboard provides data on each space. Information about each space and locational data are pulled from a single .csv file. The map was created to examine the volume, density, and location of these spaces to provide insight into programmatic decisions.
+
+[Demographics Map](https://asantone.github.io/graphics/img/dataScience/cambridgeDemographics.png)
+
+> This map highlights demographics of interest in Middlesex County, Massachusetts. Data source: American Community Survey. A tool to provide information about the communities in Middlesex County was requested to aid in making decisions regarding organizational program offerings.
+
+
+### Student Work
+
+[Vibram Global Locations](https://asantone.github.io/carrarmato/)
+
+> Used html, d3, javascript, and vector graphics to create a new vision for an informative, interactive map design highlighting locations of Vibram resources globally. Improvements were implemented to update inaccurate locational data, weak user engagement, and overall graphic style.
+Vibram Global Locations
+
+[Pet Statistics](https://asantone.github.io/BAMJ/)
+
+> Team Leader, Student team project. Used html, d3, javascript, and vector graphics to create visualizations and content for an interactive website designed to inform users about pet statistics from Seattle. Implementations include a daily registration count calendar, an interactive bar chart of top-ranked pet names, and a Leaflet-based map with custom marker icons for map pins.
+
+
+### Learning Systems Institute 
+
+[Statistics Analysis through R Code](https://asantone.github.io/eco/)
+
+> Created instructional statistical analysis code modules for Middle School and High School science teachers to help improve science methodology and educational technology skills. Modules were written in R, a popular statistical analysis language, and were originally posted on (now obsolete) R-fiddle.com, an online editor which allowed for collaborative development and sharing.
+Statistical Analysis Code Modules
+
+[CPALMS 3D & MyStemKits | 3D Printing Resources for K-12 Education
+Engineer, Concept Artist, Science Advisor, and Curriculum Developer for creating novel and innovative 3D models to be used in K-12 Classrooms. The initial CPALMS 3D program eventually emerged as MyStemKits.com, with whom our FCR-STEM curriculum team partnered to create new products.
+MyStemKits
+
+CPALMS Perspectives | STEAM Videos for Teacher Professional Development
+Producer/Director for over 400 five-minute documentary-style videos about math and science. Created a network of contacts among education enthusiasts across Florida.
+CPALMS Perspectives
+
+### Agriculture 
+
+Smart Gardening: An Introduction to Raised-Beds, Soils, Plant Nutrition, and Composting | Self-published Gardening Information
+Created a resource on raised-bed gardening for beginning and experienced enthusiasts.
+Smart Gardening [.pdf]
