@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Compatibility Lab - Logic Fix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .socket { 
+            transition: all 0.2s; 
+            border: 1px solid #e2e8f0; 
+            width: 135px; 
+            height: 135px; 
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            background-color: #fcfcfc;
+            border-radius: 0.5rem;
+        }
+        .socket.highlight { 
+            border-color: #3b82f6; 
+            background-color: #eff6ff; 
+            box-shadow: inset 0 0 8px rgba(59, 130, 246, 0.2);
+        }
+        .grid-cell { 
+            width: 36px; 
+            height: 36px; 
+            border: 1px solid #e5e7eb; 
+            padding: 0;
+            margin: 0;
+        }
+        .cell-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .draggable { cursor: grab; touch-action: none; transition: transform 0.1s; }
+        .draggable:active { cursor: grabbing; transform: scale(1.1); }
+        .success-bg { background-color: #dcfce7 !important; }
+    </style>
+</head>
+<body class="bg-gray-50 p-6 h-screen overflow-hidden flex flex-col">
+
+    <header class="mb-4">
+        <h1 class="text-xl font-bold text-gray-800">Blood Compatibility Lab</h1>
+    </header>
+
+    <div class="flex flex-row gap-8 items-start">
+        
+        <!-- LEFT COLUMN -->
+        <div id="left-col" class="flex-1 flex flex-col justify-between self-stretch">
+            <div class="flex flex-col gap-4">
+                <div id="tray" class="bg-white p-3 rounded-xl shadow-sm border border-gray-200 flex flex-wrap justify-center gap-4">
+                    <!-- Donors injected here -->
+                </div>
+
+                <div id="bay" class="flex flex-wrap gap-2 justify-center content-center bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <!-- Sockets injected here -->
+                </div>
+            </div>
+
+            <div id="message-panel" class="bg-gray-800 text-white p-4 rounded-xl shadow-lg flex items-center justify-center text-center italic text-base border-l-4 border-slate-400 min-h-[70px] mt-4">
+                Drag a donor unit to a recipient socket.
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div id="grid-container" class="w-fit bg-white p-2 rounded-xl shadow-sm border border-gray-200 h-fit">
+            <table class="border-collapse table-fixed">
+                <thead>
+                    <tr id="grid-header">
+                        <th class="grid-cell bg-gray-100"></th>
+                    </tr>
+                </thead>
+                <tbody id="grid-body">
+                    <!-- Rows injected here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const types = ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+'];
+        
+        // Sanitize string for HTML IDs (replaces + and - with safe text)
+        const safeId = (str) => str.replace('+', '_plus').replace('-', '_minus');
+
+        const canReceive = (donor, recipient) => {
+            const dRh = donor.includes('+');
+            const rRh = recipient.includes('+');
+            const dType = donor.replace(/[+-]/g, '');
+            const rType = recipient.replace(/[+-]/g, '');
+
+            // Rule 1: Rh- cannot receive Rh+
+            if (dRh && !rRh) return false;
+
+            // Rule 2: ABO Compatibility
+            if (dType === 'O') return true;
+            if (rType === 'AB') return true;
+            return dType === rType;
+        };
+
+        const getExplanation = (donor, recipient, success) => {
+            if (success) return `Success! ${donor} is compatible with ${recipient}.`;
+            if (donor.includes('+') && !recipient.includes('+')) return `Failure! Rh+ donor cannot give to Rh- recipient.`;
+            return `Failure! Recipient antibodies will attack ${donor} antigens.`;
+        };
+
+        function getShape(type, isSocket = false, size = 50) {
+            const color = isSocket ? "#000" : "#dc2626";
+            const center = size / 2;
+            const r = size * 0.28;
+            let html = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="display:block;">`;
+            html += `<circle cx="${center}" cy="${center}" r="${r}" fill="${color}" />`;
+            if (type.includes('A')) {
+                const w = size * 0.08;
+                const tri = (rot) => `<polygon points="${center},${size*0.04} ${center+w},${size*0.18} ${center-w},${size*0.18}" fill="${color}" transform="rotate(${rot} ${center} ${center})" />`;
+                html += tri(0) + tri(90) + tri(180) + tri(270);
+            }
+            if (type.includes('B')) {
+                const bR = size * 0.07;
+                const bump = (rot) => `<circle cx="${center}" cy="${size*0.12}" r="${bR}" fill="${color}" transform="rotate(${rot} ${center} ${center})" />`;
+                html += bump(45) + bump(135) + bump(225) + bump(315);
+            }
+            if (type.includes('+')) {
+                html += `<circle cx="${center}" cy="${center}" r="${size*0.06}" fill="${isSocket ? '#fff' : '#fecaca'}" />`;
+            }
+            return html + `</svg>`;
+        }
+
+        const tray = document.getElementById('tray');
+        const bay = document.getElementById('bay');
+        const gridHeader = document.getElementById('grid-header');
+        const gridBody = document.getElementById('grid-body');
+        const messagePanel = document.getElementById('message-panel');
+
+        types.forEach(t => {
+            // Donors
+            const d = document.createElement('div');
+            d.className = 'draggable'; d.id = `donor_${safeId(t)}`; d.dataset.type = t; d.draggable = true;
+            d.innerHTML = getShape(t, false, 45);
+            tray.appendChild(d);
+
+            // Sockets
+            const s = document.createElement('div');
+            s.className = 'socket'; s.dataset.type = t; 
+            s.innerHTML = getShape(t, true, 32); 
+            bay.appendChild(s);
+
+            // Grid Headers
+            const th = document.createElement('th');
+            th.className = 'grid-cell bg-gray-50';
+            th.innerHTML = `<div class="cell-wrapper">${getShape(t, true, 22)}</div>`;
+            gridHeader.appendChild(th);
+
+            // Grid Rows
+            const tr = document.createElement('tr');
+            let rowHtml = `<td class="grid-cell bg-gray-50"><div class="cell-wrapper">${getShape(t, false, 22)}</div></td>`;
+            types.forEach(rt => {
+                rowHtml += `<td id="grid_${safeId(t)}_${safeId(rt)}" class="grid-cell"><div class="cell-wrapper"></div></td>`;
+            });
+            tr.innerHTML = rowHtml;
+            gridBody.appendChild(tr);
+        });
+
+        let draggedType = null;
+        document.addEventListener('dragstart', (e) => {
+            const dragEl = e.target.closest('.draggable');
+            if (dragEl) {
+                draggedType = dragEl.dataset.type;
+                e.dataTransfer.setData('text/plain', draggedType);
+            }
+        });
+
+        document.querySelectorAll('.socket').forEach(socket => {
+            socket.addEventListener('dragover', (e) => { e.preventDefault(); socket.classList.add('highlight'); });
+            socket.addEventListener('dragleave', () => socket.classList.remove('highlight'));
+            socket.addEventListener('drop', (e) => {
+                e.preventDefault();
+                socket.classList.remove('highlight');
+                const recipientType = socket.dataset.type;
+                const isCompatible = canReceive(draggedType, recipientType);
+                
+                messagePanel.innerText = getExplanation(draggedType, recipientType, isCompatible);
+                messagePanel.style.borderLeftColor = isCompatible ? "#22c55e" : "#ef4444";
+
+                if (isCompatible) {
+                    // Update Grid with sanitized IDs
+                    const id = `grid_${safeId(draggedType)}_${safeId(recipientType)}`;
+                    const cell = document.getElementById(id);
+                    if (cell) {
+                        const wrapper = cell.querySelector('.cell-wrapper');
+                        wrapper.innerHTML = '✅';
+                        cell.classList.add('success-bg');
+                    }
+                } else {
+                    socket.style.backgroundColor = '#fee2e2';
+                    setTimeout(() => socket.style.backgroundColor = '', 400);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
