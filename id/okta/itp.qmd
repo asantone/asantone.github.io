@@ -34,7 +34,7 @@ format:
 
 Learn about Okta's AI-driven **[Identity Threat Protection](https://www.okta.com/products/identity-threat-protection/)** product! 
 
-![](itp_diagram.webp){fig-align="center" width=60%}
+![](itp_diagram.webp){fig-align="center" width=75%}
 
 
 :::
