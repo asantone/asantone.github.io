@@ -67,6 +67,11 @@ $selection-color:   $aqua-blue;     // Highlighted text color remains crisp whit
   color: $charcoal-gray;
 }
 
+//force white text for persona text
+.reveal .slides section .persona-text {
+  color: rgba(255,255,255,0.5);
+}
+
 // Custom Typography Classes for Strategic Content Layout
 .text-accent {
   color: $iris-purple;
@@ -91,10 +96,12 @@ $selection-color:   $aqua-blue;     // Highlighted text color remains crisp whit
 }
 
 // Slide-Level Component Consistency
-.reveal .footer {
-  color: $iris-purple !important; // Subtle tracking text visibility
-  font-size: 0.5em;
+.reveal .footer,
+.reveal .footer * {
+  color: $iris-purple !important; 
+  font-size: 0.8em;
   font-family: $font-family-main;
+  z-index: 3 !important; /* Layers it cleanly above your slides */
 }
 
 .reveal .controls {
@@ -108,6 +115,7 @@ $selection-color:   $aqua-blue;     // Highlighted text color remains crisp whit
 .reveal .panel-tabset-tabby a {
   font-size: 24px !important; /* Adjust your size here */
 }
+
 
 
 

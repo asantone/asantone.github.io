@@ -2,6 +2,8 @@
 format:
   revealjs:
     theme: [default, custom.scss]
+    footer: "Acropolis Hypervisor"
+    logo: logo_full.svg
     transition: fade
     transition-speed: fast
     background-transition: fade
@@ -831,7 +833,7 @@ format:
         .persona-text {
           font-size: 0.88rem;
           line-height: 1.55;
-          color: rgba(255,255,255,0.78);
+          color: rgba(255,255,255,1.0);
         }
         
         .persona-msg-box {
@@ -954,6 +956,7 @@ format:
         /* ─── Slide number / progress ────────────────────────── */
         .reveal .progress { background: rgba(255,255,255,0.08); }
         .reveal .progress span { background: var(--iris); }
+        
         </style>
 ---
 
