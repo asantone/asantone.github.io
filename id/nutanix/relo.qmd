@@ -1,0 +1,249 @@
+---
+title: "Sample Project"
+subtitle: "Revenue Enablement Learning Operations"
+format:
+  revealjs: 
+    theme: theme_nutanix.scss
+    footer: "ONE PLATFORM | ONE EXPERIENCE | RUN ANYWHERE"
+    logo: logo_full.svg
+    controls: true
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700" rel="stylesheet">
+          <style>
+            #title-slide .title {
+              color: #7855fa; /* Changes the main title color */
+            }
+            #title-slide .subtitle {
+              color: #7855fa; /* Changes the subtitle color */
+            }
+          </style>
+config:
+  timeline:
+    padding: 0
+    disableMarker: false
+---
+
+# Part 1: <br> Stakeholder Management
+
+<!-- 
+Draft a written response (or a script for a follow-up discovery call) that tactfully handles this
+vague and rushed request. Your response should navigate the transition from the "Intake" to the
+"Aligning" stage of our workflow. 
+
+Please ensure you demonstrate how you would:
+Probe for Clarity: What specific questions will you ask to uncover the true scope, objectives, and intended outcome of this request?
+Guide the Solution: How will you tactfully challenge the assumption that a "full eLearning module" is the correct solution, and advise them on potentially more effective delivery methods (such as short-format assets or just-in-time support)?
+Manage Expectations: How will you address the aggressive 3-week timeline while managing scope and balancing tradeoffs between speed and perfection?
+-->
+
+## Communications {style="font-size: 85%;"}
+
+::: {.incremental}
+- Incoming: *We need a comprehensive module rolled out in 3 weeks. Can you start this today?*
+- Outgoing: _Thanks for reaching out about this change. To hit your exact launch date with an asset that actually drives sales confidence, let’s schedule a brief **15-minute sync** tomorrow morning. My primary goal is to align on exactly what the sales team needs to know so we can deliver a high-impact solution in time for your launch window. Let's break down the goals, map out the content, and look at the best ways to get this into the field. To maximize our time, will you please copy any **initial draft positioning** decks, product **specs**, or target **customer profiles** into our shared folder? Thank you!_
+:::
+
+## Questions for Clarity {style="font-size: 85%;"}
+::: {.incremental}
+- What are the critical shifts with this update? 
+- What behavior(s) do you think we need to change for launch day? 
+- Which sellers are responsible for knowing about this update?
+- How confident is the product team that this update will launch on time? 
+:::
+
+## Solution Guidance {style="font-size: 85%;"}
+::: {.incremental}
+- A 3-week ramp is tight given the need to coordinate with Product, Marketing, Sales, and other stakeholders. There's also a lot of **risk without manager buy-in** so getting approval cuts our ramp even further.   
+- I'd propose a more focused **Enablement Kit** for sellers that includes the top 3 **customer objections** and an **update talking points**. We can also more easily integrate this into their workflow and track usage through downstream conversational intelligence.  
+- If you can get me some **key talking points** to hit in the narrative, I can start this week with **manager alignment**, sync with the Product team to **clarify details**, and have a **draft in a few days**. How does that sound?  
+:::
+
+## Expectations Management & Timeline {style="font-size: 85%;"}
+::: {.non-incremental}
+
+*To ensure we can hit the deadlines, how does this sound for you?*
+
+:::: {.columns style="font-size: 80%;"}
+
+::: {.column width="25%"}
+##### Week 1
+
+- Scoping and Manager Buy-in
+- Gather input assets from PM, PMM
+:::
+
+::: {.column width="25%"}
+::: {.fragment}
+##### Week 2
+
+- Draft 1, MWE of Enablement Kit
+- Solicit feedback from PM, PMM 
+- Integrate feedback
+:::
+:::
+
+::: {.column width="25%"}
+::: {.fragment}
+##### Week 3
+
+- Finalize assets
+- Confirm Manager readiness
+:::
+:::
+
+::: {.column width="25%"}
+::: {.fragment}
+##### Launch Day
+
+- Publish to CMS
+- Announce w/ Manager reinforcement
+- Monitor conversational intelligence and asset access
+- Collect Voice of the Field artifacts and customer questions
+:::
+:::
+
+::::
+
+:::
+
+# Part 3: Workflow Enhancement
+
+<!-- 
+Review the current workflow and propose a modernized, streamlined version. Please provide
+a brief presentation, written document, or an updated visual flowchart that addresses the following:
+Generative AI Integration: Where and how would you inject generative AI tools (such as
+NotebookLM, Gemini, Copilot, or Synthesia) to accelerate this process? Specifically, how will you incorporate prompt design and "human-in-the-loop" validation processes?
+Optimization for RAG & AI Agents: How should this workflow be adapted so that the final
+output is optimized for retrieval-augmented generation (RAG) consumption by our AI learning agents?
+Agility for Short-Form Content: The current workflow is heavy, featuring formal gates and 360 SME reviews. How would you adapt this flow when building short-format learning assets for just-in-time support or short-form videos, balancing speed and perfection?
+Maintaining Quality: As we accelerate, how will you ensure that adult learning best practices (e.g., ADDIE, Bloom's Taxonomy) and content lifecycle rigor are protected?
+-->
+
+## Current Workflow
+
+```{mermaid}
+%%| fig-align: center
+
+flowchart LR
+
+classDef normal fill:#ffffff,stroke:#7855fa,stroke-width:1px;
+
+  A(Intake):::normal --> B(Alignment):::normal
+  B --> C(Research):::normal
+  C --> D(Outline):::normal
+  D --> E(Gate):::normal
+  E --> F(Content):::normal
+  F --> G(Build):::normal
+  G --> H(Review):::normal
+  H --> I(Publish):::normal
+```
+
+:::{style="font-size:70%;"}
+1. **Intake**: Request from GTM team
+2. **Alignment**: Establish scope, objectives
+3. **Research**: Review existing assets
+4. **Outline**: Outline, storyboard development
+5. **Gate**: Discussion, consensus
+6. **Content**: Scripts, media development
+7. **Build**: Course build, assessments, Articulate
+8. **Review**: SME review & feedback incorporation
+9. **Publish**: CMS & comms
+:::
+
+## Proposed Workflow
+
+```{mermaid}
+%%| fig-align: center
+
+flowchart LR
+
+classDef normal fill:#ffffff,stroke:#7855fa,stroke-width:1px;
+classDef AI fill:#1fdde9,stroke:#7855fa,stroke-width:3px;
+
+  A(Alignment):::normal --> B(Prioritization):::normal
+  B --> C(Intake):::AI
+  C --> E(Build):::AI
+  D(Context):::normal --> E
+  E --> F(Technical Review):::AI
+  F --> E
+  E --> I(Publish):::normal
+  
+```
+
+
+::: {.panel-tabset style="font-size:85%;"}
+
+## Alignment
+
+- Critical discovery early in product development
+- Define scope and desired business impact
+- Identity metrics that can validate impact
+- Define formal learning objectives
+- Estimate launch timeline
+
+## Prioritization
+
+- Internal team manager decision
+- Alignment to ReLo capacity and needs
+
+## Intake
+
+- AI-driven process to create a structured request
+- Includes all stakeholders, timeline, decision history
+- Requires formal stakeholder acknowledgement 
+- Requires formal documentation handoff (PM, PMM)
+
+## Context
+
+- All technical documentation in structured format
+- Verified documentation
+- Additional audio, video, other artifacts (web, notes)
+- Standard formats: Markdown & CSV preferably; JSON maybe
+- Enforced ISO datetime & currency formats where applicable
+
+## Build
+
+- Leverage a structured style guide for uniformity
+- Use LLMs, Articulate, other tools to create content
+- Descript, Google Vids, NotebookLM for content & editing
+- Decouple content and style where possible
+- Leverage online format where possible
+
+## Technical Review
+
+- Leverage approved Context to verify output
+- Use AI to identify any weaknesses for manual review
+- Direct communication with PM & PMM for details
+
+## Publish
+
+- Add content to CMS
+- Follow up with key stakeholders
+- Field comms to all end users
+- Include Responsible Party for corrections
+
+:::
+
+# Part 2: Learning Asset
+
+<!-- 
+Develop a sample learning asset based on a technical topic of your choice (you may use a
+previous portfolio piece if it aligns, or build a new short sample). You can choose to submit either:
+● A functional micro-eLearning module (built in Articulate Rise or Storyline).
+● A finalized short-form video or a comprehensive video storyboard/script (demonstrating your
+multimedia and video editing capabilities).
+
+Please present your work product to the panel and be prepared to discuss:
+
+1. Instructional Design: How did you apply adult learning principles (such as ADDIE or Bloom's
+Taxonomy) to ensure this asset is purposeful and engaging?
+2. Translation: What was your strategy for distilling the complex concepts into a short-format asset
+meant for awareness or reinforcement?
+3. Quality & Consistency: How did you ensure accessibility, maintain strong attention to detail, and
+make the content suitable for a sales audience?
+-->
+
+[Nutanix Acropolis Hypervisor (AHV)](https://asantone.github.io/id/ahv/ahv.html)

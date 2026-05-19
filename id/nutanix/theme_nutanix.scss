@@ -1,0 +1,113 @@
+/*-- scss:defaults --*/
+
+// Import Figtree directly from Google Fonts web server
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+
+// 3. Custom Fonts Overrides
+$font-family-main:    'Figtree', sans-serif;
+$font-family-heading: 'Figtree', sans-serif;
+
+// Core Brand Color Palette (Strict Hexadecimal Format)
+$charcoal-gray: #131313; // Core brand primary background
+$white:         #ffffff; // Core brand text color
+$iris-purple:   #7855fa; // Core brand primary accent
+
+// Secondary Highlight Colors (Used sparingly for intentional accents)
+$aqua-blue:     #1fdde9; // Highlight color
+$mantis-green:  #92dd23; // Highlight color
+$peach-pink:    #ff9178; // Highlight color
+
+// Global Reveal.js Variable Overrides
+$bg-color:          $white;         // Universal background lock to prevent jarring transitions
+$main-color:        $charcoal-gray; // Clean charcoal body typography
+$heading-color:     $iris-purple;   // Iris Purple headings across all levels
+$link-color:        $iris-purple;   // Navigation links styled in Iris Purple
+$link-color-hover:  $peach-pink;    // Visual feedback color on link hover
+
+// Structural Presentation Component Overrides
+$hr-color:          $iris-purple;   // Horizontal section breaks accented with Iris Purple
+$selection-bg:      $iris-purple;   // Text highlight background color
+$selection-color:   $aqua-blue;     // Highlighted text color remains crisp white
+
+
+/*-- scss:rules --*/
+
+// Global Font & Weight Assignments
+.reveal {
+  font-family: $font-family-main;
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-heading;
+    color: $heading-color;        // Explicit header color mapping
+    font-weight: 700;
+    letter-spacing: -0.02em;       // Modern, clean aesthetic
+  }
+}
+
+// Precise control for the custom logo.svg scaling
+.reveal .slide-logo {
+  max-height: 20px !important; // Forces a smaller, uniform height limit
+  width: auto !important;       // Maintains the original aspect ratio of your SVG
+  bottom: 10px !important;     // Adjusts vertical positioning relative to the slide edge
+  right: 10px !important;      // Adjusts horizontal positioning relative to the slide edge
+}
+
+// Async Intake Blockquotes (Formatted like enterprise chat containers)
+.reveal blockquote {
+  background: $white;                  // FIXED: Changed from #white to $white
+  border-left: 4px solid $iris-purple; // Sharp brand accent line
+  color: $charcoal-gray;
+  box-shadow: none;
+  padding: 15px;
+  font-style: italic;
+}
+
+// Global Text Component Alignments
+.reveal p {
+  color: $charcoal-gray;
+}
+
+// Custom Typography Classes for Strategic Content Layout
+.text-accent {
+  color: $iris-purple;
+}
+
+.text-strike {
+  color: $peach-pink;
+  text-decoration: line-through;
+}
+
+.text-muted {
+  color: $mantis-green; // Mid-tone flat gray for past states or struck-through elements
+}
+
+// High-Contrast Accent Variants for Callouts
+.text-highlight-blue {
+  color: $aqua-blue;
+}
+
+.text-highlight-green {
+  color: $mantis-green;
+}
+
+// Slide-Level Component Consistency
+.reveal .footer {
+  color: $iris-purple !important; // Subtle tracking text visibility
+  font-size: 0.5em;
+  font-family: $font-family-main;
+}
+
+.reveal .controls {
+  color: $iris-purple; // Interactive navigation controls styled in brand accent
+}
+
+.reveal .progress {
+  color: $iris-purple; // Progress bar indicator matching core brand color
+}
+
+.reveal .panel-tabset-tabby a {
+  font-size: 24px !important; /* Adjust your size here */
+}
+
+
+
