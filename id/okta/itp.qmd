@@ -1,11 +1,11 @@
 ---
 title: "Identity Threat Protection"
-subtitle: "Okta Product Enablement"
+subtitle: "Product Enablement"
 format:
   revealjs: 
-    theme: theme_okta.scss
-    footer: "Identity Threat Protection"
+    theme: theme_custom.scss
     logo: logo.svg
+    footer: "Identity Threat Protection"
     title-slide-attributes:
       data-background-gradient: "linear-gradient(45deg, #4c04fb 0%, #9948a5 85%, #f5812a 100%)"
     controls: true
@@ -32,7 +32,7 @@ format:
 
 #### Purpose
 
-Learn about Okta's AI-driven **[Identity Threat Protection](https://www.okta.com/products/identity-threat-protection/)** product! 
+Learn about AI-driven **[Identity Threat Protection](https://www.okta.com/products/identity-threat-protection/)** product! 
 
 ![](itp_diagram.webp){fig-align="center" width=75%}
 
