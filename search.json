@@ -53,14 +53,28 @@
     "href": "portfolio.html",
     "title": "Portfolio",
     "section": "",
-    "text": "B2B Data Hygiene Simulator: An interactive experience to learn about fundamental data quality principles including deduplication, format standardization, and enrichment. These are essential concepts for data sellers and others involved in GTM roles.\nMarketing Mix Model Explorer: An interactive marketing mix model simulation using Hill-curve saturation and market-driven model interaction features. Built with R and Shiny.\nData Decay & Revenue Leakage Analytics: Based on industry-standard rates (Gartner) for annual B2B data decay and revenue impact. Built with R and Shiny.\nABO Blood Type Interaction: Based on previous work where I co-created original curriculum and 3D printed models that were designed to help learners understand ABO blood type compatibility. The core interaction of that original curriculum is recreated here in an online medium while the original was intended as a physical model for hands-on exploration."
+    "text": "JD2MD This Chrome Extension is designed to process online job descriptions (JD) using popular frameworks (e.g. Greenhouse, Ashby, Workday, & Lever) into clean Markdown (MD) for use by AI agents and productivity tools like Obsidian."
+  },
+  {
+    "objectID": "portfolio.html#browser-tools",
+    "href": "portfolio.html#browser-tools",
+    "title": "Portfolio",
+    "section": "",
+    "text": "JD2MD This Chrome Extension is designed to process online job descriptions (JD) using popular frameworks (e.g. Greenhouse, Ashby, Workday, & Lever) into clean Markdown (MD) for use by AI agents and productivity tools like Obsidian."
   },
   {
     "objectID": "portfolio.html#interactive-simulation",
     "href": "portfolio.html#interactive-simulation",
     "title": "Portfolio",
-    "section": "",
-    "text": "B2B Data Hygiene Simulator: An interactive experience to learn about fundamental data quality principles including deduplication, format standardization, and enrichment. These are essential concepts for data sellers and others involved in GTM roles.\nMarketing Mix Model Explorer: An interactive marketing mix model simulation using Hill-curve saturation and market-driven model interaction features. Built with R and Shiny.\nData Decay & Revenue Leakage Analytics: Based on industry-standard rates (Gartner) for annual B2B data decay and revenue impact. Built with R and Shiny.\nABO Blood Type Interaction: Based on previous work where I co-created original curriculum and 3D printed models that were designed to help learners understand ABO blood type compatibility. The core interaction of that original curriculum is recreated here in an online medium while the original was intended as a physical model for hands-on exploration."
+    "section": "Interactive Simulation",
+    "text": "Interactive Simulation\n\nB2B Data Hygiene Simulator: An interactive experience to learn about fundamental data quality principles including deduplication, format standardization, and enrichment. These are essential concepts for data sellers and others involved in GTM roles.\nMarketing Mix Model Explorer: An interactive marketing mix model simulation using Hill-curve saturation and market-driven model interaction features. Built with R and Shiny.\nData Decay & Revenue Leakage Analytics: Based on industry-standard rates (Gartner) for annual B2B data decay and revenue impact. Built with R and Shiny.\nABO Blood Type Interaction: Based on previous work where I co-created original curriculum and 3D printed models that were designed to help learners understand ABO blood type compatibility. The core interaction of that original curriculum is recreated here in an online medium while the original was intended as a physical model for hands-on exploration."
+  },
+  {
+    "objectID": "portfolio.html#ai-powered-technical-enablment-samples",
+    "href": "portfolio.html#ai-powered-technical-enablment-samples",
+    "title": "Portfolio",
+    "section": "AI-Powered Technical Enablment Samples",
+    "text": "AI-Powered Technical Enablment Samples\nThese interactive examples were created with RStudio, Quarto, Gemini, and Claude.\n\nOkta | Identity Threat Protection: A presentation designed for high-impact direct enablement for an audience of new account executives who have little to no experience with this real-time security product.\nNutanix | Acropolis Hypervisor: An interactive module designed for self-guided exploration of an enterprise hypervisor solution created to eliminate the need for third-party hypervisors and to provide simplified management, disaster recovery, and automated security."
   },
   {
     "objectID": "portfolio.html#analysis",
