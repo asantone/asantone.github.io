@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioluminescent Meadow Simulator</title>
+    <style>
+
+        /* links */ 
+        a {
+            color: #D4F000; /* Bright green color */
+        }
+
+        a:hover {
+            color: #00E864; /* Neon green on hover */
+        }
+
+        /* Base Viewport Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #020617;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            user-select: none;
+            color: #e2e8f0;
+        }
+
+        /*glow effect*/
+        .glow {
+    color: #D4F000;
+    text-shadow: 0 0 10px #00E864; /* x-offset y-offset blur color */
+  }
+
+        /* Full Screen Canvas Layer */
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Interface Containment Grid */
+        .ui-container {
+            position: absolute;
+            inset: 0;
+            padding: 24px;
+            z-index: 10;
+            pointer-events: none; /* Allows canvas clicks to pass through empty spaces */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .ui-row-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            width: 100%;
+        }
+
+        /* Premium Glass Panels */
+        .ui-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            pointer-events: auto; /* Restores button and toggle interactions */
+            box-sizing: border-box;
+        }
+
+        .left-card { max-width: 450px; }
+        .right-card { width: 320px; }
+        
+        h1 { margin: 0; font-size: 1.25rem; font-weight: 600; color: #D4F000; letter-spacing: -0.01em; }
+        h2 { margin: 0 0 12px 0; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; border-bottom: 1px solid rgba(51, 65, 85, 0.4); padding-bottom: 6px; }
+        p { margin: 8px 0 0 0; font-size: 0.875rem; color: #cbd5e1; line-height: 1.45; }
+        
+        .meta-text { margin-top: 12px; font-size: 0.75rem; color: #94a3b8; font-family: monospace; border-top: 1px solid rgba(51, 65, 85, 0.4); padding-top: 10px; }
+        .pop-accent { color: #D4F000; font-weight: bold; }
+        
+        /* Checkbox Settings */
+        .species-list { display: flex; flex-direction: column; gap: 8px; }
+        .species-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 10px; background-color: rgba(15, 23, 42, 0.5); border: 1px solid rgba(51, 65, 85, 0.3); border-radius: 8px; font-size: 0.75rem; }
+        .species-label { display: flex; align-items: center; gap: 8px; font-style: italic; color: #e2e8f0; }
+        .species-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .species-chk { width: 14px; height: 14px; cursor: pointer; accent-color: #fbbf24; }
+        .footnote { font-size: 11px; color: #64748b; font-style: italic; margin-top: 10px; line-height: 1.35; }
+
+        /* Lower Observations Bar */
+        .ui-row-bottom { width: 100%; pointer-events: auto; }
+        .inspector-panel { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 20px; border-radius: 12px; }
+        .inspector-meta { flex: 1; }
+        .inspector-title { font-size: 0.70rem; font-weight: 600; text-transform: uppercase; tracking-wider; color: #94a3b8; letter-spacing: 0.05em; }
+        .inspector-desc { font-size: 0.875rem; color: #f1f5f9; margin-top: 2px; }
+        .inspector-stats { font-size: 0.75rem; color: #94a3b8; font-family: monospace; margin-top: 4px; }
+        .stat-val { color: #fbbf24; }
+        
+        /* Timeline Graph */
+        .oscilloscope { width: 320px; height: 44px; background-color: rgba(2, 6, 23, 0.9); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 6px; padding: 6px; display: flex; align-items: flex-end; gap: 3px; box-sizing: border-box; overflow: hidden; }
+        .bar { flex: 1; border-radius: 1.5px; }
+    </style>
+</head>
+<body>
+
+    <canvas id="meadowCanvas"></canvas>
+
+    <div class="ui-container">
+        
+        <div class="ui-row-top">
+            <div class="ui-panel left-card">
+                <h1 class="glow">Bioluminescent Meadow</h1>
+                <p>An interactive habitat modeled from field observations across seven distinct firefly species. <a href="https://github.com/peleg-lab/FireflyClassification">Data</a> are from the <a href="https://www.peleglab.com/">Peleg Lab</a>. Click a firefly to see and hear its flashing pattern!</p>
+                <p>Reference: </br> <small><a href="https://www.nature.com/articles/s41598-024-53671-3" target="_blank">Embracing firefly flash pattern variability with data-driven species classification</a></small></p>
+                <div class="meta-text">
+                    <div>Active fireflies: <span id="popCount" class="pop-accent">0</span></div>
+                </div>
+            </div>
+
+            <div class="ui-panel right-card">
+                <h2>Select Species to Observe</h2>
+                <div id="speciesControls" class="species-list"></div>
+                <div class="footnote">
+                    *P. carolinus will naturally adjust its rhythm to nearby neighbors over time, demonstrating organic synchronization.
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-row-bottom">
+            <div class="ui-panel inspector-panel">
+                <div class="inspector-meta">
+                    <div class="inspector-title">Field Observations</div>
+                    <div id="inspectorName" class="inspector-desc">Select a flashing signal in the meadow to trace its pattern structure.</div>
+                    <div id="inspectorStats" class="inspector-stats" style="display: none;">
+                        Flash Duration: <span id="inspDur" class="stat-val">0.000</span>s &nbsp;|&nbsp; Resting Interval: <span id="inspIfi" class="stat-val">0.000</span>s
+                    </div>
+                </div>
+                <div class="oscilloscope" id="oscilloscope"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Ground-truth operational sequences — patterns extracted from field data (index.html)
+        const FIREFLY_DATA = {
+          "Photinus carolinus":      { "color": "#D4F000", "avg_duration": 0.09195730115246524, "avg_ifi": 0.49096438317572694, "patterns": [[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1]] },
+          "Photuris frontalis":      { "color": "#00E864", "avg_duration": 0.036875064294931835, "avg_ifi": 0.6190205447101675, "patterns": [[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]] },
+          "Photinus obscurellus":    { "color": "#00DD55", "avg_duration": 0.1579706968041237, "avg_ifi": 0.3638940025257732, "patterns": [[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],[1,0,0,0,1,1,1,0,0,0,1,0,0,0,1,1,1,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],[1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1],[1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,0,0,0,0,0,1,1],[1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,0,0,0,1,1,0,0,0,1,1,1,1]] },
+          "Photinus knulli":         { "color": "#FFE000", "avg_duration": 0.0850666693536387, "avg_ifi": 0.3590943966821669, "patterns": [[1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1]] },
+          "Photuris forresti":       { "color": "#00F050", "avg_duration": 0.07179726361974406, "avg_ifi": 0.48015267625228525, "patterns": [[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]] },
+          "Bicellonycha wickershamorum": { "color": "#F5D800", "avg_duration": 0.1382459962585034, "avg_ifi": 0.7421916843339518, "patterns": [[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],[1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],[1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1]] },
+          "Photuris bethaniensis":   { "color": "#00FF66", "avg_duration": 0.0688842564716007, "avg_ifi": 0.28245744867469874, "patterns": [[1,1,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,1,1,1],[1,0,0,0,0,1],[1,1,1,0,0,0,0,0,0,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,1],[1,1,0,0,0,0,0,0,1,1],[1,0,0,0,0,0,0,0,0,1,1],[1,1,0,0,0,0,0,0,0,1,1],[1,1,0,0,0,0,0,0,1,1,1],[1,0,0,0,0,0,0,0,1],[1,1,0,0,0,0,0,0,0,1,1],[1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1]] }
+        };
+
+        let canvas, ctx, popCount, speciesControls;
+        let inspectorName, inspectorStats, inspDur, inspIfi, oscilloscope;
+
+        let fireflies = [];
+        let selectedFirefly = null;
+        const activeSpecies = {};
+
+        //sound
+        let audioCtx = null;
+
+        // Wait completely for the viewport window layout to structuralize layout size metrics
+        window.onload = function() {
+            canvas = document.getElementById('meadowCanvas');
+            ctx = canvas.getContext('2d');
+            popCount = document.getElementById('popCount');
+            speciesControls = document.getElementById('speciesControls');
+            
+            inspectorName = document.getElementById('inspectorName');
+            inspectorStats = document.getElementById('inspectorStats');
+            inspDur = document.getElementById('inspDur');
+            inspIfi = document.getElementById('inspIfi');
+            oscilloscope = document.getElementById('oscilloscope');
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            initUI();
+            adjustPopulation();
+            
+            // Fire up animation loop execution
+            requestAnimationFrame(loop);
+        };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Force redrawing parameters if objects exist
+            if (fireflies.length > 0) {
+                fireflies.forEach(f => {
+                    if (f.x > canvas.width) f.x = Math.random() * canvas.width;
+                    if (f.y > canvas.height) f.y = Math.random() * canvas.height;
+                });
+            }
+        }
+
+        /*
+        function initUI() {
+            speciesControls.innerHTML = '';
+            Object.keys(FIREFLY_DATA).forEach((key) => {
+                activeSpecies[key] = true;
+                const sp = FIREFLY_DATA[key];
+
+                const card = document.createElement('div');
+                card.className = "species-item";
+                card.innerHTML = `
+                    <div class="species-label">
+                        <div class="species-dot" style="background-color: ${sp.color}; box-shadow: 0 0 6px ${sp.color}"></div>
+                        <span>${key}</span>
+                    </div>
+                    <input type="checkbox" data-species="${key}" checked class="species-chk">
+                `;
+                speciesControls.appendChild(card);
+            });
+
+            document.addEventListener('change', function(e) {
+                if (e.target && e.target.classList.contains('species-chk')) {
+                    const spKey = e.target.getAttribute('data-species');
+                    activeSpecies[spKey] = e.target.checked;
+                    adjustPopulation();
+                }
+            });
+        }
+            */ 
+          function initUI() {
+    speciesControls.innerHTML = '';
+    
+    // 1. Define which species you want to be active at the start
+    const defaultSpecies = "Photinus carolinus"; 
+
+    Object.keys(FIREFLY_DATA).forEach((key) => {
+        const sp = FIREFLY_DATA[key];
+
+        // 2. Set the data state: true only for the default species, false for the others
+        const isDefault = (key === defaultSpecies);
+        activeSpecies[key] = isDefault;
+
+        // 3. Dynamically insert the "checked" attribute only if it matches your default
+        const checkedAttribute = isDefault ? "checked" : "";
+
+        const card = document.createElement('div');
+        card.className = "species-item";
+        card.innerHTML = `
+            <div class="species-label">
+                <div class="species-dot" style="background-color: ${sp.color}; box-shadow: 0 0 6px ${sp.color}"></div>
+                <span>${key}</span>
+            </div>
+            <input type="checkbox" data-species="${key}" ${checkedAttribute} class="species-chk">
+        `;
+        speciesControls.appendChild(card);
+    });
+
+    document.addEventListener('change', function(e) {
+        if (e.target && e.target.classList.contains('species-chk')) {
+            const spKey = e.target.getAttribute('data-species');
+            activeSpecies[spKey] = e.target.checked;
+            adjustPopulation();
+        }
+    });
+} 
+
+        class Firefly {
+            constructor(speciesKey) {
+                this.speciesKey = speciesKey;
+                this.meta = FIREFLY_DATA[speciesKey];
+                this.color = this.meta.color;
+                
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * (canvas.height * 0.84); 
+                this.radius = 2.2;
+                
+                this.vx = (Math.random() - 0.5) * 0.6;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                
+                const patIdx = Math.floor(Math.random() * this.meta.patterns.length);
+                this.pattern = this.meta.patterns[patIdx];
+                this.clock = Math.random() * this.pattern.length;
+                this.intensity = 0.0;
+
+                //sound
+                this.wasActiveLastFrame = false;
+            }
+
+            update(step) {
+                this.vx += (Math.random() - 0.5) * 0.03;
+                this.vy += (Math.random() - 0.5) * 0.03;
+                
+                this.vx = Math.max(-0.7, Math.min(0.7, this.vx));
+                this.vy = Math.max(-0.5, Math.min(0.5, this.vy));
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < -20) this.x = canvas.width + 20;
+                if (this.x > canvas.width + 20) this.x = -20;
+                if (this.y < -20) this.y = canvas.height + 20;
+                if (this.y > canvas.height + 20) this.y = -20;
+
+                this.clock += step;
+                if (this.clock >= this.pattern.length) this.clock = 0;
+
+                const currentIdx = Math.floor(this.clock);
+                const bit = this.pattern[currentIdx] || 0;
+                
+                if (bit === 1) {
+                    this.intensity = Math.min(1.0, this.intensity + 0.3);
+                } else {
+                    this.intensity = Math.max(0.0, this.intensity - 0.09);
+                }
+            }
+
+            draw() {
+                if (this.intensity <= 0) return;
+
+                ctx.save();
+                ctx.globalCompositeOperation = 'screen';
+                
+                const glowSize = this.radius * 14 * this.intensity;
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowSize);
+                gradient.addColorStop(0, '#ffffff');
+                gradient.addColorStop(0.15, this.color);
+                gradient.addColorStop(0.4, hexToRgbA(this.color, 0.4 * this.intensity));
+                gradient.addColorStop(1, 'rgba(0,0,0,0)');
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, glowSize, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+                
+                if (selectedFirefly === this) {
+                    ctx.save();
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([]);
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius * 10, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }
+
+        function hexToRgbA(hex, alpha) {
+            let c;
+            if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                c= hex.substring(1).split('');
+                if(c.length== 3){ c= [c[0],c[0],c[1],c[1],c[2],c[2]]; }
+                c= '0x'+c.join('');
+                return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+alpha+')';
+            }
+            return 'rgba(255,255,255,'+alpha+')';
+        }
+
+        function adjustPopulation() {
+            fireflies = fireflies.filter(f => activeSpecies[f.speciesKey]);
+            Object.keys(activeSpecies).forEach(key => {
+                if (activeSpecies[key]) {
+                    const currentCount = fireflies.filter(f => f.speciesKey === key).length;
+                    const target = 7; 
+                    for (let i = currentCount; i < target; i++) {
+                        fireflies.push(new Firefly(key));
+                    }
+                }
+            });
+            popCount.innerText = fireflies.length;
+            if (selectedFirefly && !activeSpecies[selectedFirefly.speciesKey]) {
+                selectedFirefly = null;
+                resetInspector();
+            }
+        }
+
+        function applyBiologicalSynchrony() {
+            const carolinus = fireflies.filter(f => f.speciesKey === 'P. carolinus');
+            if (carolinus.length < 2) return;
+
+            for (let i = 0; i < carolinus.length; i++) {
+                const f1 = carolinus[i];
+                const partnerIdx = Math.floor(Math.random() * carolinus.length);
+                if (partnerIdx === i) continue;
+                const f2 = carolinus[partnerIdx];
+
+                const distSq = (f1.x - f2.x)**2 + (f1.y - f2.y)**2;
+                if (distSq < 65000) { 
+                    if (f2.intensity > 0.4 && f1.intensity === 0) {
+                        f1.clock += 0.06; 
+                    }
+                }
+            }
+        }
+
+        function drawBotanicalSilhouettes() {
+            ctx.save();
+            ctx.fillStyle = '#00402422'; 
+            
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+            for (let i = 0; i <= canvas.width; i += 10) {
+                const baseHeight = 180;
+                const variance = Math.sin(i * 0.03) * 18 + Math.cos(i * 0.08) * 6;
+                const topY = canvas.height - (baseHeight + variance);
+                ctx.lineTo(i, topY);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!canvas) return;
+            if (e.target.closest('input') || e.target.closest('.ui-panel')) return;
+
+            let clicked = null;
+            let minDist = 35;
+
+            fireflies.forEach(f => {
+                const d = Math.hypot(f.x - e.clientX, f.y - e.clientY);
+                if (d < minDist) {
+                    minDist = d;
+                    clicked = f;
+                }
+            });
+
+            if (clicked) {
+                selectedFirefly = clicked;
+                inspectorName.innerText = `${selectedFirefly.speciesKey} Pattern Map`;
+                inspectorStats.style.display = 'block';
+                inspDur.innerText = selectedFirefly.meta.avg_duration.toFixed(3);
+                inspIfi.innerText = selectedFirefly.meta.avg_ifi.toFixed(3);
+            }
+        });
+
+        function resetInspector() {
+            inspectorName.innerText = "Select a flashing signal in the meadow to trace its pattern structure.";
+            inspectorStats.style.display = 'none';
+            oscilloscope.innerHTML = '';
+        }
+
+        /*
+        function updateOscilloscope() {
+            if (!selectedFirefly) return;
+            oscilloscope.innerHTML = '';
+            
+            const pat = selectedFirefly.pattern;
+            const currentIdx = Math.floor(selectedFirefly.clock);
+            const windowSize = 28;
+            let start = currentIdx - Math.floor(windowSize / 2);
+            
+            for (let i = 0; i < windowSize; i++) {
+                let lookup = (start + i) % pat.length;
+                if (lookup < 0) lookup += pat.length;
+                
+                const val = pat[lookup];
+                const isCurrent = (lookup === currentIdx);
+                
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                
+                if (val === 1) {
+                    bar.style.height = "85%";
+                    bar.style.backgroundColor = selectedFirefly.color;
+                } else {
+                    bar.style.height = "15%";
+                    bar.style.backgroundColor = isCurrent ? "#475569" : "#1e293b";
+                }
+                
+                if (isCurrent) {
+                    bar.style.boxShadow = `0 0 8px ${selectedFirefly.color}`;
+                    bar.style.backgroundColor = "#ffffff";
+                }
+                oscilloscope.appendChild(bar);
+            }
+        }
+            */
+function updateOscilloscope() {
+    if (!selectedFirefly) return;
+    oscilloscope.innerHTML = '';
+    
+    const pat = selectedFirefly.pattern;
+    const currentIdx = Math.floor(selectedFirefly.clock);
+    const windowSize = 28;
+    let start = currentIdx - Math.floor(windowSize / 2);
+    
+    // --- SONIFICATION LOGIC ---
+    const isCurrentlyActive = (pat[currentIdx] === 1);
+    
+    // If the firefly just started flashing this frame, trigger a sound
+    if (isCurrentlyActive && !selectedFirefly.wasActiveLastFrame) {
+        // Map species unique color/fingerprint string to a dedicated pitch frequency
+        // P. carolinus will sound deep, while P. bethaniensis will sound high-pitched!
+        const stringHash = selectedFirefly.speciesKey.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const uniquePitch = 300 + (stringHash % 500); // Generates a frequency between 300Hz and 800Hz
+        
+        playChirp(uniquePitch, selectedFirefly.meta.avg_duration);
+    }
+    
+    // Save state for the next frame boundary check
+    selectedFirefly.wasActiveLastFrame = isCurrentlyActive;
+    // ---------------------------
+
+    for (let i = 0; i < windowSize; i++) {
+        let lookup = (start + i) % pat.length;
+        if (lookup < 0) lookup += pat.length;
+        
+        const val = pat[lookup];
+        const isCurrent = (lookup === currentIdx);
+        
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        
+        if (val === 1) {
+            bar.style.height = "85%";
+            bar.style.backgroundColor = selectedFirefly.color;
+        } else {
+            bar.style.height = "15%";
+            bar.style.backgroundColor = isCurrent ? "#475569" : "#1e293b";
+        }
+        
+        if (isCurrent) {
+            bar.style.boxShadow = `0 0 8px ${selectedFirefly.color}`;
+            bar.style.backgroundColor = "#ffffff";
+        }
+        oscilloscope.appendChild(bar);
+    }
+}
+
+
+
+
+        function loop(timestamp) {
+            let delta = (timestamp - lastTime) / 1000;
+            if (delta > 0.1) delta = 0.1;
+            lastTime = timestamp;
+
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            applyBiologicalSynchrony();
+
+            const scaleStep = delta * 24; 
+            fireflies.forEach(f => {
+                f.update(scaleStep);
+                f.draw();
+            });
+
+            drawBotanicalSilhouettes();
+
+            if (selectedFirefly) {
+                updateOscilloscope();
+            }
+
+            requestAnimationFrame(loop);
+        }
+        let lastTime = performance.now();
+
+
+    //sound
+        function playChirp(frequency, duration = 0.08) {
+    // Initialize AudioContext on the first valid user interaction
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    
+    // Resume audio context if the browser suspended it
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+
+    // 1. Create the tone generator (Oscillator)
+    const oscillator = audioCtx.createOscillator();
+    // 2. Create the volume envelope (Gain node)
+    const gainNode = audioCtx.createGain();
+
+    oscillator.type = 'sine'; // Soft, pure tone ideal for bioluminescence
+    oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+
+    // Exponentially decay frequency slightly to mimic a natural bug sound
+    oscillator.frequency.exponentialRampToValueAtTime(frequency * 0.85, audioCtx.currentTime + duration);
+
+    // 3. Shape the volume envelope (Prevent clicking sounds)
+    gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime); // Master volume cap
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+    // Connect nodes: Oscillator -> Volume Control -> Speakers
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    // Execute the sound clip
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + duration);
+}
+    </script>
+</body>
+</html>
