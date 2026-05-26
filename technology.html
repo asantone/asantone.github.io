@@ -309,38 +309,158 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">AI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Data &amp; Web</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Enablement</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Media</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Productivity</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">AI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Tools</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Enablement</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Media</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Operations</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>I’ve used AI tools at every level of content generation and learning experience design.</p>
-<p>At ZoomInfo, I leveraged our internal “ZI Chat” tool to create and deploy agents that aided the GTM org. Our enablement team set up multiple agents for our own use and I used those tools to plan and design programs related to data products. That output was used inside tools like Articulate Rise to generate skeleton SCORM files that I then edited. I created text, audio, video, images, simulations, podcasts, interactive games, and field-facing product landing pages using AI tools. This content was used to produce high-quality, engaging enablement content for field readiness campaigns.</p>
-<p>Additionally, I frequently leveraged our AI tools to query our own data such as using DataDog to examine availability of specific content and then using our Snowflake connector to explore the data itself. I developed internal “micro-apps” to support our international sales team so they could stay fully aware of our data coverage in international markets and to support our own Revenue Enablement team’s measurement and evaluation program to identify impact at scale.</p>
+<p>I view AI as a core layer of modern business architecture. My approach spans three distinct horizons: <strong>Classical Machine Learning</strong>, <strong>Generative AI &amp; Agentic Workflows</strong>, and <strong>Intelligent Media Production</strong> (the scale mechanism for Revenue Enablement).</p>
+<p>Below is a breakdown of how I practically deploy these technologies to accelerate workflows, drive cross-functional alignment, and eliminate information churn.</p>
+<hr>
+<section id="enterprise-genai-agentic-architectures" class="level4">
+<h4 class="anchored" data-anchor-id="enterprise-genai-agentic-architectures">1. Enterprise GenAI &amp; Agentic Architectures</h4>
+<p>Rather than relying on isolated web interfaces, I focus on integrating Large Language Models directly into business systems to automate compliance, data hygiene, and product discovery.</p>
+<ul>
+<li><strong>Context-Aware AI Agents (MCP):</strong> At ZoomInfo, I leveraged internal instances of Claude connected via Model Context Protocol (MCP) to tools such as Snowflake, DataDog, Slack, and Jira. I developed internal agents that directly decreased product-knowledge ramp times for GTM teams (Sales, Technical Solutions, Marketing) and leveraged workflows to automatically audit and clean up Jira tickets to enforce compliance with team processes. I also leveraged internal agents to decrease Enablement process time and accelerate content development to meet tight timelines when priorities shifted.</li>
+<li><strong>On-Demand Microapps:</strong> Recognizing that static dashboards often cause information fatigue, I used Cline and VS Code to prototype custom microapps. These tools were designed to pull scattered, cross-functional data into unified, on-demand interfaces—specifically tracking international data sales metrics and for monitoring enterprise-wide enablement impact.</li>
+</ul>
+<hr>
+</section>
+<section id="local-ai-tooling-technical-prototyping" class="level4">
+<h4 class="anchored" data-anchor-id="local-ai-tooling-technical-prototyping">2. Local AI Tooling &amp; Technical Prototyping</h4>
+<p>I actively use AI as a co-developer and design partner to build lightweight software solutions that accelerate personal and team productivity.</p>
+<ul>
+<li><strong>Local LLM Pipelines:</strong> To automate personal knowledge management and build scalable documentation frameworks, I built a pipeline that loops through unstructured text files and leverages Ollama and Gemma 3 (4B) locally on an aging laptop to convert messy data into clean, structured Markdown files. GPUs and paid LLMs are pricey, so using a local model on an available machine at home was a no-brainer.</li>
+<li><strong>Custom Extensions &amp; Tooling:</strong> Designed and deployed a custom Chrome extension (available on my GitHub) to parse online job descriptions into structured Markdown. I regularly leverage LLMs to write functional code, from Python file-processing scripts to responsive HTML layouts for Seismic product enablement pages.</li>
+<li><strong>Media Production &amp; Editing:</strong> To scale video and audio enablement content efficiently, I utilize text-based editing platforms like Descript and Google Vids for rapid audio cleanup, voiceover generation, filler-word removal, and video prototyping, seamlessly integrating these into existing enterprise Google workspaces.</li>
+</ul>
+<hr>
+</section>
+<section id="the-analytical-foundation-classical-ml-curriculum-design" class="level4">
+<h4 class="anchored" data-anchor-id="the-analytical-foundation-classical-ml-curriculum-design">3. The Analytical Foundation: Classical ML &amp; Curriculum Design</h4>
+<p>My work with generative AI is grounded in a deep pedagogical and mathematical understanding of data science. Before the current wave of LLMs, I was building models and designing graduate-level AI curricula for top-tier global institutions.</p>
+<ul>
+<li><strong>Academic &amp; Curriculum Architecture:</strong> I have designed, authored, and taught cutting-edge AI, machine learning, and data visualization courses for MIT, Carnegie Mellon University, Columbia University, and other top institutions.</li>
+<li><strong>Core Methodological Expertise:</strong> My curriculum development and original research cover the mathematical bedrock of data science, including:
+<ul>
+<li><strong>Machine Learning:</strong> Deep Learning, Computer Vision, Random Forest Regression, and Sentiment Analysis.</li>
+<li><strong>Statistical Frameworks:</strong> Nonparametric and Linear Regression, Fuzzy/Sharp Regression Discontinuity Design, and Maximum (Log) Likelihood Estimation.</li>
+<li><strong>Data Engineering:</strong> Custom interactive simulations (e.g., Markov Inequality), data visualization design principles, and geospatial mapping.</li>
+</ul></li>
+</ul>
+</section>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>This toolkit outlines the primary languages, environments, and analytical frameworks I use to engineer Go-To-Market solutions, automate workflows, and build data-driven enablement systems.</p>
+<hr>
+<section id="core-languages-data-formats" class="level4">
+<h4 class="anchored" data-anchor-id="core-languages-data-formats">Core Languages &amp; Data Formats</h4>
+<p>The foundational technologies I use to develop automation scripts, process data, and build web-based interfaces.</p>
 <ul>
-<li>Code: R, Python, SQL, Quarto, Shiny, Processing (Javascript), Manim (Python), HTML, CSS, Markdown, JSON</li>
-<li>IDEs: RStudio, Positron, Quarto, Jupyter Notebooks, Colab, VS Code, GitHub</li>
-<li>Analysis: Regression, Exploratory Data Analysis (EDA), Quantitative Modeling, Factor Analysis, Cluster Analysis</li>
+<li><strong>R:</strong> My primary language for statistical computing, quantitative modeling, and data science. Used extensively alongside <strong>Shiny</strong> to build interactive, system-level business simulations and <strong>Quarto</strong> to publish research and engineer this portfolio site.</li>
+<li><strong>Python:</strong> Deployed for automation, local LLM pipeline scripting, and file processing. I also utilize specialized packages like <strong>Manim</strong> to generate lightweight, programmatic process animations for technical enablement.</li>
+<li><strong>SQL:</strong> Used primarily for querying enterprise data warehouses (such as Snowflake) to explore available metrics and establish data-driven workflows for enablement impact estimation.</li>
+<li><strong>Web Prototyping (HTML/CSS):</strong> Leveraged to build responsive front-end components, including custom Seismic product enablement pages and structured extensions.</li>
+<li><strong>Data Structures (Markdown, JSON, CSV):</strong> The fundamental formats I use for data exchange, configuring local LLM environments, and maintaining structured, human-readable personal knowledge bases.</li>
 </ul>
+<hr>
+</section>
+<section id="development-environments-ides" class="level4">
+<h4 class="anchored" data-anchor-id="development-environments-ides">Development Environments &amp; IDEs</h4>
+<p>The platforms where I design software, prototype microapps, and manage codebase architecture.</p>
+<ul>
+<li><strong>VS Code:</strong> My main IDE for general software development, Python scripting, and AI-assisted prototyping. This is where I configure local LLM pipelines and use agentic coding frameworks.</li>
+<li><strong>RStudio:</strong> My dedicated environment for heavy statistical analysis, writing Quarto documentation, and debugging interactive Shiny web applications.</li>
+<li><strong>GitHub:</strong> Utilized for version control, code collaboration, and maintaining open-source visibility for custom tools.</li>
+<li><strong>Jupyter Notebooks &amp; Google Colab:</strong> Environments used for rapid exploratory data analysis, testing ML algorithms, and prototyping isolated data science workflows. Also used for internal technical enablement related to data quality, processing, and transfer.</li>
+</ul>
+<hr>
+</section>
+<section id="creative-coding-data-visualization" class="level4">
+<h4 class="anchored" data-anchor-id="creative-coding-data-visualization">Creative Coding &amp; Data Visualization</h4>
+<p>Where data science meets visual storytelling. I treat data visualization as an engineering discipline to communicate complex concepts clearly.</p>
+<ul>
+<li><strong>Shiny:</strong> A web framework for R used to build functional, interactive business simulators that allow stakeholders to manipulate variables (like data decay rates) and visualize outcomes in real time.</li>
+<li><strong>Processing (JavaScript/Java):</strong> Used for advanced creative coding and translating structured datasets into complex, artistic visualizations. This includes my design work featured in the MIT Computational Law journal.</li>
+</ul>
+</section>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>This section highlights the enterprise platforms, content frameworks, and AI-native media pipelines I deploy to design, build, and scale revenue enablement. I approach enablement architecture by separating the “classroom” from the “briefcase”—using structured LMS environments for milestone learning and CMS platforms for just-in-time performance support.</p>
+<hr>
+<section id="learning-management-lms-content-management-cms" class="level4">
+<h4 class="anchored" data-anchor-id="learning-management-lms-content-management-cms">1. Learning Management (LMS) &amp; Content Management (CMS)</h4>
+<p>The core infrastructure used to govern content distribution, manage structured learning paths, and drive GTM field readiness.</p>
 <ul>
-<li>Platform: Canvas (LMS), Seismic (CMS), Allego (LMS)</li>
-<li>Content: Canva, H5P, Articulate Rise, Synthesia, Riverside.fm, Google Colab, Notebook LM, Descript, Loom, ElevenLabs</li>
+<li><strong>Seismic (CMS):</strong> Utilized as the primary “briefcase” for just-in-time sales asset management. I design, build, and maintain product enablement pages within Seismic, frequently injecting custom HTML layouts and AI-generated interactive elements to elevate the representative experience.</li>
+<li><strong>Allego (LMS):</strong> Deployed as the central asynchronous learning “classroom.” I use this platform to launch structured courses, milestone onboarding programs, and video-based coaching modules for the GTM organization.</li>
+<li><strong>Canvas (LMS):</strong> Leveraged for structured academic and corporate instructional design, managing curriculum delivery, assessment tracking, and multi-module learning pathways.</li>
 </ul>
+<hr>
+</section>
+<section id="ai-native-media-production-content-acceleration" class="level4">
+<h4 class="anchored" data-anchor-id="ai-native-media-production-content-acceleration">2. AI-Native Media Production &amp; Content Acceleration</h4>
+<p>A modern, generative multimedia stack engineered for rapid prototyping, content localization, and drastically reducing production timelines when business priorities shift.</p>
+<ul>
+<li><strong>Descript:</strong> Used for text-based audio and video editing. This allows for rapid cleanup, filler-word removal, and narrative pacing adjustments directly from an automated transcript.</li>
+<li><strong>Google Vids:</strong> Integrated within the corporate workspace for rapid video prototyping. I leverage its text-based editing, native voiceover generation, and seamless Google Slides integration to convert static presentations into dynamic, narrative-driven video content.</li>
+<li><strong>NotebookLM:</strong> Deployed to synthesize unstructured data (product notes, technical documentation, source websites) into highly engaging, narrated audio product briefings. These rapid briefings were then hosted in Seismic for on-demand field consumption.</li>
+<li><strong>Loom:</strong> Used for asynchronous video communication for cross-functional teams.</li>
+</ul>
+<hr>
+</section>
+<section id="course-development-technical-learning-environments" class="level4">
+<h4 class="anchored" data-anchor-id="course-development-technical-learning-environments">3. Course Development &amp; Technical Learning Environments</h4>
+<p>The tools I use to bridge the gap between conceptual knowledge and hands-on execution, tailoring the interactivity to the technical depth of the audience.</p>
+<ul>
+<li><strong>Google Colab:</strong> Used to build interactive, live, and runnable code environments. This allows technical sales and solutions engineering teams to interact directly with the data, practicing concepts like data compression and API querying in a sandbox environment.</li>
+<li><strong>Articulate Rise:</strong> My primary authoring tool for developing responsive, self-paced learning modules. These interactive modules are packaged and published directly into the LMS for scalable corporate training.</li>
+<li><strong>H5P:</strong> Utilized to build rich, interactive HTML5 learning elements—such as interactive videos, branching scenarios, and knowledge checks—embedded directly within learning pathways.</li>
+<li><strong>Canva:</strong> Applied for rapid visual asset design, and creating graphics that adhere to official corporate branding.</li>
+</ul>
+</section>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>This section outlines my background in high-fidelity media engineering, visual storytelling, and human-computer interaction design. My approach combines technical video architecture with user experience principles to turn complex technical data into accessible, high-impact visual media.</p>
+<hr>
+<section id="advanced-video-production-post-production" class="level4">
+<h4 class="anchored" data-anchor-id="advanced-video-production-post-production">1. Advanced Video Production &amp; Post-Production</h4>
+<p>Technologies and workflows deployed to capture, edit, and deliver broadcast-quality video and audio assets for scaled education and technical enablement.</p>
 <ul>
-<li>Video &amp; Audio: DaVinci Resolve, OBS Studio, Adobe Creative Suite</li>
-<li>Experience Design: UI/UX principles, interaction design, interactive simulations</li>
-<li>Production: technical video direction, studio/field recording, and motion graphics</li>
+<li><strong>DaVinci Resolve:</strong> My primary non-linear editor for heavy-duty video post-production, multi-track audio control, and precision asset rendering beyond what rapid prototyping tools handle.</li>
+<li><strong>OBS Studio:</strong> Leveraged for screen capture, localized video recording, and layout staging, originally developed for managing a dedicated design and data science media channel.</li>
+<li><strong>Technical Video Production:</strong> Experienced in directing and producing enterprise-scale video initiatives, notably leading the logistics, concepts, and production strategy for the <em>CPALMS Perspectives</em> program, which produced hundreds of educational mini-documentaries in collaboration with field production teams.</li>
 </ul>
+<hr>
+</section>
+<section id="experience-interaction-design" class="level4">
+<h4 class="anchored" data-anchor-id="experience-interaction-design">2. Experience &amp; Interaction Design</h4>
+<p>The principles and frameworks I apply to make complex technical information scannable, intuitive, and highly interactive.</p>
+<ul>
+<li><strong>UI/UX &amp; Interaction Design:</strong> Applying cognitive layout principles to ensure web components, product enablement pages, and documentation structures are optimized for rapid knowledge absorption and minimal friction.</li>
+<li><strong>Interactive Simulations:</strong> Engineering visual environments (such as custom web prototypes and data simulators) where stakeholders can physically manipulate variables to see real-world outcomes.</li>
+</ul>
+</section>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p>The systems and infrastructure I use to manage cross-functional projects, map complex technical pipelines, and maintain organizational compliance at scale.</p>
+<hr>
+<section id="enterprise-project-management-lifecycle-systems" class="level4">
+<h4 class="anchored" data-anchor-id="enterprise-project-management-lifecycle-systems">1. Enterprise Project Management &amp; Lifecycle Systems</h4>
+<p>Platforms used to govern workflows, track operational impact, and coordinate asset delivery across engineering, product, and enablement teams.</p>
 <ul>
-<li>Systems: Jira, Wrike</li>
-<li>Productivity: Slack, Teams, Zoom, Confluence, Miro, Excel &amp; Google Suite (Colab, Sheets, Docs, Vids)</li>
+<li><strong>Jira:</strong> Leveraged within enterprise GTM environments to manage and track enablement content development, and ensure workflow compliance. I also have experience leveraging custom agentic workflows to audit and clean up project tickets.</li>
+<li><strong>Wrike:</strong> Utilized to manage complex project lifecycles and asset delivery timelines, specifically overseeing the end-to-end development of advanced online AI/ML courses in collaborative environments.</li>
 </ul>
+<hr>
+</section>
+<section id="collaboration-architecture-mapping-knowledge-management" class="level4">
+<h4 class="anchored" data-anchor-id="collaboration-architecture-mapping-knowledge-management">2. Collaboration, Architecture Mapping, &amp; Knowledge Management</h4>
+<p>The toolsets I deploy to align cross-functional stakeholders, map intricate business logic, and ingest source technical data.</p>
+<ul>
+<li><strong>Lucidchart:</strong> Used to map out complex, multi-layered technical processes, and data flowsto ensure clear engineering-to-enablement translation.</li>
+<li><strong>Confluence:</strong> Traversed as a primary technical wiki. I systematically query and audit engineering and product documentation within Confluence to discover foundational metrics and inform accurate, deep-dive enablement material.</li>
+<li><strong>Enterprise Productivity Suites:</strong> Strong experience wth <strong>Slack</strong>, <strong>Microsoft Teams</strong>, <strong>Zoom</strong>, and <strong>Google Workspace</strong>.</li>
+</ul>
+</section>
 </div>
 </div>
 </div>
