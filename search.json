@@ -53,14 +53,21 @@
     "href": "portfolio.html",
     "title": "Portfolio",
     "section": "",
-    "text": "JD2MD This Chrome Extension is designed to process online job descriptions (JD) using popular frameworks (e.g. Greenhouse, Ashby, Workday, & Lever) into clean Markdown (MD) for use by AI agents and productivity tools like Obsidian."
+    "text": "Multi-Agent Support Router (MASR) A localized triage engine that ingests incoming customer tickets, extracts intent markers using local LLM JSON schema enforcement, queries on-premises vector indexes, and synthesizes a context-aware response draft entirely behind your firewall.\nAutomated Sales Playbook Generator An intelligent GTM automation pipeline that joins structured firmographic metrics with raw text dossiers to identify high-value pipeline signals—specifically flagging newly funded target companies where an executive is a documented former platform user—and outputs a tailormade outbound sequence."
+  },
+  {
+    "objectID": "portfolio.html#agentic-workflows",
+    "href": "portfolio.html#agentic-workflows",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Multi-Agent Support Router (MASR) A localized triage engine that ingests incoming customer tickets, extracts intent markers using local LLM JSON schema enforcement, queries on-premises vector indexes, and synthesizes a context-aware response draft entirely behind your firewall.\nAutomated Sales Playbook Generator An intelligent GTM automation pipeline that joins structured firmographic metrics with raw text dossiers to identify high-value pipeline signals—specifically flagging newly funded target companies where an executive is a documented former platform user—and outputs a tailormade outbound sequence."
   },
   {
     "objectID": "portfolio.html#browser-tools",
     "href": "portfolio.html#browser-tools",
     "title": "Portfolio",
-    "section": "",
-    "text": "JD2MD This Chrome Extension is designed to process online job descriptions (JD) using popular frameworks (e.g. Greenhouse, Ashby, Workday, & Lever) into clean Markdown (MD) for use by AI agents and productivity tools like Obsidian."
+    "section": "Browser Tools",
+    "text": "Browser Tools\n\nJD2MD This Chrome Extension is designed to process online job descriptions (JD) using popular frameworks (e.g. Greenhouse, Ashby, Workday, & Lever) into clean Markdown (MD) for use by AI agents and productivity tools like Obsidian."
   },
   {
     "objectID": "portfolio.html#interactive-simulation",
