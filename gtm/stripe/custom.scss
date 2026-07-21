@@ -1,0 +1,74 @@
+/*-- scss:defaults --*/
+
+// --- Fonts ---
+$font-family-sans-serif: 'Geist', sans-serif;
+$presentation-font-size-root: 30px;
+
+// --- Brand & Accent Palette ---
+$indigo: #635BFF;
+$indigo-deep: #4434d4;
+$indigo-press: #2e2b8c;
+$indigo-soft: #665efd;
+$indigo-subdued: #b9b9f9;
+$brand-dark-900: #1c1e54;
+$ruby: #ea2261;
+$muted: #425466;
+$magenta: #f96bee;
+$lemon: #9b6829;
+
+// --- Surface Palette ---
+$canvas: #ffffff;
+$canvas-soft: #f6f9fc;
+$canvas-cream: #f5e9d4;
+$hairline: #e3e8ee;
+$hairline-input: #a8c3de;
+
+// --- Text Palette ---
+$ink: #0A2540;
+$ink-secondary: #273951;
+$ink-mute: #64748d;
+$ink-mute-2: #61718a;
+$on-primary: #ffffff;
+
+// --- Quarto/Reveal.js Mapping ---
+$body-bg: $canvas;
+$body-color: $ink;
+$heading-color: $brand-dark-900;
+$link-color: $indigo;
+$link-color-hover: $indigo-deep;
+
+$selection-bg: $indigo-subdued;
+$selection-color: $ink;
+
+// color
+//$presentation-heading-color: $indigo; 
+
+
+/*-- scss:rules --*/
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;700&display=swap');
+
+/* Targets only Level 1 (#) section headers */
+.reveal h2 {
+  color: $indigo;
+}
+
+
+/* Cleaned Utility Classes */
+.text-muted {
+  color: $ink-mute;
+}
+
+.bg-cream {
+  background-color: $canvas-cream;
+}
+
+.accent-ruby {
+  color: $ruby;
+}
+
+/* Hide slide number from title slide */
+.reveal .slide-number > a[href*="title-slide"] {
+  display: none;
+}
