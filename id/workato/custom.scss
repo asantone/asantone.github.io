@@ -1,0 +1,79 @@
+/*-- scss:defaults --*/
+
+/* Import Google Font: Figtree */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* Apply Figtree as main typography & heading font */
+$mainFont: 'Figtree', sans-serif;
+$headingFont: 'Figtree', sans-serif;
+
+/* Define bg and main colors */
+$body-bg: #111010;        
+$body-color: #F1F5F9;     
+
+/* Define Header Colors */
+$h1-color: #F1F5F9; 
+$h2-color: #5B52EC; 
+$h3-color: #52E4C4; 
+$h4-color: #5B52EC; 
+$h5-color: #52E4C4; 
+$subtitle-color: #5B52EC;
+
+
+/*-- scss:rules --*/
+
+/* Change the navigation control arrows color */
+.reveal .controls {
+  color: #52E4C4; /* Primary Teal or your preferred color */
+}
+
+/* 1. Progress / Advancement Bar */
+.reveal .progress {
+  color: #1E1E1E; /* Primary Teal */
+}
+
+.reveal .slide-menu-button .fa-bars::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>') !important;
+}
+
+/* Heading rules */
+.reveal h1 {
+  color: $h1-color;
+  font-family: $headingFont;
+  font-weight: 700;
+}
+
+.reveal h2 {
+  color: $h2-color;
+  font-family: $headingFont;
+  font-weight: 700;
+}
+
+.reveal h3 {
+  color: $h3-color;
+  font-family: $headingFont;
+  font-weight: 600;
+}
+
+.reveal h4 {
+  color: $h4-color;
+  font-family: $headingFont;
+  font-weight: 600;
+}
+
+.reveal h5 {
+  color: $h5-color;
+  font-family: $headingFont;
+  font-weight: 500;
+}
+
+.reveal .subtitle {
+  color: $subtitle-color;
+  font-family: $mainFont;
+  font-weight: 400;
+}
+
+/* Base presentation typography overrides */
+.reveal {
+  font-family: $mainFont;
+}
